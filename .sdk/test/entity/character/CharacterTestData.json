@@ -1,0 +1,57 @@
+{
+  "existing": {
+    "character": {
+      "CHARACTER00": {
+        "ability": [],
+        "alia": [],
+        "gender": "s66",
+        "hair": "s67",
+        "id": "CHARACTER00",
+        "img_url": "s69",
+        "name": "s6a",
+        "origin": "s6b",
+        "species": "s6c",
+        "status": "s6d"
+      },
+      "CHARACTER01": {
+        "ability": [],
+        "alia": [],
+        "gender": "sca",
+        "hair": "scb",
+        "id": "CHARACTER01",
+        "img_url": "scd",
+        "name": "sce",
+        "origin": "scf",
+        "species": "sd0",
+        "status": "sd1"
+      },
+      "CHARACTER02": {
+        "ability": [],
+        "alia": [],
+        "gender": "s12e",
+        "hair": "s12f",
+        "id": "CHARACTER02",
+        "img_url": "s131",
+        "name": "s132",
+        "origin": "s133",
+        "species": "s134",
+        "status": "s135"
+      }
+    }
+  },
+  "new": {
+    "character": {
+      "character_ref01": {
+        "ability": [],
+        "alia": [],
+        "gender": "s192",
+        "hair": "s193",
+        "img_url": "s195",
+        "name": "s196",
+        "origin": "s197",
+        "species": "s198",
+        "status": "s199"
+      }
+    }
+  }
+}

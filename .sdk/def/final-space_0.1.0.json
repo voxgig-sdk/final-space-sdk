@@ -1,0 +1,538 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Final Space API",
+    "description": "An API based on the animated television show Final Space, providing data such as character info obtained from the Final Space wiki. The API returns data in a friendly JSON format.",
+    "version": "0.0.1",
+    "contact": {
+      "url": "https://finalspaceapi.com/docs/"
+    },
+    "license": {
+      "name": "Open Source",
+      "url": "https://github.com/lelouchB/final-space-api"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://finalspaceapi.com/api/v0",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get endpoints data",
+        "description": "Returns information about all available API resources and endpoints",
+        "operationId": "getEndpoints",
+        "tags": [
+          "Meta"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "GET"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "All Characters"
+                      },
+                      "path": {
+                        "type": "string",
+                        "example": "/character"
+                      },
+                      "fullUrl": {
+                        "type": "string",
+                        "example": "https://finalspaceapi.com/api/v0/character"
+                      },
+                      "queryParams": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "optional": {
+                              "type": "boolean"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "values": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/character": {
+      "get": {
+        "summary": "Get all characters",
+        "description": "Returns a list of all characters from Final Space",
+        "operationId": "getAllCharacters",
+        "tags": [
+          "Character"
+        ],
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort order for results",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Character"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/character/{id}": {
+      "get": {
+        "summary": "Get a single character",
+        "description": "Returns a single character by ID",
+        "operationId": "getCharacterById",
+        "tags": [
+          "Character"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the character to retrieve",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Character"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found"
+          }
+        }
+      }
+    },
+    "/episode": {
+      "get": {
+        "summary": "Get all episodes",
+        "description": "Returns a list of all episodes from Final Space",
+        "operationId": "getAllEpisodes",
+        "tags": [
+          "Episode"
+        ],
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort order for results",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Episode"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/episode/{id}": {
+      "get": {
+        "summary": "Get a single episode",
+        "description": "Returns a single episode by ID",
+        "operationId": "getEpisodeById",
+        "tags": [
+          "Episode"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the episode to retrieve",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Episode"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Episode not found"
+          }
+        }
+      }
+    },
+    "/location": {
+      "get": {
+        "summary": "Get all locations",
+        "description": "Returns a list of all locations from Final Space",
+        "operationId": "getAllLocations",
+        "tags": [
+          "Location"
+        ],
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort order for results",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Location"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/location/{id}": {
+      "get": {
+        "summary": "Get a single location",
+        "description": "Returns a single location by ID",
+        "operationId": "getLocationById",
+        "tags": [
+          "Location"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the location to retrieve",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Location not found"
+          }
+        }
+      }
+    },
+    "/quote": {
+      "get": {
+        "summary": "Get all quotes",
+        "description": "Returns a list of quotes from Final Space",
+        "operationId": "getAllQuotes",
+        "tags": [
+          "Quote"
+        ],
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort order for results",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Quote"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Character": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier for the character"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the character"
+          },
+          "status": {
+            "type": "string",
+            "description": "The status of the character (e.g., Alive, Dead, Unknown)"
+          },
+          "species": {
+            "type": "string",
+            "description": "The species of the character"
+          },
+          "gender": {
+            "type": "string",
+            "description": "The gender of the character"
+          },
+          "hair": {
+            "type": "string",
+            "description": "The hair color/type of the character"
+          },
+          "alias": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Alternative names or aliases"
+          },
+          "origin": {
+            "type": "string",
+            "description": "The origin of the character"
+          },
+          "abilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of abilities the character has"
+          },
+          "img_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the character's image"
+          }
+        }
+      },
+      "Episode": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier for the episode"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the episode"
+          },
+          "air_date": {
+            "type": "string",
+            "description": "The air date of the episode"
+          },
+          "director": {
+            "type": "string",
+            "description": "The director of the episode"
+          },
+          "writer": {
+            "type": "string",
+            "description": "The writer of the episode"
+          },
+          "characters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "URLs to characters appearing in this episode"
+          },
+          "img_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the episode's image"
+          }
+        }
+      },
+      "Location": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier for the location"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the location"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of location"
+          },
+          "inhabitants": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of inhabitants of the location"
+          },
+          "notable_residents": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "URLs to notable residents"
+          },
+          "img_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the location's image"
+          }
+        }
+      },
+      "Quote": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The unique identifier for the quote"
+          },
+          "quote": {
+            "type": "string",
+            "description": "The quote text"
+          },
+          "by": {
+            "type": "string",
+            "description": "The character who said the quote"
+          },
+          "character": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the character who said the quote"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to an image related to the quote"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Meta",
+      "description": "API metadata and endpoint information"
+    },
+    {
+      "name": "Character",
+      "description": "Operations related to Final Space characters"
+    },
+    {
+      "name": "Episode",
+      "description": "Operations related to Final Space episodes"
+    },
+    {
+      "name": "Location",
+      "description": "Operations related to Final Space locations"
+    },
+    {
+      "name": "Quote",
+      "description": "Operations related to Final Space quotes"
+    }
+  ],
+  "externalDocs": {
+    "description": "Final Space API Documentation",
+    "url": "https://finalspaceapi.com/docs/"
+  }
+}

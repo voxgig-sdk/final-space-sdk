@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "location": {
+      "LOCATION00": {
+        "id": "LOCATION00",
+        "img_url": "s3d",
+        "inhabitant": [],
+        "name": "s3f",
+        "notable_resident": [],
+        "type": "s41"
+      },
+      "LOCATION01": {
+        "id": "LOCATION01",
+        "img_url": "s79",
+        "inhabitant": [],
+        "name": "s7b",
+        "notable_resident": [],
+        "type": "s7d"
+      },
+      "LOCATION02": {
+        "id": "LOCATION02",
+        "img_url": "sb5",
+        "inhabitant": [],
+        "name": "sb7",
+        "notable_resident": [],
+        "type": "sb9"
+      }
+    }
+  },
+  "new": {
+    "location": {
+      "location_ref01": {
+        "img_url": "sf1",
+        "inhabitant": [],
+        "name": "sf3",
+        "notable_resident": [],
+        "type": "sf5"
+      }
+    }
+  }
+}

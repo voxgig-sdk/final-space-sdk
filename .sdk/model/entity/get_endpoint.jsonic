@@ -1,0 +1,54 @@
+# Entity: get_endpoint
+
+main: kit: entity: get_endpoint: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "full_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "path"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "query_param"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "get_endpoint"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/"
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

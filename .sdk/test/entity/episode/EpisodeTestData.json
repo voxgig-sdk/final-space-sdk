@@ -1,0 +1,45 @@
+{
+  "existing": {
+    "episode": {
+      "EPISODE00": {
+        "air_date": "s46",
+        "character": [],
+        "director": "s48",
+        "id": "EPISODE00",
+        "img_url": "s4a",
+        "name": "s4b",
+        "writer": "s4c"
+      },
+      "EPISODE01": {
+        "air_date": "s8c",
+        "character": [],
+        "director": "s8e",
+        "id": "EPISODE01",
+        "img_url": "s90",
+        "name": "s91",
+        "writer": "s92"
+      },
+      "EPISODE02": {
+        "air_date": "sd2",
+        "character": [],
+        "director": "sd4",
+        "id": "EPISODE02",
+        "img_url": "sd6",
+        "name": "sd7",
+        "writer": "sd8"
+      }
+    }
+  },
+  "new": {
+    "episode": {
+      "episode_ref01": {
+        "air_date": "s118",
+        "character": [],
+        "director": "s11a",
+        "img_url": "s11c",
+        "name": "s11d",
+        "writer": "s11e"
+      }
+    }
+  }
+}

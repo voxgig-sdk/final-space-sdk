@@ -1,0 +1,27 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://finalspaceapi.com/docs/"
+      }
+      description: "An API based on the animated television show Final Space, providing data such as character info obtained from the Final Space wiki. The API returns data in a friendly JSON format."
+      license: {
+        name: "Open Source"
+        url: "https://github.com/lelouchB/final-space-api"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://finalspaceapi.com/api/v0"
+        }
+      ]
+      title: "Final Space API"
+      version: "0.0.1"
+    }
+  }
+}
+
+}

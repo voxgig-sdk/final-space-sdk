@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "quote": {
+      "QUOTE00": {
+        "by": "s32",
+        "character": "s33",
+        "id": "QUOTE00",
+        "image": "s35",
+        "quote": "s36"
+      },
+      "QUOTE01": {
+        "by": "s64",
+        "character": "s65",
+        "id": "QUOTE01",
+        "image": "s67",
+        "quote": "s68"
+      },
+      "QUOTE02": {
+        "by": "s96",
+        "character": "s97",
+        "id": "QUOTE02",
+        "image": "s99",
+        "quote": "s9a"
+      }
+    }
+  },
+  "new": {
+    "quote": {
+      "quote_ref01": {
+        "by": "sc8",
+        "character": "sc9",
+        "image": "scb",
+        "quote": "scc"
+      }
+    }
+  }
+}
