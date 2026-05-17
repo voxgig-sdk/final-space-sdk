@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/final-space-sdk/core"
+	"github.com/voxgig-sdk/final-space-sdk/go/core"
 )
 
 type BaseFeature struct {

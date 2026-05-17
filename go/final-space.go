@@ -1,10 +1,10 @@
 package voxgigfinalspacesdk
 
 import (
-	"github.com/voxgig-sdk/final-space-sdk/core"
-	"github.com/voxgig-sdk/final-space-sdk/entity"
-	"github.com/voxgig-sdk/final-space-sdk/feature"
-	_ "github.com/voxgig-sdk/final-space-sdk/utility"
+	"github.com/voxgig-sdk/final-space-sdk/go/core"
+	"github.com/voxgig-sdk/final-space-sdk/go/entity"
+	"github.com/voxgig-sdk/final-space-sdk/go/feature"
+	_ "github.com/voxgig-sdk/final-space-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

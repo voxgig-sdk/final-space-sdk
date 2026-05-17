@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/final-space-sdk"
-	"github.com/voxgig-sdk/final-space-sdk/core"
+	sdk "github.com/voxgig-sdk/final-space-sdk/go"
+	"github.com/voxgig-sdk/final-space-sdk/go/core"
 )
 
 func TestEpisodeDirect(t *testing.T) {

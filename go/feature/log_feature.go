@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/final-space-sdk/core"
+	"github.com/voxgig-sdk/final-space-sdk/go/core"
 )
 
 type LogFeature struct {
