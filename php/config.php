@@ -20,9 +20,6 @@ class FinalSpaceConfig
             ],
             "options" => [
                 "base" => "https://finalspaceapi.com/api/v0",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

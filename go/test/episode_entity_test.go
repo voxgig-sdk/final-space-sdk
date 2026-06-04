@@ -135,7 +135,6 @@ func episodeBasicSetup(extra map[string]any) *entityTestSetup {
 		"FINALSPACE_TEST_EPISODE_ENTID": idmap,
 		"FINALSPACE_TEST_LIVE":      "FALSE",
 		"FINALSPACE_TEST_EXPLAIN":   "FALSE",
-		"FINALSPACE_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["FINALSPACE_TEST_EPISODE_ENTID"])
@@ -146,7 +145,6 @@ func episodeBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["FINALSPACE_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["FINALSPACE_APIKEY"],
 			},
 			extra,
 		})

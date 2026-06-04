@@ -20,7 +20,21 @@
           }
         ],
         "title": "Final Space API",
-        "version": "0.0.1"
+        "version": "0.0.1",
+        "tagline": "Query characters, episodes, locations, and quotes from the animated show Final Space, served as JSON",
+        "homepage": "https://finalspaceapi.com/",
+        "docs_url": "https://finalspaceapi.com/docs/",
+        "license_short": "Open source project maintained on GitHub",
+        "license_md": "- Maintained as an open source project on GitHub by [lelouchB](https://github.com/lelouchB).\n- Data is sourced from the Final Space wiki; consult the upstream project for any attribution requirements before redistribution.\n- No formal terms or rate-limit policy are published with the API itself.",
+        "about_md": "The Final Space API is a community-built REST service that exposes structured data about the animated TV series *Final Space*. It is run independently and documented at [finalspaceapi.com](https://finalspaceapi.com/).\n\nWhat you get from the API:\n\n- Characters, episodes, locations, and memorable quotes from the show\n- List endpoints (e.g. `/character`, `/episode`, `/location`, `/quote`) and per-item lookups by numeric id (e.g. `/character/1`)\n- Optional `sort` query parameter on list endpoints accepting `asc` or `desc`\n- A root endpoint listing the available endpoints\n\nAll requests are plain `GET` over HTTPS and responses are returned as JSON. The base URL used by this SDK is `https://finalspaceapi.com/api/v0`. The published docs do not specify authentication or rate limits.",
+        "entity_desc": {
+          "character": "A character from the show, listed via `GET /character` and fetched individually via `GET /character/{id}`.",
+          "episode": "An episode of the series, listed via `GET /episode` and fetched individually via `GET /episode/{id}`.",
+          "get_endpoint": "The API root (`GET /`) returning the list of available endpoints exposed by the service.",
+          "location": "A location featured in the show, listed via `GET /location` and fetched individually via `GET /location/{id}`.",
+          "quote": "A memorable line from the show, listed via `GET /quote`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -28,7 +42,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "character": {

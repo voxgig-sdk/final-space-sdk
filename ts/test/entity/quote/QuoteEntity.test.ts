@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'FINAL_SPACE_TEST_QUOTE_ENTID': idmap,
     'FINAL_SPACE_TEST_LIVE': 'FALSE',
     'FINAL_SPACE_TEST_EXPLAIN': 'FALSE',
-    'FINAL_SPACE_APIKEY': 'NONE',
   })
 
   idmap = env['FINAL_SPACE_TEST_QUOTE_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new FinalSpaceSDK(merge([
       {
-        apikey: env.FINAL_SPACE_APIKEY,
       },
       extra
     ]))
