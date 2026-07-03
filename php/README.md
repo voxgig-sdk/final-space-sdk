@@ -10,7 +10,7 @@ The PHP SDK for the FinalSpace API — an entity-oriented client using PHP conve
 
 ## Install
 ```bash
-composer require voxgig/final-space-sdk
+composer require voxgig-sdk/final-space
 ```
 
 

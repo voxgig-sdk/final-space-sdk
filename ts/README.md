@@ -10,7 +10,7 @@ The TypeScript SDK for the FinalSpace API — a type-safe, entity-oriented clien
 
 ## Install
 ```bash
-npm install final-space
+npm install @voxgig-sdk/final-space
 ```
 ## Tutorial: your first API call
 

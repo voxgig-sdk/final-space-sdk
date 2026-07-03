@@ -10,7 +10,7 @@ The Python SDK for the FinalSpace API — an entity-oriented client following Py
 
 ## Install
 ```bash
-pip install final-space-sdk
+pip install voxgig-sdk-final-space
 ```
 
 Or install from source:

@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/final-space",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the Final Space public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "final-space"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/final-space-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/final-space-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/final-space-sdk/issues"
+  },
   "main": "dist/FinalSpaceSDK.js",
   "type": "commonjs",
   "types": "dist/FinalSpaceSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "FinalSpace",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

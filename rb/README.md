@@ -10,13 +10,13 @@ The Ruby SDK for the FinalSpace API — an entity-oriented client using idiomati
 
 ## Install
 ```bash
-gem install final-space-sdk
+gem install voxgig-sdk-final-space
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "final-space-sdk"
+gem "voxgig-sdk-final-space"
 ```
 
 Then run:
