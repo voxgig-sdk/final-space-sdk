@@ -93,6 +93,7 @@ def episode_basic_setup(extra)
     "FINALSPACE_TEST_EPISODE_ENTID" => idmap,
     "FINALSPACE_TEST_LIVE" => "FALSE",
     "FINALSPACE_TEST_EXPLAIN" => "FALSE",
+    "FINALSPACE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -104,6 +105,7 @@ def episode_basic_setup(extra)
   if env["FINALSPACE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["FINALSPACE_APIKEY"],
       },
       extra || {},
     ])

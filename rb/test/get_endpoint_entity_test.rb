@@ -83,6 +83,7 @@ def get_endpoint_basic_setup(extra)
     "FINALSPACE_TEST_GET_ENDPOINT_ENTID" => idmap,
     "FINALSPACE_TEST_LIVE" => "FALSE",
     "FINALSPACE_TEST_EXPLAIN" => "FALSE",
+    "FINALSPACE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,6 +95,7 @@ def get_endpoint_basic_setup(extra)
   if env["FINALSPACE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["FINALSPACE_APIKEY"],
       },
       extra || {},
     ])

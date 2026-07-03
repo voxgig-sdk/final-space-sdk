@@ -194,12 +194,14 @@ func characterDirectSetup(mockres any) *characterDirectSetupResult {
 	env := envOverride(map[string]any{
 		"FINALSPACE_TEST_CHARACTER_ENTID": map[string]any{},
 		"FINALSPACE_TEST_LIVE":    "FALSE",
+		"FINALSPACE_APIKEY":       "NONE",
 	})
 
 	live := env["FINALSPACE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["FINALSPACE_APIKEY"],
 		}
 		client := sdk.NewFinalSpaceSDK(mergedOpts)
 

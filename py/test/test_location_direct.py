@@ -109,12 +109,14 @@ def _location_direct_setup(mockres):
     env = runner.env_override({
         "FINALSPACE_TEST_LOCATION_ENTID": {},
         "FINALSPACE_TEST_LIVE": "FALSE",
+        "FINALSPACE_APIKEY": "NONE",
     })
 
     live = env.get("FINALSPACE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("FINALSPACE_APIKEY"),
         }
         client = FinalSpaceSDK(merged_opts)
         return {

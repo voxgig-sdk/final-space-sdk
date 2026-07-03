@@ -63,12 +63,14 @@ function quote_direct_setup(mockres)
   local env = runner.env_override({
     ["FINALSPACE_TEST_QUOTE_ENTID"] = {},
     ["FINALSPACE_TEST_LIVE"] = "FALSE",
+    ["FINALSPACE_APIKEY"] = "NONE",
   })
 
   local live = env["FINALSPACE_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["FINALSPACE_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

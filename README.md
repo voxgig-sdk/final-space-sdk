@@ -1,21 +1,8 @@
 # FinalSpace SDK
 
-Query characters, episodes, locations, and quotes from the animated show Final Space, served as JSON
+Final Space API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Final Space API
-
-The Final Space API is a community-built REST service that exposes structured data about the animated TV series *Final Space*. It is run independently and documented at [finalspaceapi.com](https://finalspaceapi.com/).
-
-What you get from the API:
-
-- Characters, episodes, locations, and memorable quotes from the show
-- List endpoints (e.g. `/character`, `/episode`, `/location`, `/quote`) and per-item lookups by numeric id (e.g. `/character/1`)
-- Optional `sort` query parameter on list endpoints accepting `asc` or `desc`
-- A root endpoint listing the available endpoints
-
-All requests are plain `GET` over HTTPS and responses are returned as JSON. The base URL used by this SDK is `https://finalspaceapi.com/api/v0`. The published docs do not specify authentication or rate limits.
 
 ## Try it
 
@@ -49,29 +36,31 @@ gem install final-space-sdk
 luarocks install final-space-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { FinalSpaceSDK } from 'final-space'
 
-const client = new FinalSpaceSDK({})
+const client = new FinalSpaceSDK({
+  apikey: process.env.FINAL-SPACE_APIKEY,
+})
 
 // List all characters
 const characters = await client.Character().list()
+console.log(characters.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,11 +90,11 @@ The API exposes 5 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Character** | A character from the show, listed via `GET /character` and fetched individually via `GET /character/{id}`. | `/character` |
-| **Episode** | An episode of the series, listed via `GET /episode` and fetched individually via `GET /episode/{id}`. | `/episode` |
-| **GetEndpoint** | The API root (`GET /`) returning the list of available endpoints exposed by the service. | `/` |
-| **Location** | A location featured in the show, listed via `GET /location` and fetched individually via `GET /location/{id}`. | `/location` |
-| **Quote** | A memorable line from the show, listed via `GET /quote`. | `/quote` |
+| **Character** |  | `/character` |
+| **Episode** |  | `/episode` |
+| **GetEndpoint** |  | `/` |
+| **Location** |  | `/location` |
+| **Quote** |  | `/quote` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -115,17 +104,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from finalspace_sdk import FinalSpaceSDK
 
-client = FinalSpaceSDK({})
+client = FinalSpaceSDK({
+    "apikey": os.environ.get("FINAL-SPACE_APIKEY"),
+})
 
 # List all characters
-characters, err = client.Character(None).list(None, None)
+characters, err = client.Character().list()
+print(characters)
 
 # Load a specific character
-character, err = client.Character(None).load(
-    {"id": "example_id"}, None
-)
+character, err = client.Character().load({"id": "example_id"})
+print(character)
 ```
 
 ### PHP
@@ -134,15 +126,17 @@ character, err = client.Character(None).load(
 <?php
 require_once 'finalspace_sdk.php';
 
-$client = new FinalSpaceSDK([]);
+$client = new FinalSpaceSDK([
+    "apikey" => getenv("FINAL-SPACE_APIKEY"),
+]);
 
 // List all characters
-[$characters, $err] = $client->Character(null)->list(null, null);
+[$characters, $err] = $client->Character()->list();
+print_r($characters);
 
 // Load a specific character
-[$character, $err] = $client->Character(null)->load(
-    ["id" => "example_id"], null
-);
+[$character, $err] = $client->Character()->load(["id" => "example_id"]);
+print_r($character);
 ```
 
 ### Golang
@@ -150,10 +144,13 @@ $client = new FinalSpaceSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/final-space-sdk/go"
 
-client := sdk.NewFinalSpaceSDK(map[string]any{})
+client := sdk.NewFinalSpaceSDK(map[string]any{
+    "apikey": os.Getenv("FINAL-SPACE_APIKEY"),
+})
 
 // List all characters
 characters, err := client.Character(nil).List(nil, nil)
+fmt.Println(characters)
 ```
 
 ### Ruby
@@ -161,15 +158,17 @@ characters, err := client.Character(nil).List(nil, nil)
 ```ruby
 require_relative "FinalSpace_sdk"
 
-client = FinalSpaceSDK.new({})
+client = FinalSpaceSDK.new({
+  "apikey" => ENV["FINAL-SPACE_APIKEY"],
+})
 
 # List all characters
-characters, err = client.Character(nil).list(nil, nil)
+characters, err = client.Character().list
+puts characters
 
 # Load a specific character
-character, err = client.Character(nil).load(
-  { "id" => "example_id" }, nil
-)
+character, err = client.Character().load({ "id" => "example_id" })
+puts character
 ```
 
 ### Lua
@@ -177,15 +176,17 @@ character, err = client.Character(nil).load(
 ```lua
 local sdk = require("final-space_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("FINAL-SPACE_APIKEY"),
+})
 
 -- List all characters
-local characters, err = client:Character(nil):list(nil, nil)
+local characters, err = client:Character():list()
+print(characters)
 
 -- Load a specific character
-local character, err = client:Character(nil):load(
-  { id = "example_id" }, nil
-)
+local character, err = client:Character():load({ id = "example_id" })
+print(character)
 ```
 
 ## Unit testing in offline mode
@@ -204,25 +205,21 @@ const result = await client.Character().load({ id: 'test01' })
 ### Python
 
 ```python
-client = FinalSpaceSDK.test(None, None)
-result, err = client.Character(None).load(
-    {"id": "test01"}, None
-)
+client = FinalSpaceSDK.test()
+result, err = client.Character().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = FinalSpaceSDK::test(null, null);
-[$result, $err] = $client->Character(null)->load(
-    ["id" => "test01"], null
-);
+$client = FinalSpaceSDK::test();
+[$result, $err] = $client->Character()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Character(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -231,19 +228,15 @@ result, err := client.Character(nil).Load(
 ### Ruby
 
 ```ruby
-client = FinalSpaceSDK.test(nil, nil)
-result, err = client.Character(nil).load(
-  { "id" => "test01" }, nil
-)
+client = FinalSpaceSDK.test
+result, err = client.Character().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Character(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Character():load({ id = "test01" })
 ```
 
 ## How it works
@@ -347,15 +340,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Final Space API
-
-- Upstream: [https://finalspaceapi.com/](https://finalspaceapi.com/)
-- API docs: [https://finalspaceapi.com/docs/](https://finalspaceapi.com/docs/)
-
-- Maintained as an open source project on GitHub by [lelouchB](https://github.com/lelouchB).
-- Data is sourced from the Final Space wiki; consult the upstream project for any attribution requirements before redistribution.
-- No formal terms or rate-limit policy are published with the API itself.
 
 ---
 

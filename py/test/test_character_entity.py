@@ -102,6 +102,7 @@ def _character_basic_setup(extra):
         "FINALSPACE_TEST_CHARACTER_ENTID": idmap,
         "FINALSPACE_TEST_LIVE": "FALSE",
         "FINALSPACE_TEST_EXPLAIN": "FALSE",
+        "FINALSPACE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -112,6 +113,7 @@ def _character_basic_setup(extra):
     if env.get("FINALSPACE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("FINALSPACE_APIKEY"),
             },
             extra or {},
         ])
