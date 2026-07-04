@@ -43,8 +43,7 @@ class GetEndpointEntityTest < Minitest::Test
     get_endpoint_ref01_ent = client.GetEndpoint(nil)
     get_endpoint_ref01_match = {}
 
-    get_endpoint_ref01_list_result, err = get_endpoint_ref01_ent.list(get_endpoint_ref01_match, nil)
-    assert_nil err
+    get_endpoint_ref01_list_result = get_endpoint_ref01_ent.list(get_endpoint_ref01_match, nil)
     assert get_endpoint_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def get_endpoint_basic_setup(extra)
     "FINALSPACE_TEST_GET_ENDPOINT_ENTID" => idmap,
     "FINALSPACE_TEST_LIVE" => "FALSE",
     "FINALSPACE_TEST_EXPLAIN" => "FALSE",
-    "FINALSPACE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def get_endpoint_basic_setup(extra)
   if env["FINALSPACE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FINALSPACE_APIKEY"],
       },
       extra || {},
     ])

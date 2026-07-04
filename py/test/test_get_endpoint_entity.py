@@ -50,8 +50,7 @@ class TestGetEndpointEntity:
         get_endpoint_ref01_ent = client.GetEndpoint(None)
         get_endpoint_ref01_match = {}
 
-        get_endpoint_ref01_list_result, err = get_endpoint_ref01_ent.list(get_endpoint_ref01_match, None)
-        assert err is None
+        get_endpoint_ref01_list_result = get_endpoint_ref01_ent.list(get_endpoint_ref01_match, None)
         assert isinstance(get_endpoint_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _get_endpoint_basic_setup(extra):
         "FINALSPACE_TEST_GET_ENDPOINT_ENTID": idmap,
         "FINALSPACE_TEST_LIVE": "FALSE",
         "FINALSPACE_TEST_EXPLAIN": "FALSE",
-        "FINALSPACE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _get_endpoint_basic_setup(extra):
     if env.get("FINALSPACE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("FINALSPACE_APIKEY"),
             },
             extra or {},
         ])

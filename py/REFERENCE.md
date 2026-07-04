@@ -20,7 +20,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `dict` | SDK configuration options. |
-| `options["apikey"]` | `str` | API key for authentication. |
 | `options["base"]` | `str` | Base URL for API requests. |
 | `options["prefix"]` | `str` | URL prefix appended after base. |
 | `options["suffix"]` | `str` | URL suffix appended after path. |
@@ -70,9 +69,9 @@ Return a deep copy of the current SDK options.
 
 Return a copy of the SDK utility object.
 
-#### `direct(fetchargs=None) -> tuple`
+#### `direct(fetchargs=None) -> dict`
 
-Make a direct HTTP request to any API endpoint. Returns `(result, err)`.
+Make a direct HTTP request to any API endpoint. Returns a result `dict` with `ok`, `status`, `headers`, and `data` (or `err` on failure). This escape hatch never raises — branch on `result["ok"]`.
 
 **Parameters:**
 
@@ -85,11 +84,11 @@ Make a direct HTTP request to any API endpoint. Returns `(result, err)`.
 | `fetchargs["headers"]` | `dict` | Request headers (merged with defaults). |
 | `fetchargs["body"]` | `any` | Request body (dicts are JSON-serialized). |
 
-**Returns:** `(result_dict, err)`
+**Returns:** `result_dict`
 
-#### `prepare(fetchargs=None) -> tuple`
+#### `prepare(fetchargs=None) -> dict`
 
-Prepare a fetch definition without sending. Returns `(fetchdef, err)`.
+Prepare a fetch definition without sending. Returns the `fetchdef` and raises on error.
 
 
 ---
@@ -97,7 +96,7 @@ Prepare a fetch definition without sending. Returns `(fetchdef, err)`.
 ## CharacterEntity
 
 ```python
-character = client.Character()
+character = client.character
 ```
 
 ### Fields
@@ -117,20 +116,20 @@ character = client.Character()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> tuple`
+#### `list(reqmatch, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results, err = client.Character().list({})
+results = client.character.list({})
 ```
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.Character().load({"id": "character_id"})
+result = client.character.load({"id": "character_id"})
 ```
 
 ### Common Methods
@@ -165,7 +164,7 @@ Return the entity name.
 ## EpisodeEntity
 
 ```python
-episode = client.Episode()
+episode = client.episode
 ```
 
 ### Fields
@@ -182,20 +181,20 @@ episode = client.Episode()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> tuple`
+#### `list(reqmatch, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results, err = client.Episode().list({})
+results = client.episode.list({})
 ```
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.Episode().load({"id": "episode_id"})
+result = client.episode.load({"id": "episode_id"})
 ```
 
 ### Common Methods
@@ -230,7 +229,7 @@ Return the entity name.
 ## GetEndpointEntity
 
 ```python
-get_endpoint = client.GetEndpoint()
+get_endpoint = client.get_endpoint
 ```
 
 ### Fields
@@ -245,12 +244,12 @@ get_endpoint = client.GetEndpoint()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> tuple`
+#### `list(reqmatch, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results, err = client.GetEndpoint().list({})
+results = client.get_endpoint.list({})
 ```
 
 ### Common Methods
@@ -285,7 +284,7 @@ Return the entity name.
 ## LocationEntity
 
 ```python
-location = client.Location()
+location = client.location
 ```
 
 ### Fields
@@ -301,20 +300,20 @@ location = client.Location()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> tuple`
+#### `list(reqmatch, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results, err = client.Location().list({})
+results = client.location.list({})
 ```
 
-#### `load(reqmatch, ctrl=None) -> tuple`
+#### `load(reqmatch, ctrl=None) -> dict`
 
-Load a single entity matching the given criteria.
+Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result, err = client.Location().load({"id": "location_id"})
+result = client.location.load({"id": "location_id"})
 ```
 
 ### Common Methods
@@ -349,7 +348,7 @@ Return the entity name.
 ## QuoteEntity
 
 ```python
-quote = client.Quote()
+quote = client.quote
 ```
 
 ### Fields
@@ -364,12 +363,12 @@ quote = client.Quote()
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> tuple`
+#### `list(reqmatch, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns an array.
+List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results, err = client.Quote().list({})
+results = client.quote.list({})
 ```
 
 ### Common Methods

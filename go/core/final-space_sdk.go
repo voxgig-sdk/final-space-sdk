@@ -245,26 +245,41 @@ func (sdk *FinalSpaceSDK) Direct(fetchargs map[string]any) (map[string]any, erro
 }
 
 
+// Character returns a Character entity bound to this client.
+// Idiomatic usage: client.Character(nil).List(nil, nil) or
+// client.Character(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FinalSpaceSDK) Character(data map[string]any) FinalSpaceEntity {
 	return NewCharacterEntityFunc(sdk, data)
 }
 
 
+// Episode returns a Episode entity bound to this client.
+// Idiomatic usage: client.Episode(nil).List(nil, nil) or
+// client.Episode(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FinalSpaceSDK) Episode(data map[string]any) FinalSpaceEntity {
 	return NewEpisodeEntityFunc(sdk, data)
 }
 
 
+// GetEndpoint returns a GetEndpoint entity bound to this client.
+// Idiomatic usage: client.GetEndpoint(nil).List(nil, nil) or
+// client.GetEndpoint(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FinalSpaceSDK) GetEndpoint(data map[string]any) FinalSpaceEntity {
 	return NewGetEndpointEntityFunc(sdk, data)
 }
 
 
+// Location returns a Location entity bound to this client.
+// Idiomatic usage: client.Location(nil).List(nil, nil) or
+// client.Location(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FinalSpaceSDK) Location(data map[string]any) FinalSpaceEntity {
 	return NewLocationEntityFunc(sdk, data)
 }
 
 
+// Quote returns a Quote entity bound to this client.
+// Idiomatic usage: client.Quote(nil).List(nil, nil) or
+// client.Quote(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FinalSpaceSDK) Quote(data map[string]any) FinalSpaceEntity {
 	return NewQuoteEntityFunc(sdk, data)
 }

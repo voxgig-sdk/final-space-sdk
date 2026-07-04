@@ -15,9 +15,6 @@ module FinalSpaceConfig
       },
       "options" => {
         "base" => "https://finalspaceapi.com/api/v0",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -157,6 +154,7 @@ module FinalSpaceConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                   },
@@ -291,6 +289,7 @@ module FinalSpaceConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                   },
@@ -483,6 +482,7 @@ module FinalSpaceConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                   },

@@ -50,8 +50,7 @@ class GetEndpointEntityTest extends TestCase
         $get_endpoint_ref01_ent = $client->GetEndpoint(null);
         $get_endpoint_ref01_match = [];
 
-        [$get_endpoint_ref01_list_result, $err] = $get_endpoint_ref01_ent->list($get_endpoint_ref01_match, null);
-        $this->assertNull($err);
+        $get_endpoint_ref01_list_result = $get_endpoint_ref01_ent->list($get_endpoint_ref01_match, null);
         $this->assertIsArray($get_endpoint_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function get_endpoint_basic_setup($extra)
         "FINALSPACE_TEST_GET_ENDPOINT_ENTID" => $idmap,
         "FINALSPACE_TEST_LIVE" => "FALSE",
         "FINALSPACE_TEST_EXPLAIN" => "FALSE",
-        "FINALSPACE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function get_endpoint_basic_setup($extra)
     if ($env["FINALSPACE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["FINALSPACE_APIKEY"],
             ],
             $extra ?? [],
         ]);

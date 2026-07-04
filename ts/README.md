@@ -9,9 +9,12 @@ The TypeScript SDK for the FinalSpace API — a type-safe, entity-oriented clien
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/final-space
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/final-space-sdk/releases](https://github.com/voxgig-sdk/final-space-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FinalSpaceSDK } from 'final-space'
+import { FinalSpaceSDK } from '@voxgig-sdk/final-space'
 
-const client = new FinalSpaceSDK({
-  apikey: process.env.FINAL-SPACE_APIKEY,
-})
+const client = new FinalSpaceSDK()
 ```
 
 ### 2. List characters
 
 ```ts
-const result = await client.Character().list()
+const result = await client.character.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -42,7 +43,7 @@ if (result.ok) {
 ### 3. Load a character
 
 ```ts
-const result = await client.Character().load({ id: 'example_id' })
+const result = await client.character.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -91,7 +92,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = FinalSpaceSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.character.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -99,7 +100,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new FinalSpaceSDK({ apikey: '...' })
+const client = new FinalSpaceSDK()
 const testClient = client.tester()
 ```
 
@@ -108,7 +109,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.character
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -135,7 +136,6 @@ const logger = {
 }
 
 const client = new FinalSpaceSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -145,8 +145,7 @@ const client = new FinalSpaceSDK({
 Create a `.env.local` file at the project root:
 
 ```
-FINAL-SPACE_TEST_LIVE=TRUE
-FINAL-SPACE_APIKEY=<your-key>
+FINAL_SPACE_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -164,7 +163,6 @@ cd ts && npm test
 
 ```ts
 new FinalSpaceSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -175,7 +173,6 @@ new FinalSpaceSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -350,7 +347,7 @@ API path: `/quote`
 
 ### Character
 
-Create an instance: `const character = client.Character()`
+Create an instance: `const character = client.character`
 
 #### Operations
 
@@ -377,19 +374,19 @@ Create an instance: `const character = client.Character()`
 #### Example: Load
 
 ```ts
-const character = await client.Character().load({ id: 'character_id' })
+const character = await client.character.load({ id: 'character_id' })
 ```
 
 #### Example: List
 
 ```ts
-const characters = await client.Character().list()
+const characters = await client.character.list()
 ```
 
 
 ### Episode
 
-Create an instance: `const episode = client.Episode()`
+Create an instance: `const episode = client.episode`
 
 #### Operations
 
@@ -413,19 +410,19 @@ Create an instance: `const episode = client.Episode()`
 #### Example: Load
 
 ```ts
-const episode = await client.Episode().load({ id: 'episode_id' })
+const episode = await client.episode.load({ id: 'episode_id' })
 ```
 
 #### Example: List
 
 ```ts
-const episodes = await client.Episode().list()
+const episodes = await client.episode.list()
 ```
 
 
 ### GetEndpoint
 
-Create an instance: `const get_endpoint = client.GetEndpoint()`
+Create an instance: `const get_endpoint = client.get_endpoint`
 
 #### Operations
 
@@ -446,13 +443,13 @@ Create an instance: `const get_endpoint = client.GetEndpoint()`
 #### Example: List
 
 ```ts
-const get_endpoints = await client.GetEndpoint().list()
+const get_endpoints = await client.get_endpoint.list()
 ```
 
 
 ### Location
 
-Create an instance: `const location = client.Location()`
+Create an instance: `const location = client.location`
 
 #### Operations
 
@@ -475,19 +472,19 @@ Create an instance: `const location = client.Location()`
 #### Example: Load
 
 ```ts
-const location = await client.Location().load({ id: 'location_id' })
+const location = await client.location.load({ id: 'location_id' })
 ```
 
 #### Example: List
 
 ```ts
-const locations = await client.Location().list()
+const locations = await client.location.list()
 ```
 
 
 ### Quote
 
-Create an instance: `const quote = client.Quote()`
+Create an instance: `const quote = client.quote`
 
 #### Operations
 
@@ -508,7 +505,7 @@ Create an instance: `const quote = client.Quote()`
 #### Example: List
 
 ```ts
-const quotes = await client.Quote().list()
+const quotes = await client.quote.list()
 ```
 
 
@@ -569,7 +566,7 @@ final-space/
 Import the SDK from the package root:
 
 ```ts
-import { FinalSpaceSDK } from 'final-space'
+import { FinalSpaceSDK } from '@voxgig-sdk/final-space'
 ```
 
 ### Entity state
@@ -579,11 +576,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const character = client.character
+await character.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// character.data() now returns the loaded character data
+// character.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

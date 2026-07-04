@@ -14,9 +14,6 @@ func MakeConfig() map[string]any {
 		},
 		"options": map[string]any{
 			"base": "https://finalspaceapi.com/api/v0",
-			"auth": map[string]any{
-				"prefix": "Bearer",
-			},
 			"headers": map[string]any{
 				"content-type": "application/json",
 			},
@@ -156,6 +153,7 @@ func MakeConfig() map[string]any {
 											"orig": "id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 									},
 								},
@@ -290,6 +288,7 @@ func MakeConfig() map[string]any {
 											"orig": "id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 									},
 								},
@@ -482,6 +481,7 @@ func MakeConfig() map[string]any {
 											"orig": "id",
 											"reqd": true,
 											"type": "`$INTEGER`",
+											"index$": 0,
 										},
 									},
 								},

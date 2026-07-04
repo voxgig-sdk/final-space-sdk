@@ -6,6 +6,8 @@ import { GetEndpointEntity } from './entity/GetEndpointEntity'
 import { LocationEntity } from './entity/LocationEntity'
 import { QuoteEntity } from './entity/QuoteEntity'
 
+export type * from './FinalSpaceTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -206,30 +208,70 @@ class FinalSpaceSDK {
 
 
 
+  _character?: CharacterEntity
+
+  // Idiomatic facade: `client.character.list()` / `client.character.load({ id })`.
+  get character(): CharacterEntity {
+    return (this._character ??= new CharacterEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.character` instead. */
   Character(data?: any) {
     const self = this
     return new CharacterEntity(self,data)
   }
 
 
+  _episode?: EpisodeEntity
+
+  // Idiomatic facade: `client.episode.list()` / `client.episode.load({ id })`.
+  get episode(): EpisodeEntity {
+    return (this._episode ??= new EpisodeEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.episode` instead. */
   Episode(data?: any) {
     const self = this
     return new EpisodeEntity(self,data)
   }
 
 
+  _get_endpoint?: GetEndpointEntity
+
+  // Idiomatic facade: `client.get_endpoint.list()` / `client.get_endpoint.load({ id })`.
+  get get_endpoint(): GetEndpointEntity {
+    return (this._get_endpoint ??= new GetEndpointEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.get_endpoint` instead. */
   GetEndpoint(data?: any) {
     const self = this
     return new GetEndpointEntity(self,data)
   }
 
 
+  _location?: LocationEntity
+
+  // Idiomatic facade: `client.location.list()` / `client.location.load({ id })`.
+  get location(): LocationEntity {
+    return (this._location ??= new LocationEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.location` instead. */
   Location(data?: any) {
     const self = this
     return new LocationEntity(self,data)
   }
 
 
+  _quote?: QuoteEntity
+
+  // Idiomatic facade: `client.quote.list()` / `client.quote.load({ id })`.
+  get quote(): QuoteEntity {
+    return (this._quote ??= new QuoteEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.quote` instead. */
   Quote(data?: any) {
     const self = this
     return new QuoteEntity(self,data)

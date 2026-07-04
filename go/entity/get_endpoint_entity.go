@@ -85,6 +85,27 @@ func (e *GetEndpointEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an GetEndpoint; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *GetEndpointEntity) DataTyped(data ...GetEndpoint) GetEndpoint {
+	if len(data) > 0 {
+		return typedFrom[GetEndpoint](e.Data(asMap(data[0])))
+	}
+	return typedFrom[GetEndpoint](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through GetEndpoint (all fields
+// optional at the wire level).
+func (e *GetEndpointEntity) MatchTyped(match ...GetEndpoint) GetEndpoint {
+	if len(match) > 0 {
+		return typedFrom[GetEndpoint](e.Match(asMap(match[0])))
+	}
+	return typedFrom[GetEndpoint](e.Match())
+}
+
 func (e *GetEndpointEntity) Load(_ map[string]any, _ map[string]any) (any, error) {
 	return core.UnsupportedOp("load", e.name)
 }
@@ -108,6 +129,17 @@ func (e *GetEndpointEntity) List(reqmatch map[string]any, ctrl map[string]any) (
 			}
 		}
 	})
+}
+
+// ListTyped is the statically-typed variant of List: it takes an
+// GetEndpointListMatch and returns []GetEndpoint. It delegates to the untyped
+// List (identical runtime) and converts at the typed boundary.
+func (e *GetEndpointEntity) ListTyped(reqmatch GetEndpointListMatch, ctrl map[string]any) ([]GetEndpoint, error) {
+	res, err := e.List(asMap(reqmatch), ctrl)
+	if err != nil {
+		return nil, err
+	}
+	return typedSliceFrom[GetEndpoint](res), nil
 }
 
 

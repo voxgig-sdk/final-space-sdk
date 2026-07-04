@@ -43,8 +43,7 @@ class QuoteEntityTest < Minitest::Test
     quote_ref01_ent = client.Quote(nil)
     quote_ref01_match = {}
 
-    quote_ref01_list_result, err = quote_ref01_ent.list(quote_ref01_match, nil)
-    assert_nil err
+    quote_ref01_list_result = quote_ref01_ent.list(quote_ref01_match, nil)
     assert quote_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def quote_basic_setup(extra)
     "FINALSPACE_TEST_QUOTE_ENTID" => idmap,
     "FINALSPACE_TEST_LIVE" => "FALSE",
     "FINALSPACE_TEST_EXPLAIN" => "FALSE",
-    "FINALSPACE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def quote_basic_setup(extra)
   if env["FINALSPACE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FINALSPACE_APIKEY"],
       },
       extra || {},
     ])

@@ -20,9 +20,6 @@ class FinalSpaceConfig
             ],
             "options" => [
                 "base" => "https://finalspaceapi.com/api/v0",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -162,6 +159,7 @@ class FinalSpaceConfig
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -296,6 +294,7 @@ class FinalSpaceConfig
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -488,6 +487,7 @@ class FinalSpaceConfig
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

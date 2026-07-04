@@ -45,6 +45,7 @@ class GetEndpointEntity
     end
   end
 
+  # @return [GetEndpoint, Hash] the current GetEndpoint data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,6 +58,7 @@ class GetEndpointEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of GetEndpoint fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
@@ -65,6 +67,11 @@ class GetEndpointEntity
   
 
   
+  # List GetEndpoint items matching the given filter.
+  #
+  # @param reqmatch [GetEndpointListMatch, Hash, nil] match filter (any subset of GetEndpoint fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<GetEndpoint>, Array] the matching GetEndpoint items; raises FinalSpaceError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch GetEndpointListMatch
+---@param ctrl? table
+---@return GetEndpoint[]
+---@return string? err
 function GetEndpointEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
