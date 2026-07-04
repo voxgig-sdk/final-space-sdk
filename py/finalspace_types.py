@@ -4,130 +4,121 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Character:
-    ability: Optional[list] = None
-    alia: Optional[list] = None
-    gender: Optional[str] = None
-    hair: Optional[str] = None
-    id: Optional[int] = None
-    img_url: Optional[str] = None
-    name: Optional[str] = None
-    origin: Optional[str] = None
-    species: Optional[str] = None
-    status: Optional[str] = None
+class Character(TypedDict, total=False):
+    ability: list
+    alia: list
+    gender: str
+    hair: str
+    id: int
+    img_url: str
+    name: str
+    origin: str
+    species: str
+    status: str
 
 
-@dataclass
-class CharacterLoadMatch:
+class CharacterLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class CharacterListMatch:
-    ability: Optional[list] = None
-    alia: Optional[list] = None
-    gender: Optional[str] = None
-    hair: Optional[str] = None
-    id: Optional[int] = None
-    img_url: Optional[str] = None
-    name: Optional[str] = None
-    origin: Optional[str] = None
-    species: Optional[str] = None
-    status: Optional[str] = None
+class CharacterListMatch(TypedDict, total=False):
+    ability: list
+    alia: list
+    gender: str
+    hair: str
+    id: int
+    img_url: str
+    name: str
+    origin: str
+    species: str
+    status: str
 
 
-@dataclass
-class Episode:
-    air_date: Optional[str] = None
-    character: Optional[list] = None
-    director: Optional[str] = None
-    id: Optional[int] = None
-    img_url: Optional[str] = None
-    name: Optional[str] = None
-    writer: Optional[str] = None
+class Episode(TypedDict, total=False):
+    air_date: str
+    character: list
+    director: str
+    id: int
+    img_url: str
+    name: str
+    writer: str
 
 
-@dataclass
-class EpisodeLoadMatch:
+class EpisodeLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class EpisodeListMatch:
-    air_date: Optional[str] = None
-    character: Optional[list] = None
-    director: Optional[str] = None
-    id: Optional[int] = None
-    img_url: Optional[str] = None
-    name: Optional[str] = None
-    writer: Optional[str] = None
+class EpisodeListMatch(TypedDict, total=False):
+    air_date: str
+    character: list
+    director: str
+    id: int
+    img_url: str
+    name: str
+    writer: str
 
 
-@dataclass
-class GetEndpoint:
-    full_url: Optional[str] = None
-    name: Optional[str] = None
-    path: Optional[str] = None
-    query_param: Optional[list] = None
-    type: Optional[str] = None
+class GetEndpoint(TypedDict, total=False):
+    full_url: str
+    name: str
+    path: str
+    query_param: list
+    type: str
 
 
-@dataclass
-class GetEndpointListMatch:
-    full_url: Optional[str] = None
-    name: Optional[str] = None
-    path: Optional[str] = None
-    query_param: Optional[list] = None
-    type: Optional[str] = None
+class GetEndpointListMatch(TypedDict, total=False):
+    full_url: str
+    name: str
+    path: str
+    query_param: list
+    type: str
 
 
-@dataclass
-class Location:
-    id: Optional[int] = None
-    img_url: Optional[str] = None
-    inhabitant: Optional[list] = None
-    name: Optional[str] = None
-    notable_resident: Optional[list] = None
-    type: Optional[str] = None
+class Location(TypedDict, total=False):
+    id: int
+    img_url: str
+    inhabitant: list
+    name: str
+    notable_resident: list
+    type: str
 
 
-@dataclass
-class LocationLoadMatch:
+class LocationLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class LocationListMatch:
-    id: Optional[int] = None
-    img_url: Optional[str] = None
-    inhabitant: Optional[list] = None
-    name: Optional[str] = None
-    notable_resident: Optional[list] = None
-    type: Optional[str] = None
+class LocationListMatch(TypedDict, total=False):
+    id: int
+    img_url: str
+    inhabitant: list
+    name: str
+    notable_resident: list
+    type: str
 
 
-@dataclass
-class Quote:
-    by: Optional[str] = None
-    character: Optional[str] = None
-    id: Optional[int] = None
-    image: Optional[str] = None
-    quote: Optional[str] = None
+class Quote(TypedDict, total=False):
+    by: str
+    character: str
+    id: int
+    image: str
+    quote: str
 
 
-@dataclass
-class QuoteListMatch:
-    by: Optional[str] = None
-    character: Optional[str] = None
-    id: Optional[int] = None
-    image: Optional[str] = None
-    quote: Optional[str] = None
-
+class QuoteListMatch(TypedDict, total=False):
+    by: str
+    character: str
+    id: int
+    image: str
+    quote: str

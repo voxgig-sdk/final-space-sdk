@@ -233,10 +233,10 @@ class FinalSpaceSDK
 
     private $_character = null;
 
-    // Idiomatic facade: $client->character()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Character() (PHP method
-    // names are case-insensitive).
-    public function character($data = null)
+    // Canonical facade: $client->Character()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->character()
+    // resolves here too.
+    public function Character($data = null)
     {
         require_once __DIR__ . '/entity/character_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class FinalSpaceSDK
 
     private $_episode = null;
 
-    // Idiomatic facade: $client->episode()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Episode() (PHP method
-    // names are case-insensitive).
-    public function episode($data = null)
+    // Canonical facade: $client->Episode()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->episode()
+    // resolves here too.
+    public function Episode($data = null)
     {
         require_once __DIR__ . '/entity/episode_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class FinalSpaceSDK
 
     private $_get_endpoint = null;
 
-    // Idiomatic facade: $client->get_endpoint()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GetEndpoint() (PHP method
-    // names are case-insensitive).
-    public function get_endpoint($data = null)
+    // Canonical facade: $client->GetEndpoint()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get_endpoint()
+    // resolves here too.
+    public function GetEndpoint($data = null)
     {
         require_once __DIR__ . '/entity/get_endpoint_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class FinalSpaceSDK
 
     private $_location = null;
 
-    // Idiomatic facade: $client->location()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Location() (PHP method
-    // names are case-insensitive).
-    public function location($data = null)
+    // Canonical facade: $client->Location()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->location()
+    // resolves here too.
+    public function Location($data = null)
     {
         require_once __DIR__ . '/entity/location_entity.php';
         if ($data === null) {
@@ -305,10 +305,10 @@ class FinalSpaceSDK
 
     private $_quote = null;
 
-    // Idiomatic facade: $client->quote()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Quote() (PHP method
-    // names are case-insensitive).
-    public function quote($data = null)
+    // Canonical facade: $client->Quote()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->quote()
+    // resolves here too.
+    public function Quote($data = null)
     {
         require_once __DIR__ . '/entity/quote_entity.php';
         if ($data === null) {

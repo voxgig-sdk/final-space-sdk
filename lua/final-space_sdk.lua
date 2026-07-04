@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:character():list() / client:character():load({ id = ... })
-function FinalSpaceSDK:character(data)
+-- Idiomatic facade: client:Character():list() / client:Character():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FinalSpaceSDK:Character(data)
   local EntityMod = require("entity.character_entity")
   if data == nil then
     if self._character == nil then
@@ -256,15 +257,10 @@ function FinalSpaceSDK:character(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:character() instead.
-function FinalSpaceSDK:Character(data)
-  local EntityMod = require("entity.character_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:episode():list() / client:episode():load({ id = ... })
-function FinalSpaceSDK:episode(data)
+-- Idiomatic facade: client:Episode():list() / client:Episode():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FinalSpaceSDK:Episode(data)
   local EntityMod = require("entity.episode_entity")
   if data == nil then
     if self._episode == nil then
@@ -275,15 +271,10 @@ function FinalSpaceSDK:episode(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:episode() instead.
-function FinalSpaceSDK:Episode(data)
-  local EntityMod = require("entity.episode_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:get_endpoint():list() / client:get_endpoint():load({ id = ... })
-function FinalSpaceSDK:get_endpoint(data)
+-- Idiomatic facade: client:GetEndpoint():list() / client:GetEndpoint():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FinalSpaceSDK:GetEndpoint(data)
   local EntityMod = require("entity.get_endpoint_entity")
   if data == nil then
     if self._get_endpoint == nil then
@@ -294,15 +285,10 @@ function FinalSpaceSDK:get_endpoint(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:get_endpoint() instead.
-function FinalSpaceSDK:GetEndpoint(data)
-  local EntityMod = require("entity.get_endpoint_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:location():list() / client:location():load({ id = ... })
-function FinalSpaceSDK:location(data)
+-- Idiomatic facade: client:Location():list() / client:Location():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FinalSpaceSDK:Location(data)
   local EntityMod = require("entity.location_entity")
   if data == nil then
     if self._location == nil then
@@ -313,15 +299,10 @@ function FinalSpaceSDK:location(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:location() instead.
-function FinalSpaceSDK:Location(data)
-  local EntityMod = require("entity.location_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:quote():list() / client:quote():load({ id = ... })
-function FinalSpaceSDK:quote(data)
+-- Idiomatic facade: client:Quote():list() / client:Quote():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FinalSpaceSDK:Quote(data)
   local EntityMod = require("entity.quote_entity")
   if data == nil then
     if self._quote == nil then
@@ -329,12 +310,6 @@ function FinalSpaceSDK:quote(data)
     end
     return self._quote
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:quote() instead.
-function FinalSpaceSDK:Quote(data)
-  local EntityMod = require("entity.quote_entity")
   return EntityMod.new(self, data)
 end
 

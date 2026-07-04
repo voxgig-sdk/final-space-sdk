@@ -26,9 +26,11 @@ import { FinalSpaceSDK } from '@voxgig-sdk/final-space'
 
 const client = new FinalSpaceSDK()
 
-// List all characters
-const characters = await client.character.list()
-console.log(characters.data)
+// List all characters (returns Character[])
+const characters = await client.Character().list()
+for (const character of characters) {
+  console.log(character)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -87,12 +89,13 @@ from finalspace_sdk import FinalSpaceSDK
 
 client = FinalSpaceSDK()
 
-# List all characters
-characters = client.character.list()
-print(characters)
+# List all characters (returns a list, raises on error)
+characters = client.Character().list({})
+for character in characters:
+    print(character)
 
-# Load a specific character
-character = client.character.load({"id": "example_id"})
+# Load a specific character (returns the record, raises on error)
+character = client.Character().load({"id": "example_id"})
 print(character)
 ```
 
@@ -104,12 +107,12 @@ require_once 'finalspace_sdk.php';
 
 $client = new FinalSpaceSDK();
 
-// List all characters (throws on error)
-$characters = $client->character()->list();
+// List all characters (returns an array; throws on error)
+$characters = $client->Character()->list();
 print_r($characters);
 
-// Load a specific character
-$character = $client->character()->load(["id" => "example_id"]);
+// Load a specific character (returns the bare record; throws on error)
+$character = $client->Character()->load(["id" => "example_id"]);
 print_r($character);
 ```
 
@@ -132,12 +135,12 @@ require_relative "FinalSpace_sdk"
 
 client = FinalSpaceSDK.new
 
-# List all characters
-characters = client.character.list
+# List all characters (returns an Array; raises on error)
+characters = client.Character.list
 puts characters
 
-# Load a specific character
-character = client.character.load({ "id" => "example_id" })
+# Load a specific character (returns the bare record; raises on error)
+character = client.Character.load({ "id" => "example_id" })
 puts character
 ```
 
@@ -149,11 +152,11 @@ local sdk = require("final-space_sdk")
 local client = sdk.new()
 
 -- List all characters
-local characters, err = client:character():list()
+local characters, err = client:Character():list()
 print(characters)
 
 -- Load a specific character
-local character, err = client:character():load({ id = "example_id" })
+local character, err = client:Character():load({ id = "example_id" })
 print(character)
 ```
 
@@ -166,22 +169,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = FinalSpaceSDK.test()
-const result = await client.character.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const character = await client.Character().load({ id: 1 })
+// character is a bare Character populated with mock data
+console.log(character)
 ```
 
 ### Python
 
 ```python
 client = FinalSpaceSDK.test()
-result = client.character.load({"id": "test01"})
+character = client.Character().load({"id": "test01"})
+print(character)
 ```
 
 ### PHP
 
 ```php
-$client = FinalSpaceSDK::test();
-$result = $client->character()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = FinalSpaceSDK::test([
+    "entity" => ["character" => ["test01" => ["id" => "test01"]]],
+]);
+$character = $client->Character()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -196,15 +204,18 @@ result, err := client.Character(nil).Load(
 ### Ruby
 
 ```ruby
-client = FinalSpaceSDK.test
-result = client.character.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = FinalSpaceSDK.test({
+  "entity" => { "character" => { "test01" => { "id" => "test01" } } },
+})
+character = client.Character.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:character():load({ id = "test01" })
+local result, err = client:Character():load({ id = "test01" })
 ```
 
 ## How it works
@@ -252,6 +263,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 
