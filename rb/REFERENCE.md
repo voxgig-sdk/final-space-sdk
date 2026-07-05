@@ -8,7 +8,7 @@ Complete API reference for the FinalSpace Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'final-space_sdk'
+require_relative 'FinalSpace_sdk'
 
 client = FinalSpaceSDK.new(options)
 ```
@@ -109,25 +109,25 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | ``$ARRAY`` | No |  |
-| `alia` | ``$ARRAY`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `hair` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `origin` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `ability` | `Array` | No |  |
+| `alia` | `Array` | No |  |
+| `gender` | `String` | No |  |
+| `hair` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `img_url` | `String` | No |  |
+| `name` | `String` | No |  |
+| `origin` | `String` | No |  |
+| `species` | `String` | No |  |
+| `status` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Character.list(nil)
+results = client.Character.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -178,22 +178,22 @@ episode = client.Episode
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_date` | ``$STRING`` | No |  |
-| `character` | ``$ARRAY`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `writer` | ``$STRING`` | No |  |
+| `air_date` | `String` | No |  |
+| `character` | `Array` | No |  |
+| `director` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `img_url` | `String` | No |  |
+| `name` | `String` | No |  |
+| `writer` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Episode.list(nil)
+results = client.Episode.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -244,20 +244,20 @@ get_endpoint = client.GetEndpoint
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `full_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `path` | ``$STRING`` | No |  |
-| `query_param` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `full_url` | `String` | No |  |
+| `name` | `String` | No |  |
+| `path` | `String` | No |  |
+| `query_param` | `Array` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.GetEndpoint.list(nil)
+results = client.GetEndpoint.list
 ```
 
 ### Common Methods
@@ -300,21 +300,21 @@ location = client.Location
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `inhabitant` | ``$ARRAY`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `notable_resident` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `id` | `Integer` | No |  |
+| `img_url` | `String` | No |  |
+| `inhabitant` | `Array` | No |  |
+| `name` | `String` | No |  |
+| `notable_resident` | `Array` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Location.list(nil)
+results = client.Location.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -365,20 +365,20 @@ quote = client.Quote
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `by` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `quote` | ``$STRING`` | No |  |
+| `by` | `String` | No |  |
+| `character` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `image` | `String` | No |  |
+| `quote` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Quote.list(nil)
+results = client.Quote.list
 ```
 
 ### Common Methods

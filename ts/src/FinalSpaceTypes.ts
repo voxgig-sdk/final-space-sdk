@@ -22,7 +22,18 @@ export interface CharacterLoadMatch {
   id: number
 }
 
-export type CharacterListMatch = Partial<Character>
+export interface CharacterListMatch {
+  ability?: any[]
+  alia?: any[]
+  gender?: string
+  hair?: string
+  id?: number
+  img_url?: string
+  name?: string
+  origin?: string
+  species?: string
+  status?: string
+}
 
 export interface Episode {
   air_date?: string
@@ -38,7 +49,15 @@ export interface EpisodeLoadMatch {
   id: number
 }
 
-export type EpisodeListMatch = Partial<Episode>
+export interface EpisodeListMatch {
+  air_date?: string
+  character?: any[]
+  director?: string
+  id?: number
+  img_url?: string
+  name?: string
+  writer?: string
+}
 
 export interface GetEndpoint {
   full_url?: string
@@ -48,7 +67,13 @@ export interface GetEndpoint {
   type?: string
 }
 
-export type GetEndpointListMatch = Partial<GetEndpoint>
+export interface GetEndpointListMatch {
+  full_url?: string
+  name?: string
+  path?: string
+  query_param?: any[]
+  type?: string
+}
 
 export interface Location {
   id?: number
@@ -63,7 +88,14 @@ export interface LocationLoadMatch {
   id: number
 }
 
-export type LocationListMatch = Partial<Location>
+export interface LocationListMatch {
+  id?: number
+  img_url?: string
+  inhabitant?: any[]
+  name?: string
+  notable_resident?: any[]
+  type?: string
+}
 
 export interface Quote {
   by?: string
@@ -73,5 +105,11 @@ export interface Quote {
   quote?: string
 }
 
-export type QuoteListMatch = Partial<Quote>
+export interface QuoteListMatch {
+  by?: string
+  character?: string
+  id?: number
+  image?: string
+  quote?: string
+}
 

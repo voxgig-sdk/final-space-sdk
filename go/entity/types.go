@@ -27,8 +27,7 @@ type CharacterLoadMatch struct {
 	Id int `json:"id"`
 }
 
-// CharacterListMatch mirrors the character fields as an all-optional match
-// filter (Go analog of Partial<Character>).
+// CharacterListMatch is the typed request payload for Character.ListTyped.
 type CharacterListMatch struct {
 	Ability *[]any `json:"ability,omitempty"`
 	Alia *[]any `json:"alia,omitempty"`
@@ -58,8 +57,7 @@ type EpisodeLoadMatch struct {
 	Id int `json:"id"`
 }
 
-// EpisodeListMatch mirrors the episode fields as an all-optional match
-// filter (Go analog of Partial<Episode>).
+// EpisodeListMatch is the typed request payload for Episode.ListTyped.
 type EpisodeListMatch struct {
 	AirDate *string `json:"air_date,omitempty"`
 	Character *[]any `json:"character,omitempty"`
@@ -79,8 +77,7 @@ type GetEndpoint struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// GetEndpointListMatch mirrors the get_endpoint fields as an all-optional match
-// filter (Go analog of Partial<GetEndpoint>).
+// GetEndpointListMatch is the typed request payload for GetEndpoint.ListTyped.
 type GetEndpointListMatch struct {
 	FullUrl *string `json:"full_url,omitempty"`
 	Name *string `json:"name,omitempty"`
@@ -104,8 +101,7 @@ type LocationLoadMatch struct {
 	Id int `json:"id"`
 }
 
-// LocationListMatch mirrors the location fields as an all-optional match
-// filter (Go analog of Partial<Location>).
+// LocationListMatch is the typed request payload for Location.ListTyped.
 type LocationListMatch struct {
 	Id *int `json:"id,omitempty"`
 	ImgUrl *string `json:"img_url,omitempty"`
@@ -124,8 +120,7 @@ type Quote struct {
 	Quote *string `json:"quote,omitempty"`
 }
 
-// QuoteListMatch mirrors the quote fields as an all-optional match
-// filter (Go analog of Partial<Quote>).
+// QuoteListMatch is the typed request payload for Quote.ListTyped.
 type QuoteListMatch struct {
 	By *string `json:"by,omitempty"`
 	Character *string `json:"character,omitempty"`

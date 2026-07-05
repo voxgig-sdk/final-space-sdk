@@ -164,16 +164,16 @@ const character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | ``$ARRAY`` | No |  |
-| `alia` | ``$ARRAY`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `hair` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `origin` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `ability` | `any[]` | No |  |
+| `alia` | `any[]` | No |  |
+| `gender` | `string` | No |  |
+| `hair` | `string` | No |  |
+| `id` | `number` | No |  |
+| `img_url` | `string` | No |  |
+| `name` | `string` | No |  |
+| `origin` | `string` | No |  |
+| `species` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -190,7 +190,7 @@ const results = await client.Character().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Character().load({ id: 'character_id' })
+const result = await client.Character().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -231,13 +231,13 @@ const episode = client.Episode()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_date` | ``$STRING`` | No |  |
-| `character` | ``$ARRAY`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `writer` | ``$STRING`` | No |  |
+| `air_date` | `string` | No |  |
+| `character` | `any[]` | No |  |
+| `director` | `string` | No |  |
+| `id` | `number` | No |  |
+| `img_url` | `string` | No |  |
+| `name` | `string` | No |  |
+| `writer` | `string` | No |  |
 
 ### Operations
 
@@ -254,7 +254,7 @@ const results = await client.Episode().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Episode().load({ id: 'episode_id' })
+const result = await client.Episode().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -295,11 +295,11 @@ const get_endpoint = client.GetEndpoint()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `full_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `path` | ``$STRING`` | No |  |
-| `query_param` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `full_url` | `string` | No |  |
+| `name` | `string` | No |  |
+| `path` | `string` | No |  |
+| `query_param` | `any[]` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -349,12 +349,12 @@ const location = client.Location()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `inhabitant` | ``$ARRAY`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `notable_resident` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `id` | `number` | No |  |
+| `img_url` | `string` | No |  |
+| `inhabitant` | `any[]` | No |  |
+| `name` | `string` | No |  |
+| `notable_resident` | `any[]` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -371,7 +371,7 @@ const results = await client.Location().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Location().load({ id: 'location_id' })
+const result = await client.Location().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -412,11 +412,11 @@ const quote = client.Quote()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `by` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `quote` | ``$STRING`` | No |  |
+| `by` | `string` | No |  |
+| `character` | `string` | No |  |
+| `id` | `number` | No |  |
+| `image` | `string` | No |  |
+| `quote` | `string` | No |  |
 
 ### Operations
 

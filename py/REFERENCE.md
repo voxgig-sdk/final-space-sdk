@@ -8,7 +8,7 @@ Complete API reference for the FinalSpace Python SDK.
 ### Constructor
 
 ```python
-from final-space_sdk import FinalSpaceSDK
+from finalspace_sdk import FinalSpaceSDK
 
 client = FinalSpaceSDK(options)
 ```
@@ -103,25 +103,25 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | ``$ARRAY`` | No |  |
-| `alia` | ``$ARRAY`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `hair` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `origin` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `ability` | `list` | No |  |
+| `alia` | `list` | No |  |
+| `gender` | `str` | No |  |
+| `hair` | `str` | No |  |
+| `id` | `int` | No |  |
+| `img_url` | `str` | No |  |
+| `name` | `str` | No |  |
+| `origin` | `str` | No |  |
+| `species` | `str` | No |  |
+| `status` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Character().list({})
+results = client.Character().list()
 for character in results:
     print(character)
 ```
@@ -173,22 +173,22 @@ episode = client.Episode()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_date` | ``$STRING`` | No |  |
-| `character` | ``$ARRAY`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `writer` | ``$STRING`` | No |  |
+| `air_date` | `str` | No |  |
+| `character` | `list` | No |  |
+| `director` | `str` | No |  |
+| `id` | `int` | No |  |
+| `img_url` | `str` | No |  |
+| `name` | `str` | No |  |
+| `writer` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Episode().list({})
+results = client.Episode().list()
 for episode in results:
     print(episode)
 ```
@@ -240,20 +240,20 @@ get_endpoint = client.GetEndpoint()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `full_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `path` | ``$STRING`` | No |  |
-| `query_param` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `full_url` | `str` | No |  |
+| `name` | `str` | No |  |
+| `path` | `str` | No |  |
+| `query_param` | `list` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.GetEndpoint().list({})
+results = client.GetEndpoint().list()
 for get_endpoint in results:
     print(get_endpoint)
 ```
@@ -297,21 +297,21 @@ location = client.Location()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `inhabitant` | ``$ARRAY`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `notable_resident` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `id` | `int` | No |  |
+| `img_url` | `str` | No |  |
+| `inhabitant` | `list` | No |  |
+| `name` | `str` | No |  |
+| `notable_resident` | `list` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Location().list({})
+results = client.Location().list()
 for location in results:
     print(location)
 ```
@@ -363,20 +363,20 @@ quote = client.Quote()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `by` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `quote` | ``$STRING`` | No |  |
+| `by` | `str` | No |  |
+| `character` | `str` | No |  |
+| `id` | `int` | No |  |
+| `image` | `str` | No |  |
+| `quote` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Quote().list({})
+results = client.Quote().list()
 for quote in results:
     print(quote)
 ```

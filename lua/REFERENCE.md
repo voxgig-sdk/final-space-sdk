@@ -106,16 +106,16 @@ local character = client:Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | ``$ARRAY`` | No |  |
-| `alia` | ``$ARRAY`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `hair` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `origin` | ``$STRING`` | No |  |
-| `species` | ``$STRING`` | No |  |
-| `status` | ``$STRING`` | No |  |
+| `ability` | `table` | No |  |
+| `alia` | `table` | No |  |
+| `gender` | `string` | No |  |
+| `hair` | `string` | No |  |
+| `id` | `number` | No |  |
+| `img_url` | `string` | No |  |
+| `name` | `string` | No |  |
+| `origin` | `string` | No |  |
+| `species` | `string` | No |  |
+| `status` | `string` | No |  |
 
 ### Operations
 
@@ -175,13 +175,13 @@ local episode = client:Episode(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_date` | ``$STRING`` | No |  |
-| `character` | ``$ARRAY`` | No |  |
-| `director` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `writer` | ``$STRING`` | No |  |
+| `air_date` | `string` | No |  |
+| `character` | `table` | No |  |
+| `director` | `string` | No |  |
+| `id` | `number` | No |  |
+| `img_url` | `string` | No |  |
+| `name` | `string` | No |  |
+| `writer` | `string` | No |  |
 
 ### Operations
 
@@ -241,11 +241,11 @@ local get_endpoint = client:GetEndpoint(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `full_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `path` | ``$STRING`` | No |  |
-| `query_param` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `full_url` | `string` | No |  |
+| `name` | `string` | No |  |
+| `path` | `string` | No |  |
+| `query_param` | `table` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -297,12 +297,12 @@ local location = client:Location(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | ``$INTEGER`` | No |  |
-| `img_url` | ``$STRING`` | No |  |
-| `inhabitant` | ``$ARRAY`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `notable_resident` | ``$ARRAY`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `id` | `number` | No |  |
+| `img_url` | `string` | No |  |
+| `inhabitant` | `table` | No |  |
+| `name` | `string` | No |  |
+| `notable_resident` | `table` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -362,11 +362,11 @@ local quote = client:Quote(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `by` | ``$STRING`` | No |  |
-| `character` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `quote` | ``$STRING`` | No |  |
+| `by` | `string` | No |  |
+| `character` | `string` | No |  |
+| `id` | `number` | No |  |
+| `image` | `string` | No |  |
+| `quote` | `string` | No |  |
 
 ### Operations
 

@@ -33,7 +33,7 @@ class CharacterLoadMatch
     public int $id;
 }
 
-/** Match filter for Character#list (any subset of Character fields). */
+/** Request payload for Character#list. */
 class CharacterListMatch
 {
     public ?array $ability = null;
@@ -66,7 +66,7 @@ class EpisodeLoadMatch
     public int $id;
 }
 
-/** Match filter for Episode#list (any subset of Episode fields). */
+/** Request payload for Episode#list. */
 class EpisodeListMatch
 {
     public ?string $air_date = null;
@@ -88,7 +88,7 @@ class GetEndpoint
     public ?string $type = null;
 }
 
-/** Match filter for GetEndpoint#list (any subset of GetEndpoint fields). */
+/** Request payload for GetEndpoint#list. */
 class GetEndpointListMatch
 {
     public ?string $full_url = null;
@@ -115,7 +115,7 @@ class LocationLoadMatch
     public int $id;
 }
 
-/** Match filter for Location#list (any subset of Location fields). */
+/** Request payload for Location#list. */
 class LocationListMatch
 {
     public ?int $id = null;
@@ -136,7 +136,7 @@ class Quote
     public ?string $quote = null;
 }
 
-/** Match filter for Quote#list (any subset of Quote fields). */
+/** Request payload for Quote#list. */
 class QuoteListMatch
 {
     public ?string $by = null;
