@@ -50,7 +50,7 @@ end
 ### 3. Load a character
 
 ```lua
-local character, err = client:Character():load({ id = "example_id" })
+local character, err = client:Character():load({ id = 1 })
 if err then error(err) end
 print(character)
 ```
@@ -353,7 +353,7 @@ Create an instance: `local character = client:Character(nil)`
 #### Example: Load
 
 ```lua
-local character, err = client:Character():load({ id = "character_id" })
+local character, err = client:Character():load({ id = 1 })
 ```
 
 #### Example: List
@@ -389,7 +389,7 @@ Create an instance: `local episode = client:Episode(nil)`
 #### Example: Load
 
 ```lua
-local episode, err = client:Episode():load({ id = "episode_id" })
+local episode, err = client:Episode():load({ id = 1 })
 ```
 
 #### Example: List
@@ -451,7 +451,7 @@ Create an instance: `local location = client:Location(nil)`
 #### Example: Load
 
 ```lua
-local location, err = client:Location():load({ id = "location_id" })
+local location, err = client:Location():load({ id = 1 })
 ```
 
 #### Example: List

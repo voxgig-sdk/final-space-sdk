@@ -1,7 +1,0 @@
-# Entity Models
-
-@"character.jsonic"
-@"episode.jsonic"
-@"get_endpoint.jsonic"
-@"location.jsonic"
-@"quote.jsonic"

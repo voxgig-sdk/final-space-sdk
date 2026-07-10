@@ -1,0 +1,7 @@
+# Entity Models
+
+@"character.aontu"
+@"episode.aontu"
+@"get_endpoint.aontu"
+@"location.aontu"
+@"quote.aontu"

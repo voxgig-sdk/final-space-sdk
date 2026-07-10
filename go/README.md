@@ -381,7 +381,7 @@ Create an instance: `character := client.Character(nil)`
 #### Example: Load
 
 ```go
-character, err := client.Character(nil).Load(map[string]any{"id": "character_id"}, nil)
+character, err := client.Character(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -425,7 +425,7 @@ Create an instance: `episode := client.Episode(nil)`
 #### Example: Load
 
 ```go
-episode, err := client.Episode(nil).Load(map[string]any{"id": "episode_id"}, nil)
+episode, err := client.Episode(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }
@@ -445,7 +445,7 @@ fmt.Println(episodes) // the array of records
 
 ### GetEndpoint
 
-Create an instance: `get_endpoint := client.GetEndpoint(nil)`
+Create an instance: `getEndpoint := client.GetEndpoint(nil)`
 
 #### Operations
 
@@ -466,11 +466,11 @@ Create an instance: `get_endpoint := client.GetEndpoint(nil)`
 #### Example: List
 
 ```go
-get_endpoints, err := client.GetEndpoint(nil).List(nil, nil)
+getEndpoints, err := client.GetEndpoint(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(get_endpoints) // the array of records
+fmt.Println(getEndpoints) // the array of records
 ```
 
 
@@ -499,7 +499,7 @@ Create an instance: `location := client.Location(nil)`
 #### Example: Load
 
 ```go
-location, err := client.Location(nil).Load(map[string]any{"id": "location_id"}, nil)
+location, err := client.Location(nil).Load(map[string]any{"id": 1}, nil)
 if err != nil {
     panic(err)
 }

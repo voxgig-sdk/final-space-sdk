@@ -19,9 +19,9 @@ main: {
           url: "https://finalspaceapi.com/api/v0"
         }
       ]
+      summary: "An API based on the animated television show Final Space, providing data such as character info obtained from the Final Space wiki."
       title: "Final Space API"
       version: "0.0.1"
+      website: "https://finalspaceapi.com/docs/"
     }
   }
-}
-
