@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- FinalSpace SDK configuration
 
 local function make_config()
   return {

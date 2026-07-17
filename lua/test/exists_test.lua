@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- FinalSpace SDK exists test
 
 local sdk = require("final-space_sdk")
 
