@@ -43,8 +43,8 @@ class FinalSpaceTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('FINALSPACE_TEST_LIVE');
-        $override = self::getenv('FINALSPACE_TEST_OVERRIDE');
+        $live = self::getenv('FINAL_SPACE_TEST_LIVE');
+        $override = self::getenv('FINAL_SPACE_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class FinalSpaceTestRunner
             }
         }
 
-        $explain = self::getenv('FINALSPACE_TEST_EXPLAIN');
+        $explain = self::getenv('FINAL_SPACE_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['FINALSPACE_TEST_EXPLAIN'] = $explain;
+            $m['FINAL_SPACE_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

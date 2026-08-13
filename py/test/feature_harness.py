@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FinalSpaceControl
-from core.error import FinalSpaceError
-from core.result import FinalSpaceResult
-from core.spec import FinalSpaceSpec
+from finalspace_sdk.config import make_config
+from finalspace_sdk.features import _make_feature
+from finalspace_sdk.core.control import FinalSpaceControl
+from finalspace_sdk.core.error import FinalSpaceError
+from finalspace_sdk.core.result import FinalSpaceResult
+from finalspace_sdk.core.spec import FinalSpaceSpec
 
 
 # True when this SDK was generated with the named feature.

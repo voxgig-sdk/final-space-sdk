@@ -108,8 +108,8 @@ $character = $client->Character();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | `array` | No |  |
-| `alia` | `array` | No |  |
+| `abilities` | `array` | No |  |
+| `alias` | `array` | No |  |
 | `gender` | `string` | No |  |
 | `hair` | `string` | No |  |
 | `id` | `int` | No |  |
@@ -178,7 +178,7 @@ $episode = $client->Episode();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `air_date` | `string` | No |  |
-| `character` | `array` | No |  |
+| `characters` | `array` | No |  |
 | `director` | `string` | No |  |
 | `id` | `int` | No |  |
 | `img_url` | `string` | No |  |
@@ -243,10 +243,10 @@ $get_endpoint = $client->GetEndpoint();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `full_url` | `string` | No |  |
+| `fullUrl` | `string` | No |  |
 | `name` | `string` | No |  |
 | `path` | `string` | No |  |
-| `query_param` | `array` | No |  |
+| `queryParams` | `array` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations
@@ -301,9 +301,9 @@ $location = $client->Location();
 | --- | --- | --- | --- |
 | `id` | `int` | No |  |
 | `img_url` | `string` | No |  |
-| `inhabitant` | `array` | No |  |
+| `inhabitants` | `array` | No |  |
 | `name` | `string` | No |  |
-| `notable_resident` | `array` | No |  |
+| `notable_residents` | `array` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations

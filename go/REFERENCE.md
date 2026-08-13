@@ -114,8 +114,8 @@ fmt.Println(character.GetName()) // "character"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | `[]any` | No |  |
-| `alia` | `[]any` | No |  |
+| `abilities` | `[]any` | No |  |
+| `alias` | `[]any` | No |  |
 | `gender` | `string` | No |  |
 | `hair` | `string` | No |  |
 | `id` | `int` | No |  |
@@ -187,7 +187,7 @@ fmt.Println(episode.GetName()) // "episode"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `air_date` | `string` | No |  |
-| `character` | `[]any` | No |  |
+| `characters` | `[]any` | No |  |
 | `director` | `string` | No |  |
 | `id` | `int` | No |  |
 | `img_url` | `string` | No |  |
@@ -255,10 +255,10 @@ fmt.Println(getEndpoint.GetName()) // "get_endpoint"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `full_url` | `string` | No |  |
+| `fullUrl` | `string` | No |  |
 | `name` | `string` | No |  |
 | `path` | `string` | No |  |
-| `query_param` | `[]any` | No |  |
+| `queryParams` | `[]any` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations
@@ -312,9 +312,9 @@ fmt.Println(location.GetName()) // "location"
 | --- | --- | --- | --- |
 | `id` | `int` | No |  |
 | `img_url` | `string` | No |  |
-| `inhabitant` | `[]any` | No |  |
+| `inhabitants` | `[]any` | No |  |
 | `name` | `string` | No |  |
-| `notable_resident` | `[]any` | No |  |
+| `notable_residents` | `[]any` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations

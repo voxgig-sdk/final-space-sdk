@@ -37,7 +37,7 @@ class GetEndpointEntity extends FinalSpaceEntityBase<GetEndpoint> {
 
 
 
-  async list(this: any, reqmatch?: GetEndpointListMatch, ctrl?: Control): Promise<GetEndpoint[]> {
+  async list(this: any, reqmatch?: GetEndpointListMatch, ctrl?: Control): Promise<GetEndpointEntity[]> {
 
     const utility = this._utility
 

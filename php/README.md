@@ -38,7 +38,7 @@ try {
     // list() returns an array of Character records — iterate directly.
     $characters = $client->Character()->list();
     foreach ($characters as $item) {
-        echo $item["id"] . " " . $item["ability"] . "\n";
+        echo $item["id"] . " " . $item["abilities"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Character record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Character record (throws on error).
     $character = $client->Character()->load(["id" => 1]);
     print_r($character);
 } catch (\Throwable $err) {
@@ -65,7 +65,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $characters = $client->Character()->list();
+    $locations = $client->Location()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -137,12 +137,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```php
 $client = FinalSpaceSDK::test([
-    "entity" => ["character" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["location" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
-$character = $client->Character()->list();
-print_r($character);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$location = $client->Location()->list();
+print_r($location);
 ```
 
 ### Use a custom fetch function
@@ -244,7 +245,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -266,8 +267,8 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `ability` |  |
-| `alia` |  |
+| `abilities` |  |
+| `alias` |  |
 | `gender` |  |
 | `hair` |  |
 | `id` |  |
@@ -286,7 +287,7 @@ API path: `/character`
 | Field | Description |
 | --- | --- |
 | `air_date` |  |
-| `character` |  |
+| `characters` |  |
 | `director` |  |
 | `id` |  |
 | `img_url` |  |
@@ -301,10 +302,10 @@ API path: `/episode`
 
 | Field | Description |
 | --- | --- |
-| `full_url` |  |
+| `fullUrl` |  |
 | `name` |  |
 | `path` |  |
-| `query_param` |  |
+| `queryParams` |  |
 | `type` |  |
 
 Operations: List.
@@ -317,9 +318,9 @@ API path: `/`
 | --- | --- |
 | `id` |  |
 | `img_url` |  |
-| `inhabitant` |  |
+| `inhabitants` |  |
 | `name` |  |
-| `notable_resident` |  |
+| `notable_residents` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -360,8 +361,8 @@ Create an instance: `$character = $client->Character();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ability` | `array` |  |
-| `alia` | `array` |  |
+| `abilities` | `array` |  |
+| `alias` | `array` |  |
 | `gender` | `string` |  |
 | `hair` | `string` |  |
 | `id` | `int` |  |
@@ -374,7 +375,7 @@ Create an instance: `$character = $client->Character();`
 #### Example: Load
 
 ```php
-// load() returns the bare Character record (throws on error).
+// load() returns the ENTITY — call data_get() for the Character record (throws on error).
 $character = $client->Character()->load(["id" => 1]);
 ```
 
@@ -402,7 +403,7 @@ Create an instance: `$episode = $client->Episode();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `air_date` | `string` |  |
-| `character` | `array` |  |
+| `characters` | `array` |  |
 | `director` | `string` |  |
 | `id` | `int` |  |
 | `img_url` | `string` |  |
@@ -412,7 +413,7 @@ Create an instance: `$episode = $client->Episode();`
 #### Example: Load
 
 ```php
-// load() returns the bare Episode record (throws on error).
+// load() returns the ENTITY — call data_get() for the Episode record (throws on error).
 $episode = $client->Episode()->load(["id" => 1]);
 ```
 
@@ -438,10 +439,10 @@ Create an instance: `$get_endpoint = $client->GetEndpoint();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `full_url` | `string` |  |
+| `fullUrl` | `string` |  |
 | `name` | `string` |  |
 | `path` | `string` |  |
-| `query_param` | `array` |  |
+| `queryParams` | `array` |  |
 | `type` | `string` |  |
 
 #### Example: List
@@ -469,15 +470,15 @@ Create an instance: `$location = $client->Location();`
 | --- | --- | --- |
 | `id` | `int` |  |
 | `img_url` | `string` |  |
-| `inhabitant` | `array` |  |
+| `inhabitants` | `array` |  |
 | `name` | `string` |  |
-| `notable_resident` | `array` |  |
+| `notable_residents` | `array` |  |
 | `type` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Location record (throws on error).
+// load() returns the ENTITY — call data_get() for the Location record (throws on error).
 $location = $client->Location()->load(["id" => 1]);
 ```
 
@@ -593,11 +594,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$character = $client->Character();
-$character->list();
+$location = $client->Location();
+$location->list();
 
-// $character->data_get() now returns the character data from the last list
-// $character->match_get() returns the last match criteria
+// $location->data_get() now returns the location data from the last list
+// $location->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

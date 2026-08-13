@@ -2,8 +2,8 @@
   "existing": {
     "character": {
       "CHARACTER00": {
-        "ability": [],
-        "alia": [],
+        "abilities": [],
+        "alias": [],
         "gender": "s66",
         "hair": "s67",
         "id": "CHARACTER00",
@@ -14,8 +14,8 @@
         "status": "s6d"
       },
       "CHARACTER01": {
-        "ability": [],
-        "alia": [],
+        "abilities": [],
+        "alias": [],
         "gender": "sca",
         "hair": "scb",
         "id": "CHARACTER01",
@@ -26,8 +26,8 @@
         "status": "sd1"
       },
       "CHARACTER02": {
-        "ability": [],
-        "alia": [],
+        "abilities": [],
+        "alias": [],
         "gender": "s12e",
         "hair": "s12f",
         "id": "CHARACTER02",
@@ -42,8 +42,8 @@
   "new": {
     "character": {
       "character_ref01": {
-        "ability": [],
-        "alia": [],
+        "abilities": [],
+        "alias": [],
         "gender": "s192",
         "hair": "s193",
         "img_url": "s195",

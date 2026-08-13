@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# FinalSpace SDK exists test
 
 import pytest
 from finalspace_sdk import FinalSpaceSDK

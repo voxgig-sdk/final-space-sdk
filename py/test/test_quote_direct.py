@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from finalspace_sdk.utility.voxgig_struct import voxgig_struct as vs
 from finalspace_sdk import FinalSpaceSDK
-from core import helpers
+from finalspace_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _quote_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "FINALSPACE_TEST_QUOTE_ENTID": {},
-        "FINALSPACE_TEST_LIVE": "FALSE",
+        "FINAL_SPACE_TEST_QUOTE_ENTID": {},
+        "FINAL_SPACE_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("FINALSPACE_TEST_LIVE") == "TRUE"
+    live = env.get("FINAL_SPACE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

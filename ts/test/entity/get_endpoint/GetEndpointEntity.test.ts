@@ -26,8 +26,8 @@ import {
 describe('GetEndpointEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when FINALSPACE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('FINALSPACE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when FINAL_SPACE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('FINAL_SPACE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = FinalSpaceSDK.test()
@@ -63,7 +63,7 @@ describe('GetEndpointEntity', async () => {
     const get_endpoint_ref01_ent = client.GetEndpoint()
     const get_endpoint_ref01_match: any = {}
 
-    const get_endpoint_ref01_list = await get_endpoint_ref01_ent.list(get_endpoint_ref01_match)
+    const get_endpoint_ref01_list = (await get_endpoint_ref01_ent.list(get_endpoint_ref01_match)).map((e: any) => e.data())
 
 
   })

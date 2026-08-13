@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'FinalSpace',
   }
 
 
@@ -68,14 +68,14 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "ability",
+          "name": "abilities",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
         },
         {
           "active": true,
-          "name": "alia",
+          "name": "alias",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 1
@@ -157,6 +157,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/character",
               "parts": [
@@ -195,6 +196,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/character/{id}",
               "parts": [
@@ -231,7 +233,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "character",
+          "name": "characters",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 1
@@ -292,6 +294,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/episode",
               "parts": [
@@ -330,6 +333,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/episode/{id}",
               "parts": [
@@ -359,7 +363,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "full_url",
+          "name": "fullUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
@@ -380,7 +384,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "query_param",
+          "name": "queryParams",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 3
@@ -402,6 +406,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/",
               "parts": [],
@@ -438,7 +443,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "inhabitant",
+          "name": "inhabitants",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 2
@@ -452,7 +457,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "notable_resident",
+          "name": "notable_residents",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 4
@@ -485,6 +490,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/location",
               "parts": [
@@ -523,6 +529,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/location/{id}",
               "parts": [
@@ -606,6 +613,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/quote",
               "parts": [

@@ -6,7 +6,7 @@ main: kit: entity: get_endpoint: {
 
   fields: [
     {
-      name: "full_url"
+      name: "fullUrl"
       req: false
       type: "`$STRING`"
     }
@@ -21,7 +21,7 @@ main: kit: entity: get_endpoint: {
       type: "`$STRING`"
     }
     {
-      name: "query_param"
+      name: "queryParams"
       req: false
       type: "`$ARRAY`"
     }

@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import FinalSpaceSDK
-from core.error import FinalSpaceError
-from core.result import FinalSpaceResult
-from core.response import FinalSpaceResponse
-from core.spec import FinalSpaceSpec
-from feature.base_feature import FinalSpaceBaseFeature
+from projectname_sdk.core.error import FinalSpaceError
+from projectname_sdk.core.result import FinalSpaceResult
+from projectname_sdk.core.response import FinalSpaceResponse
+from projectname_sdk.core.spec import FinalSpaceSpec
+from projectname_sdk.feature.base_feature import FinalSpaceBaseFeature
 
 
 def _client():

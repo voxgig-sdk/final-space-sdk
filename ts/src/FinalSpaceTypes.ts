@@ -6,8 +6,8 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Character {
-  ability?: any[]
-  alia?: any[]
+  abilities?: any[]
+  alias?: any[]
   gender?: string
   hair?: string
   id?: number
@@ -23,8 +23,8 @@ export interface CharacterLoadMatch {
 }
 
 export interface CharacterListMatch {
-  ability?: any[]
-  alia?: any[]
+  abilities?: any[]
+  alias?: any[]
   gender?: string
   hair?: string
   id?: number
@@ -37,7 +37,7 @@ export interface CharacterListMatch {
 
 export interface Episode {
   air_date?: string
-  character?: any[]
+  characters?: any[]
   director?: string
   id?: number
   img_url?: string
@@ -51,7 +51,7 @@ export interface EpisodeLoadMatch {
 
 export interface EpisodeListMatch {
   air_date?: string
-  character?: any[]
+  characters?: any[]
   director?: string
   id?: number
   img_url?: string
@@ -60,27 +60,27 @@ export interface EpisodeListMatch {
 }
 
 export interface GetEndpoint {
-  full_url?: string
+  fullUrl?: string
   name?: string
   path?: string
-  query_param?: any[]
+  queryParams?: any[]
   type?: string
 }
 
 export interface GetEndpointListMatch {
-  full_url?: string
+  fullUrl?: string
   name?: string
   path?: string
-  query_param?: any[]
+  queryParams?: any[]
   type?: string
 }
 
 export interface Location {
   id?: number
   img_url?: string
-  inhabitant?: any[]
+  inhabitants?: any[]
   name?: string
-  notable_resident?: any[]
+  notable_residents?: any[]
   type?: string
 }
 
@@ -91,9 +91,9 @@ export interface LocationLoadMatch {
 export interface LocationListMatch {
   id?: number
   img_url?: string
-  inhabitant?: any[]
+  inhabitants?: any[]
   name?: string
-  notable_resident?: any[]
+  notable_residents?: any[]
   type?: string
 }
 

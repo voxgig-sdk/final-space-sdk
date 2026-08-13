@@ -164,8 +164,8 @@ const character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | `any[]` | No |  |
-| `alia` | `any[]` | No |  |
+| `abilities` | `any[]` | No |  |
+| `alias` | `any[]` | No |  |
 | `gender` | `string` | No |  |
 | `hair` | `string` | No |  |
 | `id` | `number` | No |  |
@@ -232,7 +232,7 @@ const episode = client.Episode()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `air_date` | `string` | No |  |
-| `character` | `any[]` | No |  |
+| `characters` | `any[]` | No |  |
 | `director` | `string` | No |  |
 | `id` | `number` | No |  |
 | `img_url` | `string` | No |  |
@@ -295,10 +295,10 @@ const get_endpoint = client.GetEndpoint()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `full_url` | `string` | No |  |
+| `fullUrl` | `string` | No |  |
 | `name` | `string` | No |  |
 | `path` | `string` | No |  |
-| `query_param` | `any[]` | No |  |
+| `queryParams` | `any[]` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations
@@ -351,9 +351,9 @@ const location = client.Location()
 | --- | --- | --- | --- |
 | `id` | `number` | No |  |
 | `img_url` | `string` | No |  |
-| `inhabitant` | `any[]` | No |  |
+| `inhabitants` | `any[]` | No |  |
 | `name` | `string` | No |  |
-| `notable_resident` | `any[]` | No |  |
+| `notable_residents` | `any[]` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations

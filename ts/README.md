@@ -35,7 +35,9 @@ const client = new FinalSpaceSDK()
 
 ### 2. List character records
 
-`list()` resolves to an array of Character objects — iterate it directly:
+`list()` resolves to an array of Character ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const characters = await client.Character().list()
@@ -65,8 +67,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const characters = await client.Character().list()
-  console.log(characters)
+  const locations = await client.Location().list()
+  console.log(locations)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -132,9 +134,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = FinalSpaceSDK.test()
 
-const character = await client.Character().list()
-// character is a bare entity populated with mock response data
-console.log(character)
+const location = await client.Location().list()
+// location is the entity, populated with mock response data
+// — call location.data() for the record itself
+console.log(location)
 ```
 
 You can also use the instance method:
@@ -149,7 +152,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Character()
+const entity = client.Location()
 
 // First call runs the operation and stores its result
 await entity.list()
@@ -303,8 +306,8 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `ability` |  |
-| `alia` |  |
+| `abilities` |  |
+| `alias` |  |
 | `gender` |  |
 | `hair` |  |
 | `id` |  |
@@ -323,7 +326,7 @@ API path: `/character`
 | Field | Description |
 | --- | --- |
 | `air_date` |  |
-| `character` |  |
+| `characters` |  |
 | `director` |  |
 | `id` |  |
 | `img_url` |  |
@@ -338,10 +341,10 @@ API path: `/episode`
 
 | Field | Description |
 | --- | --- |
-| `full_url` |  |
+| `fullUrl` |  |
 | `name` |  |
 | `path` |  |
-| `query_param` |  |
+| `queryParams` |  |
 | `type` |  |
 
 Operations: list.
@@ -354,9 +357,9 @@ API path: `/`
 | --- | --- |
 | `id` |  |
 | `img_url` |  |
-| `inhabitant` |  |
+| `inhabitants` |  |
 | `name` |  |
-| `notable_resident` |  |
+| `notable_residents` |  |
 | `type` |  |
 
 Operations: list, load.
@@ -397,8 +400,8 @@ Create an instance: `const character = client.Character()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ability` | `any[]` |  |
-| `alia` | `any[]` |  |
+| `abilities` | `any[]` |  |
+| `alias` | `any[]` |  |
 | `gender` | `string` |  |
 | `hair` | `string` |  |
 | `id` | `number` |  |
@@ -437,7 +440,7 @@ Create an instance: `const episode = client.Episode()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `air_date` | `string` |  |
-| `character` | `any[]` |  |
+| `characters` | `any[]` |  |
 | `director` | `string` |  |
 | `id` | `number` |  |
 | `img_url` | `string` |  |
@@ -471,10 +474,10 @@ Create an instance: `const get_endpoint = client.GetEndpoint()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `full_url` | `string` |  |
+| `fullUrl` | `string` |  |
 | `name` | `string` |  |
 | `path` | `string` |  |
-| `query_param` | `any[]` |  |
+| `queryParams` | `any[]` |  |
 | `type` | `string` |  |
 
 #### Example: List
@@ -501,9 +504,9 @@ Create an instance: `const location = client.Location()`
 | --- | --- | --- |
 | `id` | `number` |  |
 | `img_url` | `string` |  |
-| `inhabitant` | `any[]` |  |
+| `inhabitants` | `any[]` |  |
 | `name` | `string` |  |
-| `notable_resident` | `any[]` |  |
+| `notable_residents` | `any[]` |  |
 | `type` | `string` |  |
 
 #### Example: Load
@@ -615,11 +618,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const character = client.Character()
-await character.list()
+const location = client.Location()
+await location.list()
 
-// character.data() now returns the character data from the last `list`
-// character.match() returns the last match criteria
+// location.data() now returns the location data from the last `list`
+// location.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

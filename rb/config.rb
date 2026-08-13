@@ -31,14 +31,14 @@ module FinalSpaceConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "ability",
+              "name" => "abilities",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
             },
             {
               "active" => true,
-              "name" => "alia",
+              "name" => "alias",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 1,
@@ -120,6 +120,7 @@ module FinalSpaceConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/character",
                   "parts" => [
@@ -158,6 +159,7 @@ module FinalSpaceConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/character/{id}",
                   "parts" => [
@@ -194,7 +196,7 @@ module FinalSpaceConfig
             },
             {
               "active" => true,
-              "name" => "character",
+              "name" => "characters",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 1,
@@ -255,6 +257,7 @@ module FinalSpaceConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/episode",
                   "parts" => [
@@ -293,6 +296,7 @@ module FinalSpaceConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/episode/{id}",
                   "parts" => [
@@ -322,7 +326,7 @@ module FinalSpaceConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "full_url",
+              "name" => "fullUrl",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 0,
@@ -343,7 +347,7 @@ module FinalSpaceConfig
             },
             {
               "active" => true,
-              "name" => "query_param",
+              "name" => "queryParams",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 3,
@@ -365,6 +369,7 @@ module FinalSpaceConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/",
                   "parts" => [],
@@ -401,7 +406,7 @@ module FinalSpaceConfig
             },
             {
               "active" => true,
-              "name" => "inhabitant",
+              "name" => "inhabitants",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 2,
@@ -415,7 +420,7 @@ module FinalSpaceConfig
             },
             {
               "active" => true,
-              "name" => "notable_resident",
+              "name" => "notable_residents",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 4,
@@ -448,6 +453,7 @@ module FinalSpaceConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/location",
                   "parts" => [
@@ -486,6 +492,7 @@ module FinalSpaceConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/location/{id}",
                   "parts" => [
@@ -569,6 +576,7 @@ module FinalSpaceConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/quote",
                   "parts" => [

@@ -15,8 +15,8 @@ declare(strict_types=1);
 /** Character entity data model. */
 class Character
 {
-    public ?array $ability = null;
-    public ?array $alia = null;
+    public ?array $abilities = null;
+    public ?array $alias = null;
     public ?string $gender = null;
     public ?string $hair = null;
     public ?int $id = null;
@@ -36,8 +36,8 @@ class CharacterLoadMatch
 /** Request payload for Character#list. */
 class CharacterListMatch
 {
-    public ?array $ability = null;
-    public ?array $alia = null;
+    public ?array $abilities = null;
+    public ?array $alias = null;
     public ?string $gender = null;
     public ?string $hair = null;
     public ?int $id = null;
@@ -52,7 +52,7 @@ class CharacterListMatch
 class Episode
 {
     public ?string $air_date = null;
-    public ?array $character = null;
+    public ?array $characters = null;
     public ?string $director = null;
     public ?int $id = null;
     public ?string $img_url = null;
@@ -70,7 +70,7 @@ class EpisodeLoadMatch
 class EpisodeListMatch
 {
     public ?string $air_date = null;
-    public ?array $character = null;
+    public ?array $characters = null;
     public ?string $director = null;
     public ?int $id = null;
     public ?string $img_url = null;
@@ -81,20 +81,20 @@ class EpisodeListMatch
 /** GetEndpoint entity data model. */
 class GetEndpoint
 {
-    public ?string $full_url = null;
+    public ?string $fullUrl = null;
     public ?string $name = null;
     public ?string $path = null;
-    public ?array $query_param = null;
+    public ?array $queryParams = null;
     public ?string $type = null;
 }
 
 /** Request payload for GetEndpoint#list. */
 class GetEndpointListMatch
 {
-    public ?string $full_url = null;
+    public ?string $fullUrl = null;
     public ?string $name = null;
     public ?string $path = null;
-    public ?array $query_param = null;
+    public ?array $queryParams = null;
     public ?string $type = null;
 }
 
@@ -103,9 +103,9 @@ class Location
 {
     public ?int $id = null;
     public ?string $img_url = null;
-    public ?array $inhabitant = null;
+    public ?array $inhabitants = null;
     public ?string $name = null;
-    public ?array $notable_resident = null;
+    public ?array $notable_residents = null;
     public ?string $type = null;
 }
 
@@ -120,9 +120,9 @@ class LocationListMatch
 {
     public ?int $id = null;
     public ?string $img_url = null;
-    public ?array $inhabitant = null;
+    public ?array $inhabitants = null;
     public ?string $name = null;
-    public ?array $notable_resident = null;
+    public ?array $notable_residents = null;
     public ?string $type = null;
 }
 

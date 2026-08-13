@@ -37,7 +37,7 @@ begin
   # list returns an Array of Character records — iterate directly.
   characters = client.Character.list
   characters.each do |item|
-    puts "#{item["id"]} #{item["ability"]}"
+    puts "#{item["id"]} #{item["abilities"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Character record (raises on error).
+  # load returns the ENTITY — call data_get for the Character record (raises on error).
   character = client.Character.load({ "id" => 1 })
   puts character
 rescue => err
@@ -63,7 +63,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  characters = client.Character.list()
+  locations = client.Location.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -131,12 +131,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
 client = FinalSpaceSDK.test({
-  "entity" => { "character" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "location" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
-character = client.Character.list()
-puts character
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+location = client.Location.list()
+puts location
 ```
 
 ### Use a custom fetch function
@@ -256,8 +257,8 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `ability` |  |
-| `alia` |  |
+| `abilities` |  |
+| `alias` |  |
 | `gender` |  |
 | `hair` |  |
 | `id` |  |
@@ -276,7 +277,7 @@ API path: `/character`
 | Field | Description |
 | --- | --- |
 | `air_date` |  |
-| `character` |  |
+| `characters` |  |
 | `director` |  |
 | `id` |  |
 | `img_url` |  |
@@ -291,10 +292,10 @@ API path: `/episode`
 
 | Field | Description |
 | --- | --- |
-| `full_url` |  |
+| `fullUrl` |  |
 | `name` |  |
 | `path` |  |
-| `query_param` |  |
+| `queryParams` |  |
 | `type` |  |
 
 Operations: List.
@@ -307,9 +308,9 @@ API path: `/`
 | --- | --- |
 | `id` |  |
 | `img_url` |  |
-| `inhabitant` |  |
+| `inhabitants` |  |
 | `name` |  |
-| `notable_resident` |  |
+| `notable_residents` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -350,8 +351,8 @@ Create an instance: `character = client.Character`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ability` | `Array` |  |
-| `alia` | `Array` |  |
+| `abilities` | `Array` |  |
+| `alias` | `Array` |  |
 | `gender` | `String` |  |
 | `hair` | `String` |  |
 | `id` | `Integer` |  |
@@ -364,7 +365,7 @@ Create an instance: `character = client.Character`
 #### Example: Load
 
 ```ruby
-# load returns the bare Character record (raises on error).
+# load returns the ENTITY — call data_get for the Character record (raises on error).
 character = client.Character.load({ "id" => 1 })
 ```
 
@@ -392,7 +393,7 @@ Create an instance: `episode = client.Episode`
 | Field | Type | Description |
 | --- | --- | --- |
 | `air_date` | `String` |  |
-| `character` | `Array` |  |
+| `characters` | `Array` |  |
 | `director` | `String` |  |
 | `id` | `Integer` |  |
 | `img_url` | `String` |  |
@@ -402,7 +403,7 @@ Create an instance: `episode = client.Episode`
 #### Example: Load
 
 ```ruby
-# load returns the bare Episode record (raises on error).
+# load returns the ENTITY — call data_get for the Episode record (raises on error).
 episode = client.Episode.load({ "id" => 1 })
 ```
 
@@ -428,10 +429,10 @@ Create an instance: `get_endpoint = client.GetEndpoint`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `full_url` | `String` |  |
+| `fullUrl` | `String` |  |
 | `name` | `String` |  |
 | `path` | `String` |  |
-| `query_param` | `Array` |  |
+| `queryParams` | `Array` |  |
 | `type` | `String` |  |
 
 #### Example: List
@@ -459,15 +460,15 @@ Create an instance: `location = client.Location`
 | --- | --- | --- |
 | `id` | `Integer` |  |
 | `img_url` | `String` |  |
-| `inhabitant` | `Array` |  |
+| `inhabitants` | `Array` |  |
 | `name` | `String` |  |
-| `notable_resident` | `Array` |  |
+| `notable_residents` | `Array` |  |
 | `type` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Location record (raises on error).
+# load returns the ENTITY — call data_get for the Location record (raises on error).
 location = client.Location.load({ "id" => 1 })
 ```
 
@@ -583,11 +584,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-character = client.Character
-character.list()
+location = client.Location
+location.list()
 
-# character.data_get now returns the character data from the last list
-# character.match_get returns the last match criteria
+# location.data_get now returns the location data from the last list
+# location.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

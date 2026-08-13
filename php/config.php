@@ -36,14 +36,14 @@ class FinalSpaceConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'ability',
+              'name' => 'abilities',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 0,
             ],
             [
               'active' => true,
-              'name' => 'alia',
+              'name' => 'alias',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 1,
@@ -125,6 +125,7 @@ class FinalSpaceConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character',
                   'parts' => [
@@ -163,6 +164,7 @@ class FinalSpaceConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character/{id}',
                   'parts' => [
@@ -199,7 +201,7 @@ class FinalSpaceConfig
             ],
             [
               'active' => true,
-              'name' => 'character',
+              'name' => 'characters',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 1,
@@ -260,6 +262,7 @@ class FinalSpaceConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/episode',
                   'parts' => [
@@ -298,6 +301,7 @@ class FinalSpaceConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/episode/{id}',
                   'parts' => [
@@ -327,7 +331,7 @@ class FinalSpaceConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'full_url',
+              'name' => 'fullUrl',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 0,
@@ -348,7 +352,7 @@ class FinalSpaceConfig
             ],
             [
               'active' => true,
-              'name' => 'query_param',
+              'name' => 'queryParams',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 3,
@@ -370,6 +374,7 @@ class FinalSpaceConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/',
                   'parts' => [],
@@ -406,7 +411,7 @@ class FinalSpaceConfig
             ],
             [
               'active' => true,
-              'name' => 'inhabitant',
+              'name' => 'inhabitants',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 2,
@@ -420,7 +425,7 @@ class FinalSpaceConfig
             ],
             [
               'active' => true,
-              'name' => 'notable_resident',
+              'name' => 'notable_residents',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 4,
@@ -453,6 +458,7 @@ class FinalSpaceConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/location',
                   'parts' => [
@@ -491,6 +497,7 @@ class FinalSpaceConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/location/{id}',
                   'parts' => [
@@ -574,6 +581,7 @@ class FinalSpaceConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quote',
                   'parts' => [

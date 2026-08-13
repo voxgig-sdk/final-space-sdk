@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = FinalSpaceSDK.test()
-const characters = await client.Character().list()
-// characters is an array of bare Character records populated with mock data
-console.log(characters)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = FinalSpaceSDK.test({
+  entity: {
+    location: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const locations = await client.Location().list()
+// locations is an array of Location entities, populated with mock data
+// — call locations[0].data() for the record itself
+console.log(locations)
 ```
 
 ### Python
 
 ```python
 client = FinalSpaceSDK.test()
-characters = client.Character().list()
-print(characters)
+locations = client.Location().list()
+print(locations)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(characters)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = FinalSpaceSDK::test([
-    "entity" => ["character" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["location" => ["test01" => ["id" => "test01"]]],
 ]);
-$characters = $client->Character()->list();
+$locations = $client->Location()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Character(nil).List(
+result, err := client.Location(nil).List(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.Character(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = FinalSpaceSDK.test({
-  "entity" => { "character" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "location" => { "test01" => { "id" => "test01" } } },
 })
-characters = client.Character.list()
+locations = client.Location.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Character():list()
+local results, err = client:Location():list()
 ```
 
 ## Packages
@@ -110,7 +119,7 @@ import { FinalSpaceSDK } from '@voxgig-sdk/final-space'
 
 const client = new FinalSpaceSDK()
 
-// List all characters (returns Character[])
+// List all characters (returns CharacterEntity[] — .data() for the record)
 const characters = await client.Character().list()
 for (const character of characters) {
   console.log(character)
@@ -195,7 +204,7 @@ $client = new FinalSpaceSDK();
 $characters = $client->Character()->list();
 print_r($characters);
 
-// Load a specific character (returns the bare record; throws on error)
+// Load a specific character (returns the ENTITY; call data_get() for the record; throws on error)
 $character = $client->Character()->load(["id" => 1]);
 print_r($character);
 ```
@@ -226,7 +235,7 @@ client = FinalSpaceSDK.new
 characters = client.Character.list
 puts characters
 
-# Load a specific character (returns the bare record; raises on error)
+# Load a specific character (returns the ENTITY; call data_get for the record)
 character = client.Character.load({ "id" => 1 })
 puts character
 ```
@@ -363,6 +372,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://finalspaceapi.com/docs/](https://finalspaceapi.com/docs/)
 

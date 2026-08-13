@@ -6,15 +6,15 @@ import re
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from finalspace_sdk.utility.voxgig_struct import voxgig_struct as vs
 from finalspace_sdk import FinalSpaceSDK
-from core.spec import FinalSpaceSpec
-from core.result import FinalSpaceResult
-from core.response import FinalSpaceResponse
-from core.operation import FinalSpaceOperation
-from core.error import FinalSpaceError
-from core import helpers
-from feature.base_feature import FinalSpaceBaseFeature
+from finalspace_sdk.core.spec import FinalSpaceSpec
+from finalspace_sdk.core.result import FinalSpaceResult
+from finalspace_sdk.core.response import FinalSpaceResponse
+from finalspace_sdk.core.operation import FinalSpaceOperation
+from finalspace_sdk.core.error import FinalSpaceError
+from finalspace_sdk.core import helpers
+from finalspace_sdk.feature.base_feature import FinalSpaceBaseFeature
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -468,6 +468,10 @@ class TestPrimaryUtility:
             return {"status": 200, "statusText": "OK"}, None
 
         live_client = FinalSpaceSDK({
+            # Concrete base: a live construction must satisfy any server
+            # variables a templated base URL declares; a literal base
+            # sidesteps the requirement.
+            "base": "http://localhost:8080",
             "system": {
                 "fetch": mock_fetch,
             },
@@ -490,6 +494,7 @@ class TestPrimaryUtility:
             return {}, None
 
         blocked_client = FinalSpaceSDK({
+            "base": "http://localhost:8080",
             "system": {
                 "fetch": mock_fetch,
             },
@@ -945,28 +950,23 @@ class TestPrimaryUtility:
         _runset(_get_spec(primary, "prepareParams", "basic"), subject)
 
     def test_prepare_path_basic(self):
+        # Was two hand-written cases that had drifted out of the shared corpus
+        # (the preparePath fixture shipped as an empty `set: []`). Now driven
+        # by the corpus like every other section, so all ports assert the same
+        # separator / blank-segment behaviour.
+        spec = _load_test_spec()
+        primary = _get_spec(spec, "primary")
         client = FinalSpaceSDK.test(None, None)
         utility = client._utility
-        ctx = _make_test_full_ctx(client, utility)
-        ctx.point = {
-            "parts": ["api", "planet", "{id}"],
-            "args": {"params": []},
-        }
 
-        path = utility.prepare_path(ctx)
-        assert path == "api/planet/{id}"
+        def subject(entry):
+            ctxmap = entry.get("ctx")
+            if not isinstance(ctxmap, dict):
+                ctxmap = {}
+            ctx = _make_ctx_from_map(ctxmap, client, utility)
+            return utility.prepare_path(ctx), None
 
-    def test_prepare_path_single(self):
-        client = FinalSpaceSDK.test(None, None)
-        utility = client._utility
-        ctx = _make_test_full_ctx(client, utility)
-        ctx.point = {
-            "parts": ["items"],
-            "args": {"params": []},
-        }
-
-        path = utility.prepare_path(ctx)
-        assert path == "items"
+        _runset(_get_spec(primary, "preparePath", "basic"), subject)
 
     def test_prepare_query_basic(self):
         spec = _load_test_spec()

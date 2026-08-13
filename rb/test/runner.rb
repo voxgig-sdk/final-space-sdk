@@ -23,8 +23,8 @@ module FinalSpaceTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("FINALSPACE_TEST_LIVE")
-    override = getenv("FINALSPACE_TEST_OVERRIDE")
+    live = getenv("FINAL_SPACE_TEST_LIVE")
+    override = getenv("FINAL_SPACE_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module FinalSpaceTestRunner
       end
     end
 
-    explain = getenv("FINALSPACE_TEST_EXPLAIN")
-    m["FINALSPACE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("FINAL_SPACE_TEST_EXPLAIN")
+    m["FINAL_SPACE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

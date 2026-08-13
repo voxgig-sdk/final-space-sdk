@@ -106,8 +106,8 @@ local character = client:Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | `table` | No |  |
-| `alia` | `table` | No |  |
+| `abilities` | `table` | No |  |
+| `alias` | `table` | No |  |
 | `gender` | `string` | No |  |
 | `hair` | `string` | No |  |
 | `id` | `number` | No |  |
@@ -176,7 +176,7 @@ local episode = client:Episode(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `air_date` | `string` | No |  |
-| `character` | `table` | No |  |
+| `characters` | `table` | No |  |
 | `director` | `string` | No |  |
 | `id` | `number` | No |  |
 | `img_url` | `string` | No |  |
@@ -241,10 +241,10 @@ local get_endpoint = client:GetEndpoint(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `full_url` | `string` | No |  |
+| `fullUrl` | `string` | No |  |
 | `name` | `string` | No |  |
 | `path` | `string` | No |  |
-| `query_param` | `table` | No |  |
+| `queryParams` | `table` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations
@@ -299,9 +299,9 @@ local location = client:Location(nil)
 | --- | --- | --- | --- |
 | `id` | `number` | No |  |
 | `img_url` | `string` | No |  |
-| `inhabitant` | `table` | No |  |
+| `inhabitants` | `table` | No |  |
 | `name` | `string` | No |  |
-| `notable_resident` | `table` | No |  |
+| `notable_residents` | `table` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations

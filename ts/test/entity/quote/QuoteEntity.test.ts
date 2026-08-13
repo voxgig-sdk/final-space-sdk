@@ -26,8 +26,8 @@ import {
 describe('QuoteEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when FINALSPACE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('FINALSPACE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when FINAL_SPACE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('FINAL_SPACE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = FinalSpaceSDK.test()
@@ -63,7 +63,7 @@ describe('QuoteEntity', async () => {
     const quote_ref01_ent = client.Quote()
     const quote_ref01_match: any = {}
 
-    const quote_ref01_list = await quote_ref01_ent.list(quote_ref01_match)
+    const quote_ref01_list = (await quote_ref01_ent.list(quote_ref01_match)).map((e: any) => e.data())
 
 
   })

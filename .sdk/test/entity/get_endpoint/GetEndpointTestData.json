@@ -2,24 +2,24 @@
   "existing": {
     "get_endpoint": {
       "GET_ENDPOINT00": {
-        "full_url": "s32",
+        "fullUrl": "s32",
         "name": "s33",
         "path": "s34",
-        "query_param": [],
+        "queryParams": [],
         "type": "s36"
       },
       "GET_ENDPOINT01": {
-        "full_url": "s64",
+        "fullUrl": "s64",
         "name": "s65",
         "path": "s66",
-        "query_param": [],
+        "queryParams": [],
         "type": "s68"
       },
       "GET_ENDPOINT02": {
-        "full_url": "s96",
+        "fullUrl": "s96",
         "name": "s97",
         "path": "s98",
-        "query_param": [],
+        "queryParams": [],
         "type": "s9a"
       }
     }
@@ -27,10 +27,10 @@
   "new": {
     "get_endpoint": {
       "get_endpoint_ref01": {
-        "full_url": "sc8",
+        "fullUrl": "sc8",
         "name": "sc9",
         "path": "sca",
-        "query_param": [],
+        "queryParams": [],
         "type": "scc"
       }
     }

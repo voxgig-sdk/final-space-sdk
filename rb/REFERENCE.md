@@ -109,8 +109,8 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | `Array` | No |  |
-| `alia` | `Array` | No |  |
+| `abilities` | `Array` | No |  |
+| `alias` | `Array` | No |  |
 | `gender` | `String` | No |  |
 | `hair` | `String` | No |  |
 | `id` | `Integer` | No |  |
@@ -179,7 +179,7 @@ episode = client.Episode
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `air_date` | `String` | No |  |
-| `character` | `Array` | No |  |
+| `characters` | `Array` | No |  |
 | `director` | `String` | No |  |
 | `id` | `Integer` | No |  |
 | `img_url` | `String` | No |  |
@@ -244,10 +244,10 @@ get_endpoint = client.GetEndpoint
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `full_url` | `String` | No |  |
+| `fullUrl` | `String` | No |  |
 | `name` | `String` | No |  |
 | `path` | `String` | No |  |
-| `query_param` | `Array` | No |  |
+| `queryParams` | `Array` | No |  |
 | `type` | `String` | No |  |
 
 ### Operations
@@ -302,9 +302,9 @@ location = client.Location
 | --- | --- | --- | --- |
 | `id` | `Integer` | No |  |
 | `img_url` | `String` | No |  |
-| `inhabitant` | `Array` | No |  |
+| `inhabitants` | `Array` | No |  |
 | `name` | `String` | No |  |
-| `notable_resident` | `Array` | No |  |
+| `notable_residents` | `Array` | No |  |
 | `type` | `String` | No |  |
 
 ### Operations

@@ -30,14 +30,14 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "ability",
+            ["name"] = "abilities",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 0,
           },
           {
             ["active"] = true,
-            ["name"] = "alia",
+            ["name"] = "alias",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 1,
@@ -119,6 +119,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/character",
                 ["parts"] = {
@@ -157,6 +158,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/character/{id}",
                 ["parts"] = {
@@ -193,7 +195,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "character",
+            ["name"] = "characters",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 1,
@@ -254,6 +256,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/episode",
                 ["parts"] = {
@@ -292,6 +295,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/episode/{id}",
                 ["parts"] = {
@@ -321,7 +325,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "full_url",
+            ["name"] = "fullUrl",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 0,
@@ -342,7 +346,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "query_param",
+            ["name"] = "queryParams",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 3,
@@ -364,6 +368,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/",
                 ["parts"] = {},
@@ -400,7 +405,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "inhabitant",
+            ["name"] = "inhabitants",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 2,
@@ -414,7 +419,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "notable_resident",
+            ["name"] = "notable_residents",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 4,
@@ -447,6 +452,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/location",
                 ["parts"] = {
@@ -485,6 +491,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/location/{id}",
                 ["parts"] = {
@@ -568,6 +575,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/quote",
                 ["parts"] = {

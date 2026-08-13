@@ -7,8 +7,8 @@
 -- edit by hand.
 
 ---@class Character
----@field ability? table
----@field alia? table
+---@field abilities? table
+---@field alias? table
 ---@field gender? string
 ---@field hair? string
 ---@field id? number
@@ -22,8 +22,8 @@
 ---@field id number
 
 ---@class CharacterListMatch
----@field ability? table
----@field alia? table
+---@field abilities? table
+---@field alias? table
 ---@field gender? string
 ---@field hair? string
 ---@field id? number
@@ -35,7 +35,7 @@
 
 ---@class Episode
 ---@field air_date? string
----@field character? table
+---@field characters? table
 ---@field director? string
 ---@field id? number
 ---@field img_url? string
@@ -47,7 +47,7 @@
 
 ---@class EpisodeListMatch
 ---@field air_date? string
----@field character? table
+---@field characters? table
 ---@field director? string
 ---@field id? number
 ---@field img_url? string
@@ -55,25 +55,25 @@
 ---@field writer? string
 
 ---@class GetEndpoint
----@field full_url? string
+---@field fullUrl? string
 ---@field name? string
 ---@field path? string
----@field query_param? table
+---@field queryParams? table
 ---@field type? string
 
 ---@class GetEndpointListMatch
----@field full_url? string
+---@field fullUrl? string
 ---@field name? string
 ---@field path? string
----@field query_param? table
+---@field queryParams? table
 ---@field type? string
 
 ---@class Location
 ---@field id? number
 ---@field img_url? string
----@field inhabitant? table
+---@field inhabitants? table
 ---@field name? string
----@field notable_resident? table
+---@field notable_residents? table
 ---@field type? string
 
 ---@class LocationLoadMatch
@@ -82,9 +82,9 @@
 ---@class LocationListMatch
 ---@field id? number
 ---@field img_url? string
----@field inhabitant? table
+---@field inhabitants? table
 ---@field name? string
----@field notable_resident? table
+---@field notable_residents? table
 ---@field type? string
 
 ---@class Quote

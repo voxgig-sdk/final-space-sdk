@@ -10,10 +10,10 @@
 
 # Character entity data model.
 #
-# @!attribute [rw] ability
+# @!attribute [rw] abilities
 #   @return [Array, nil]
 #
-# @!attribute [rw] alia
+# @!attribute [rw] alias
 #   @return [Array, nil]
 #
 # @!attribute [rw] gender
@@ -40,8 +40,8 @@
 # @!attribute [rw] status
 #   @return [String, nil]
 Character = Struct.new(
-  :ability,
-  :alia,
+  :abilities,
+  :alias,
   :gender,
   :hair,
   :id,
@@ -64,10 +64,10 @@ CharacterLoadMatch = Struct.new(
 
 # Request payload for Character#list.
 #
-# @!attribute [rw] ability
+# @!attribute [rw] abilities
 #   @return [Array, nil]
 #
-# @!attribute [rw] alia
+# @!attribute [rw] alias
 #   @return [Array, nil]
 #
 # @!attribute [rw] gender
@@ -94,8 +94,8 @@ CharacterLoadMatch = Struct.new(
 # @!attribute [rw] status
 #   @return [String, nil]
 CharacterListMatch = Struct.new(
-  :ability,
-  :alia,
+  :abilities,
+  :alias,
   :gender,
   :hair,
   :id,
@@ -112,7 +112,7 @@ CharacterListMatch = Struct.new(
 # @!attribute [rw] air_date
 #   @return [String, nil]
 #
-# @!attribute [rw] character
+# @!attribute [rw] characters
 #   @return [Array, nil]
 #
 # @!attribute [rw] director
@@ -131,7 +131,7 @@ CharacterListMatch = Struct.new(
 #   @return [String, nil]
 Episode = Struct.new(
   :air_date,
-  :character,
+  :characters,
   :director,
   :id,
   :img_url,
@@ -154,7 +154,7 @@ EpisodeLoadMatch = Struct.new(
 # @!attribute [rw] air_date
 #   @return [String, nil]
 #
-# @!attribute [rw] character
+# @!attribute [rw] characters
 #   @return [Array, nil]
 #
 # @!attribute [rw] director
@@ -173,7 +173,7 @@ EpisodeLoadMatch = Struct.new(
 #   @return [String, nil]
 EpisodeListMatch = Struct.new(
   :air_date,
-  :character,
+  :characters,
   :director,
   :id,
   :img_url,
@@ -184,7 +184,7 @@ EpisodeListMatch = Struct.new(
 
 # GetEndpoint entity data model.
 #
-# @!attribute [rw] full_url
+# @!attribute [rw] fullUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] name
@@ -193,23 +193,23 @@ EpisodeListMatch = Struct.new(
 # @!attribute [rw] path
 #   @return [String, nil]
 #
-# @!attribute [rw] query_param
+# @!attribute [rw] queryParams
 #   @return [Array, nil]
 #
 # @!attribute [rw] type
 #   @return [String, nil]
 GetEndpoint = Struct.new(
-  :full_url,
+  :fullUrl,
   :name,
   :path,
-  :query_param,
+  :queryParams,
   :type,
   keyword_init: true
 )
 
 # Request payload for GetEndpoint#list.
 #
-# @!attribute [rw] full_url
+# @!attribute [rw] fullUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] name
@@ -218,16 +218,16 @@ GetEndpoint = Struct.new(
 # @!attribute [rw] path
 #   @return [String, nil]
 #
-# @!attribute [rw] query_param
+# @!attribute [rw] queryParams
 #   @return [Array, nil]
 #
 # @!attribute [rw] type
 #   @return [String, nil]
 GetEndpointListMatch = Struct.new(
-  :full_url,
+  :fullUrl,
   :name,
   :path,
-  :query_param,
+  :queryParams,
   :type,
   keyword_init: true
 )
@@ -240,13 +240,13 @@ GetEndpointListMatch = Struct.new(
 # @!attribute [rw] img_url
 #   @return [String, nil]
 #
-# @!attribute [rw] inhabitant
+# @!attribute [rw] inhabitants
 #   @return [Array, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] notable_resident
+# @!attribute [rw] notable_residents
 #   @return [Array, nil]
 #
 # @!attribute [rw] type
@@ -254,9 +254,9 @@ GetEndpointListMatch = Struct.new(
 Location = Struct.new(
   :id,
   :img_url,
-  :inhabitant,
+  :inhabitants,
   :name,
-  :notable_resident,
+  :notable_residents,
   :type,
   keyword_init: true
 )
@@ -278,13 +278,13 @@ LocationLoadMatch = Struct.new(
 # @!attribute [rw] img_url
 #   @return [String, nil]
 #
-# @!attribute [rw] inhabitant
+# @!attribute [rw] inhabitants
 #   @return [Array, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] notable_resident
+# @!attribute [rw] notable_residents
 #   @return [Array, nil]
 #
 # @!attribute [rw] type
@@ -292,9 +292,9 @@ LocationLoadMatch = Struct.new(
 LocationListMatch = Struct.new(
   :id,
   :img_url,
-  :inhabitant,
+  :inhabitants,
   :name,
-  :notable_resident,
+  :notable_residents,
   :type,
   keyword_init: true
 )

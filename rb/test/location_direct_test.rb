@@ -114,11 +114,11 @@ def location_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "FINALSPACE_TEST_LOCATION_ENTID" => {},
-    "FINALSPACE_TEST_LIVE" => "FALSE",
+    "FINAL_SPACE_TEST_LOCATION_ENTID" => {},
+    "FINAL_SPACE_TEST_LIVE" => "FALSE",
   })
 
-  live = env["FINALSPACE_TEST_LIVE"] == "TRUE"
+  live = env["FINAL_SPACE_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

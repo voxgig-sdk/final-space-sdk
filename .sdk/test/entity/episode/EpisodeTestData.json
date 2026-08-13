@@ -3,7 +3,7 @@
     "episode": {
       "EPISODE00": {
         "air_date": "s46",
-        "character": [],
+        "characters": [],
         "director": "s48",
         "id": "EPISODE00",
         "img_url": "s4a",
@@ -12,7 +12,7 @@
       },
       "EPISODE01": {
         "air_date": "s8c",
-        "character": [],
+        "characters": [],
         "director": "s8e",
         "id": "EPISODE01",
         "img_url": "s90",
@@ -21,7 +21,7 @@
       },
       "EPISODE02": {
         "air_date": "sd2",
-        "character": [],
+        "characters": [],
         "director": "sd4",
         "id": "EPISODE02",
         "img_url": "sd6",
@@ -34,7 +34,7 @@
     "episode": {
       "episode_ref01": {
         "air_date": "s118",
-        "character": [],
+        "characters": [],
         "director": "s11a",
         "img_url": "s11c",
         "name": "s11d",

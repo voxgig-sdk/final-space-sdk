@@ -62,7 +62,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local characters, err = client:Character():list()
+local locations, err = client:Location():list()
 if err then error(err) end
 ```
 
@@ -120,7 +120,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Character():list()
+local result, err = client:Location():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -245,8 +245,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `ability` |  |
-| `alia` |  |
+| `abilities` |  |
+| `alias` |  |
 | `gender` |  |
 | `hair` |  |
 | `id` |  |
@@ -265,7 +265,7 @@ API path: `/character`
 | Field | Description |
 | --- | --- |
 | `air_date` |  |
-| `character` |  |
+| `characters` |  |
 | `director` |  |
 | `id` |  |
 | `img_url` |  |
@@ -280,10 +280,10 @@ API path: `/episode`
 
 | Field | Description |
 | --- | --- |
-| `full_url` |  |
+| `fullUrl` |  |
 | `name` |  |
 | `path` |  |
-| `query_param` |  |
+| `queryParams` |  |
 | `type` |  |
 
 Operations: List.
@@ -296,9 +296,9 @@ API path: `/`
 | --- | --- |
 | `id` |  |
 | `img_url` |  |
-| `inhabitant` |  |
+| `inhabitants` |  |
 | `name` |  |
-| `notable_resident` |  |
+| `notable_residents` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -339,8 +339,8 @@ Create an instance: `local character = client:Character(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ability` | `table` |  |
-| `alia` | `table` |  |
+| `abilities` | `table` |  |
+| `alias` | `table` |  |
 | `gender` | `string` |  |
 | `hair` | `string` |  |
 | `id` | `number` |  |
@@ -379,7 +379,7 @@ Create an instance: `local episode = client:Episode(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `air_date` | `string` |  |
-| `character` | `table` |  |
+| `characters` | `table` |  |
 | `director` | `string` |  |
 | `id` | `number` |  |
 | `img_url` | `string` |  |
@@ -413,10 +413,10 @@ Create an instance: `local get_endpoint = client:GetEndpoint(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `full_url` | `string` |  |
+| `fullUrl` | `string` |  |
 | `name` | `string` |  |
 | `path` | `string` |  |
-| `query_param` | `table` |  |
+| `queryParams` | `table` |  |
 | `type` | `string` |  |
 
 #### Example: List
@@ -443,9 +443,9 @@ Create an instance: `local location = client:Location(nil)`
 | --- | --- | --- |
 | `id` | `number` |  |
 | `img_url` | `string` |  |
-| `inhabitant` | `table` |  |
+| `inhabitants` | `table` |  |
 | `name` | `string` |  |
-| `notable_resident` | `table` |  |
+| `notable_residents` | `table` |  |
 | `type` | `string` |  |
 
 #### Example: Load
@@ -564,11 +564,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local character = client:Character()
-character:list()
+local location = client:Location()
+location:list()
 
--- character:data_get() now returns the character data from the last list
--- character:match_get() returns the last match criteria
+-- location:data_get() now returns the location data from the last list
+-- location:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

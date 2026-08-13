@@ -4,25 +4,25 @@
       "LOCATION00": {
         "id": "LOCATION00",
         "img_url": "s3d",
-        "inhabitant": [],
+        "inhabitants": [],
         "name": "s3f",
-        "notable_resident": [],
+        "notable_residents": [],
         "type": "s41"
       },
       "LOCATION01": {
         "id": "LOCATION01",
         "img_url": "s79",
-        "inhabitant": [],
+        "inhabitants": [],
         "name": "s7b",
-        "notable_resident": [],
+        "notable_residents": [],
         "type": "s7d"
       },
       "LOCATION02": {
         "id": "LOCATION02",
         "img_url": "sb5",
-        "inhabitant": [],
+        "inhabitants": [],
         "name": "sb7",
-        "notable_resident": [],
+        "notable_residents": [],
         "type": "sb9"
       }
     }
@@ -31,9 +31,9 @@
     "location": {
       "location_ref01": {
         "img_url": "sf1",
-        "inhabitant": [],
+        "inhabitants": [],
         "name": "sf3",
-        "notable_resident": [],
+        "notable_residents": [],
         "type": "sf5"
       }
     }
