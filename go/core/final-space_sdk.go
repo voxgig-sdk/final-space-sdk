@@ -23,7 +23,7 @@ func NewFinalSpaceSDK(options map[string]any) *FinalSpaceSDK {
 
 	sdk.utility = NewUtility()
 
-	config := MakeConfig()
+	config := SharedConfig()
 
 	sdk.rootctx = sdk.utility.MakeContext(map[string]any{
 		"client":  sdk,

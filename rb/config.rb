@@ -1,6 +1,20 @@
 # FinalSpace SDK configuration
 
 module FinalSpaceConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -30,74 +44,44 @@ module FinalSpaceConfig
         "character" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "abilities",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "alias",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "gender",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "hair",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "img_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "origin",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "species",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
           ],
           "name" => "character",
@@ -107,15 +91,12 @@ module FinalSpaceConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -135,27 +116,22 @@ module FinalSpaceConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -175,10 +151,8 @@ module FinalSpaceConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -188,53 +162,32 @@ module FinalSpaceConfig
         "episode" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "air_date",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "characters",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "director",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "img_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "writer",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
           ],
           "name" => "episode",
@@ -244,15 +197,12 @@ module FinalSpaceConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -272,27 +222,22 @@ module FinalSpaceConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -312,10 +257,8 @@ module FinalSpaceConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -325,39 +268,24 @@ module FinalSpaceConfig
         "get_endpoint" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "fullUrl",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "path",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "queryParams",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "type",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
           ],
           "name" => "get_endpoint",
@@ -367,7 +295,6 @@ module FinalSpaceConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {},
                   "kind" => "http",
                   "method" => "GET",
@@ -378,10 +305,8 @@ module FinalSpaceConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {
@@ -391,46 +316,28 @@ module FinalSpaceConfig
         "location" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "img_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "inhabitants",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "name",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "notable_residents",
-              "req" => false,
               "type" => "`$ARRAY`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "type",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
           ],
           "name" => "location",
@@ -440,15 +347,12 @@ module FinalSpaceConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -468,27 +372,22 @@ module FinalSpaceConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -508,10 +407,8 @@ module FinalSpaceConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {
@@ -521,39 +418,24 @@ module FinalSpaceConfig
         "quote" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "by",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "character",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "id",
-              "req" => false,
               "type" => "`$INTEGER`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "image",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "quote",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
           ],
           "name" => "quote",
@@ -563,15 +445,12 @@ module FinalSpaceConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "sort",
                         "orig" => "sort",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -591,10 +470,8 @@ module FinalSpaceConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {

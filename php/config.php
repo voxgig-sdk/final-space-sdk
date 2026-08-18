@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class FinalSpaceConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -35,74 +58,44 @@ class FinalSpaceConfig
         'character' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'abilities',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'alias',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'gender',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'hair',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'id',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 4,
             ],
             [
-              'active' => true,
               'name' => 'img_url',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 5,
             ],
             [
-              'active' => true,
               'name' => 'name',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 6,
             ],
             [
-              'active' => true,
               'name' => 'origin',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 7,
             ],
             [
-              'active' => true,
               'name' => 'species',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 8,
             ],
             [
-              'active' => true,
               'name' => 'status',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 9,
             ],
           ],
           'name' => 'character',
@@ -112,15 +105,12 @@ class FinalSpaceConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'sort',
                         'orig' => 'sort',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -140,27 +130,22 @@ class FinalSpaceConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
             'load' => [
               'input' => 'data',
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'params' => [
                       [
-                        'active' => true,
                         'kind' => 'param',
                         'name' => 'id',
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -180,10 +165,8 @@ class FinalSpaceConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [
@@ -193,53 +176,32 @@ class FinalSpaceConfig
         'episode' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'air_date',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'characters',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'director',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'id',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'img_url',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 4,
             ],
             [
-              'active' => true,
               'name' => 'name',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 5,
             ],
             [
-              'active' => true,
               'name' => 'writer',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 6,
             ],
           ],
           'name' => 'episode',
@@ -249,15 +211,12 @@ class FinalSpaceConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'sort',
                         'orig' => 'sort',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -277,27 +236,22 @@ class FinalSpaceConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
             'load' => [
               'input' => 'data',
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'params' => [
                       [
-                        'active' => true,
                         'kind' => 'param',
                         'name' => 'id',
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -317,10 +271,8 @@ class FinalSpaceConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [
@@ -330,39 +282,24 @@ class FinalSpaceConfig
         'get_endpoint' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'fullUrl',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'name',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'path',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'queryParams',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'type',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 4,
             ],
           ],
           'name' => 'get_endpoint',
@@ -372,7 +309,6 @@ class FinalSpaceConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
@@ -383,10 +319,8 @@ class FinalSpaceConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [
@@ -396,46 +330,28 @@ class FinalSpaceConfig
         'location' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'id',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'img_url',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'inhabitants',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'name',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'notable_residents',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 4,
             ],
             [
-              'active' => true,
               'name' => 'type',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 5,
             ],
           ],
           'name' => 'location',
@@ -445,15 +361,12 @@ class FinalSpaceConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'sort',
                         'orig' => 'sort',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -473,27 +386,22 @@ class FinalSpaceConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
             'load' => [
               'input' => 'data',
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'params' => [
                       [
-                        'active' => true,
                         'kind' => 'param',
                         'name' => 'id',
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -513,10 +421,8 @@ class FinalSpaceConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [
@@ -526,39 +432,24 @@ class FinalSpaceConfig
         'quote' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'by',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'character',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'id',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'image',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'quote',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 4,
             ],
           ],
           'name' => 'quote',
@@ -568,15 +459,12 @@ class FinalSpaceConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'sort',
                         'orig' => 'sort',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -596,10 +484,8 @@ class FinalSpaceConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [

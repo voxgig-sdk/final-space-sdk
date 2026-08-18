@@ -28,7 +28,7 @@ class FinalSpaceSDK
     utility = FinalSpaceUtility.new
     @_utility = utility
 
-    config = FinalSpaceConfig.make_config
+    config = FinalSpaceConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

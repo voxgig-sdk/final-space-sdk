@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from finalspace_sdk.config import make_config
+from finalspace_sdk.config import shared_config
 from finalspace_sdk.features import _make_feature
 from finalspace_sdk.core.control import FinalSpaceControl
 from finalspace_sdk.core.error import FinalSpaceError
@@ -24,7 +24,7 @@ from finalspace_sdk.core.spec import FinalSpaceSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

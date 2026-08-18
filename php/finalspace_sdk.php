@@ -40,7 +40,7 @@ class FinalSpaceSDK
         $utility = new FinalSpaceUtility();
         $this->_utility = $utility;
 
-        $config = FinalSpaceConfig::make_config();
+        $config = FinalSpaceConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
