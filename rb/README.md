@@ -257,16 +257,16 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `abilities` |  |
-| `alias` |  |
-| `gender` |  |
-| `hair` |  |
-| `id` |  |
-| `img_url` |  |
-| `name` |  |
-| `origin` |  |
-| `species` |  |
-| `status` |  |
+| `abilities` | List of abilities the character has |
+| `alias` | Alternative names or aliases |
+| `gender` | The gender of the character |
+| `hair` | The hair color/type of the character |
+| `id` | The unique identifier for the character |
+| `img_url` | URL to the character's image |
+| `name` | The name of the character |
+| `origin` | The origin of the character |
+| `species` | The species of the character |
+| `status` | The status of the character (e.g., Alive, Dead, Unknown) |
 
 Operations: List, Load.
 
@@ -276,13 +276,13 @@ API path: `/character`
 
 | Field | Description |
 | --- | --- |
-| `air_date` |  |
-| `characters` |  |
-| `director` |  |
-| `id` |  |
-| `img_url` |  |
-| `name` |  |
-| `writer` |  |
+| `air_date` | The air date of the episode |
+| `characters` | URLs to characters appearing in this episode |
+| `director` | The director of the episode |
+| `id` | The unique identifier for the episode |
+| `img_url` | URL to the episode's image |
+| `name` | The name of the episode |
+| `writer` | The writer of the episode |
 
 Operations: List, Load.
 
@@ -306,12 +306,12 @@ API path: `/`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `img_url` |  |
-| `inhabitants` |  |
-| `name` |  |
-| `notable_residents` |  |
-| `type` |  |
+| `id` | The unique identifier for the location |
+| `img_url` | URL to the location's image |
+| `inhabitants` | List of inhabitants of the location |
+| `name` | The name of the location |
+| `notable_residents` | URLs to notable residents |
+| `type` | The type of location |
 
 Operations: List, Load.
 
@@ -321,11 +321,11 @@ API path: `/location`
 
 | Field | Description |
 | --- | --- |
-| `by` |  |
-| `character` |  |
-| `id` |  |
-| `image` |  |
-| `quote` |  |
+| `by` | The character who said the quote |
+| `character` | URL to the character who said the quote |
+| `id` | The unique identifier for the quote |
+| `image` | URL to an image related to the quote |
+| `quote` | The quote text |
 
 Operations: List.
 
@@ -351,16 +351,16 @@ Create an instance: `character = client.Character`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `abilities` | `Array` |  |
-| `alias` | `Array` |  |
-| `gender` | `String` |  |
-| `hair` | `String` |  |
-| `id` | `Integer` |  |
-| `img_url` | `String` |  |
-| `name` | `String` |  |
-| `origin` | `String` |  |
-| `species` | `String` |  |
-| `status` | `String` |  |
+| `abilities` | `Array` | List of abilities the character has |
+| `alias` | `Array` | Alternative names or aliases |
+| `gender` | `String` | The gender of the character |
+| `hair` | `String` | The hair color/type of the character |
+| `id` | `Integer` | The unique identifier for the character |
+| `img_url` | `String` | URL to the character's image |
+| `name` | `String` | The name of the character |
+| `origin` | `String` | The origin of the character |
+| `species` | `String` | The species of the character |
+| `status` | `String` | The status of the character (e.g., Alive, Dead, Unknown) |
 
 #### Example: Load
 
@@ -392,13 +392,13 @@ Create an instance: `episode = client.Episode`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `air_date` | `String` |  |
-| `characters` | `Array` |  |
-| `director` | `String` |  |
-| `id` | `Integer` |  |
-| `img_url` | `String` |  |
-| `name` | `String` |  |
-| `writer` | `String` |  |
+| `air_date` | `String` | The air date of the episode |
+| `characters` | `Array` | URLs to characters appearing in this episode |
+| `director` | `String` | The director of the episode |
+| `id` | `Integer` | The unique identifier for the episode |
+| `img_url` | `String` | URL to the episode's image |
+| `name` | `String` | The name of the episode |
+| `writer` | `String` | The writer of the episode |
 
 #### Example: Load
 
@@ -458,12 +458,12 @@ Create an instance: `location = client.Location`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `Integer` |  |
-| `img_url` | `String` |  |
-| `inhabitants` | `Array` |  |
-| `name` | `String` |  |
-| `notable_residents` | `Array` |  |
-| `type` | `String` |  |
+| `id` | `Integer` | The unique identifier for the location |
+| `img_url` | `String` | URL to the location's image |
+| `inhabitants` | `Array` | List of inhabitants of the location |
+| `name` | `String` | The name of the location |
+| `notable_residents` | `Array` | URLs to notable residents |
+| `type` | `String` | The type of location |
 
 #### Example: Load
 
@@ -494,11 +494,11 @@ Create an instance: `quote = client.Quote`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `by` | `String` |  |
-| `character` | `String` |  |
-| `id` | `Integer` |  |
-| `image` | `String` |  |
-| `quote` | `String` |  |
+| `by` | `String` | The character who said the quote |
+| `character` | `String` | URL to the character who said the quote |
+| `id` | `Integer` | The unique identifier for the quote |
+| `image` | `String` | URL to an image related to the quote |
+| `quote` | `String` | The quote text |
 
 #### Example: List
 

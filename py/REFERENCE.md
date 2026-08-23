@@ -103,16 +103,16 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abilities` | `list` | No |  |
-| `alias` | `list` | No |  |
-| `gender` | `str` | No |  |
-| `hair` | `str` | No |  |
-| `id` | `int` | No |  |
-| `img_url` | `str` | No |  |
-| `name` | `str` | No |  |
-| `origin` | `str` | No |  |
-| `species` | `str` | No |  |
-| `status` | `str` | No |  |
+| `abilities` | `list` | No | List of abilities the character has |
+| `alias` | `list` | No | Alternative names or aliases |
+| `gender` | `str` | No | The gender of the character |
+| `hair` | `str` | No | The hair color/type of the character |
+| `id` | `int` | No | The unique identifier for the character |
+| `img_url` | `str` | No | URL to the character's image |
+| `name` | `str` | No | The name of the character |
+| `origin` | `str` | No | The origin of the character |
+| `species` | `str` | No | The species of the character |
+| `status` | `str` | No | The status of the character (e.g., Alive, Dead, Unknown) |
 
 ### Operations
 
@@ -173,13 +173,13 @@ episode = client.Episode()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_date` | `str` | No |  |
-| `characters` | `list` | No |  |
-| `director` | `str` | No |  |
-| `id` | `int` | No |  |
-| `img_url` | `str` | No |  |
-| `name` | `str` | No |  |
-| `writer` | `str` | No |  |
+| `air_date` | `str` | No | The air date of the episode |
+| `characters` | `list` | No | URLs to characters appearing in this episode |
+| `director` | `str` | No | The director of the episode |
+| `id` | `int` | No | The unique identifier for the episode |
+| `img_url` | `str` | No | URL to the episode's image |
+| `name` | `str` | No | The name of the episode |
+| `writer` | `str` | No | The writer of the episode |
 
 ### Operations
 
@@ -297,12 +297,12 @@ location = client.Location()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `int` | No |  |
-| `img_url` | `str` | No |  |
-| `inhabitants` | `list` | No |  |
-| `name` | `str` | No |  |
-| `notable_residents` | `list` | No |  |
-| `type` | `str` | No |  |
+| `id` | `int` | No | The unique identifier for the location |
+| `img_url` | `str` | No | URL to the location's image |
+| `inhabitants` | `list` | No | List of inhabitants of the location |
+| `name` | `str` | No | The name of the location |
+| `notable_residents` | `list` | No | URLs to notable residents |
+| `type` | `str` | No | The type of location |
 
 ### Operations
 
@@ -363,11 +363,11 @@ quote = client.Quote()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `by` | `str` | No |  |
-| `character` | `str` | No |  |
-| `id` | `int` | No |  |
-| `image` | `str` | No |  |
-| `quote` | `str` | No |  |
+| `by` | `str` | No | The character who said the quote |
+| `character` | `str` | No | URL to the character who said the quote |
+| `id` | `int` | No | The unique identifier for the quote |
+| `image` | `str` | No | URL to an image related to the quote |
+| `quote` | `str` | No | The quote text |
 
 ### Operations
 

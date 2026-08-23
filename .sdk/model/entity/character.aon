@@ -1,0 +1,146 @@
+# Entity: character
+
+main: kit: entity: character: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "abilities"
+      req: false
+      short: "List of abilities the character has"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "alias"
+      req: false
+      short: "Alternative names or aliases"
+      type: "`$ARRAY`"
+    }
+    {
+      name: "gender"
+      req: false
+      short: "The gender of the character"
+      type: "`$STRING`"
+    }
+    {
+      name: "hair"
+      req: false
+      short: "The hair color/type of the character"
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      short: "The unique identifier for the character"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "img_url"
+      req: false
+      short: "URL to the character's image"
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      short: "The name of the character"
+      type: "`$STRING`"
+    }
+    {
+      name: "origin"
+      req: false
+      short: "The origin of the character"
+      type: "`$STRING`"
+    }
+    {
+      name: "species"
+      req: false
+      short: "The species of the character"
+      type: "`$STRING`"
+    }
+    {
+      name: "status"
+      req: false
+      short: "The status of the character (e.g., Alive, Dead, Unknown)"
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "character"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/character"
+          parts: [
+            "character"
+          ]
+          select: {
+            exist: [
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$INTEGER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/character/{id}"
+          parts: [
+            "character"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

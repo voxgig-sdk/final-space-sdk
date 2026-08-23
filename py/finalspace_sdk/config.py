@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "FinalSpace",
+            "slug": "final-space",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -54,42 +57,52 @@ def make_config():
         "fields": [
           {
             "name": "abilities",
+            "short": "List of abilities the character has",
             "type": "`$ARRAY`",
           },
           {
             "name": "alias",
+            "short": "Alternative names or aliases",
             "type": "`$ARRAY`",
           },
           {
             "name": "gender",
+            "short": "The gender of the character",
             "type": "`$STRING`",
           },
           {
             "name": "hair",
+            "short": "The hair color/type of the character",
             "type": "`$STRING`",
           },
           {
             "name": "id",
+            "short": "The unique identifier for the character",
             "type": "`$INTEGER`",
           },
           {
             "name": "img_url",
+            "short": "URL to the character's image",
             "type": "`$STRING`",
           },
           {
             "name": "name",
+            "short": "The name of the character",
             "type": "`$STRING`",
           },
           {
             "name": "origin",
+            "short": "The origin of the character",
             "type": "`$STRING`",
           },
           {
             "name": "species",
+            "short": "The species of the character",
             "type": "`$STRING`",
           },
           {
             "name": "status",
+            "short": "The status of the character (e.g., Alive, Dead, Unknown)",
             "type": "`$STRING`",
           },
         ],
@@ -172,30 +185,37 @@ def make_config():
         "fields": [
           {
             "name": "air_date",
+            "short": "The air date of the episode",
             "type": "`$STRING`",
           },
           {
             "name": "characters",
+            "short": "URLs to characters appearing in this episode",
             "type": "`$ARRAY`",
           },
           {
             "name": "director",
+            "short": "The director of the episode",
             "type": "`$STRING`",
           },
           {
             "name": "id",
+            "short": "The unique identifier for the episode",
             "type": "`$INTEGER`",
           },
           {
             "name": "img_url",
+            "short": "URL to the episode's image",
             "type": "`$STRING`",
           },
           {
             "name": "name",
+            "short": "The name of the episode",
             "type": "`$STRING`",
           },
           {
             "name": "writer",
+            "short": "The writer of the episode",
             "type": "`$STRING`",
           },
         ],
@@ -326,26 +346,32 @@ def make_config():
         "fields": [
           {
             "name": "id",
+            "short": "The unique identifier for the location",
             "type": "`$INTEGER`",
           },
           {
             "name": "img_url",
+            "short": "URL to the location's image",
             "type": "`$STRING`",
           },
           {
             "name": "inhabitants",
+            "short": "List of inhabitants of the location",
             "type": "`$ARRAY`",
           },
           {
             "name": "name",
+            "short": "The name of the location",
             "type": "`$STRING`",
           },
           {
             "name": "notable_residents",
+            "short": "URLs to notable residents",
             "type": "`$ARRAY`",
           },
           {
             "name": "type",
+            "short": "The type of location",
             "type": "`$STRING`",
           },
         ],
@@ -428,22 +454,27 @@ def make_config():
         "fields": [
           {
             "name": "by",
+            "short": "The character who said the quote",
             "type": "`$STRING`",
           },
           {
             "name": "character",
+            "short": "URL to the character who said the quote",
             "type": "`$STRING`",
           },
           {
             "name": "id",
+            "short": "The unique identifier for the quote",
             "type": "`$INTEGER`",
           },
           {
             "name": "image",
+            "short": "URL to an image related to the quote",
             "type": "`$STRING`",
           },
           {
             "name": "quote",
+            "short": "The quote text",
             "type": "`$STRING`",
           },
         ],

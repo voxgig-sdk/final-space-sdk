@@ -36,60 +36,70 @@
               "active": true,
               "name": "abilities",
               "req": false,
+              "short": "List of abilities the character has",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "alias",
               "req": false,
+              "short": "Alternative names or aliases",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "gender",
               "req": false,
+              "short": "The gender of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "hair",
               "req": false,
+              "short": "The hair color/type of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "The unique identifier for the character",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "img_url",
               "req": false,
+              "short": "URL to the character's image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The name of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "origin",
               "req": false,
+              "short": "The origin of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "species",
               "req": false,
+              "short": "The species of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "status",
               "req": false,
+              "short": "The status of the character (e.g., Alive, Dead, Unknown)",
               "type": "`$STRING`"
             }
           ],
@@ -187,42 +197,49 @@
               "active": true,
               "name": "air_date",
               "req": false,
+              "short": "The air date of the episode",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "characters",
               "req": false,
+              "short": "URLs to characters appearing in this episode",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "director",
               "req": false,
+              "short": "The director of the episode",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "The unique identifier for the episode",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "img_url",
               "req": false,
+              "short": "URL to the episode's image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The name of the episode",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "writer",
               "req": false,
+              "short": "The writer of the episode",
               "type": "`$STRING`"
             }
           ],
@@ -383,36 +400,42 @@
               "active": true,
               "name": "id",
               "req": false,
+              "short": "The unique identifier for the location",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "img_url",
               "req": false,
+              "short": "URL to the location's image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "inhabitants",
               "req": false,
+              "short": "List of inhabitants of the location",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The name of the location",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "notable_residents",
               "req": false,
+              "short": "URLs to notable residents",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "The type of location",
               "type": "`$STRING`"
             }
           ],
@@ -510,30 +533,35 @@
               "active": true,
               "name": "by",
               "req": false,
+              "short": "The character who said the quote",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "character",
               "req": false,
+              "short": "URL to the character who said the quote",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "The unique identifier for the quote",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "image",
               "req": false,
+              "short": "URL to an image related to the quote",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "quote",
               "req": false,
+              "short": "The quote text",
               "type": "`$STRING`"
             }
           ],

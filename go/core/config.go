@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "FinalSpace",
+			"slug": "final-space",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -37,42 +40,52 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "abilities",
+						"short": "List of abilities the character has",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "alias",
+						"short": "Alternative names or aliases",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "gender",
+						"short": "The gender of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "hair",
+						"short": "The hair color/type of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "The unique identifier for the character",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "img_url",
+						"short": "URL to the character's image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "The name of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "origin",
+						"short": "The origin of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "species",
+						"short": "The species of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "status",
+						"short": "The status of the character (e.g., Alive, Dead, Unknown)",
 						"type": "`$STRING`",
 					},
 				},
@@ -155,30 +168,37 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "air_date",
+						"short": "The air date of the episode",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "characters",
+						"short": "URLs to characters appearing in this episode",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "director",
+						"short": "The director of the episode",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "The unique identifier for the episode",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "img_url",
+						"short": "URL to the episode's image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "The name of the episode",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "writer",
+						"short": "The writer of the episode",
 						"type": "`$STRING`",
 					},
 				},
@@ -309,26 +329,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "id",
+						"short": "The unique identifier for the location",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "img_url",
+						"short": "URL to the location's image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "inhabitants",
+						"short": "List of inhabitants of the location",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "The name of the location",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "notable_residents",
+						"short": "URLs to notable residents",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "The type of location",
 						"type": "`$STRING`",
 					},
 				},
@@ -411,22 +437,27 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "by",
+						"short": "The character who said the quote",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "character",
+						"short": "URL to the character who said the quote",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "The unique identifier for the quote",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "image",
+						"short": "URL to an image related to the quote",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "quote",
+						"short": "The quote text",
 						"type": "`$STRING`",
 					},
 				},

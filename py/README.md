@@ -260,16 +260,16 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `abilities` |  |
-| `alias` |  |
-| `gender` |  |
-| `hair` |  |
-| `id` |  |
-| `img_url` |  |
-| `name` |  |
-| `origin` |  |
-| `species` |  |
-| `status` |  |
+| `abilities` | List of abilities the character has |
+| `alias` | Alternative names or aliases |
+| `gender` | The gender of the character |
+| `hair` | The hair color/type of the character |
+| `id` | The unique identifier for the character |
+| `img_url` | URL to the character's image |
+| `name` | The name of the character |
+| `origin` | The origin of the character |
+| `species` | The species of the character |
+| `status` | The status of the character (e.g., Alive, Dead, Unknown) |
 
 Operations: List, Load.
 
@@ -279,13 +279,13 @@ API path: `/character`
 
 | Field | Description |
 | --- | --- |
-| `air_date` |  |
-| `characters` |  |
-| `director` |  |
-| `id` |  |
-| `img_url` |  |
-| `name` |  |
-| `writer` |  |
+| `air_date` | The air date of the episode |
+| `characters` | URLs to characters appearing in this episode |
+| `director` | The director of the episode |
+| `id` | The unique identifier for the episode |
+| `img_url` | URL to the episode's image |
+| `name` | The name of the episode |
+| `writer` | The writer of the episode |
 
 Operations: List, Load.
 
@@ -309,12 +309,12 @@ API path: `/`
 
 | Field | Description |
 | --- | --- |
-| `id` |  |
-| `img_url` |  |
-| `inhabitants` |  |
-| `name` |  |
-| `notable_residents` |  |
-| `type` |  |
+| `id` | The unique identifier for the location |
+| `img_url` | URL to the location's image |
+| `inhabitants` | List of inhabitants of the location |
+| `name` | The name of the location |
+| `notable_residents` | URLs to notable residents |
+| `type` | The type of location |
 
 Operations: List, Load.
 
@@ -324,11 +324,11 @@ API path: `/location`
 
 | Field | Description |
 | --- | --- |
-| `by` |  |
-| `character` |  |
-| `id` |  |
-| `image` |  |
-| `quote` |  |
+| `by` | The character who said the quote |
+| `character` | URL to the character who said the quote |
+| `id` | The unique identifier for the quote |
+| `image` | URL to an image related to the quote |
+| `quote` | The quote text |
 
 Operations: List.
 
@@ -354,16 +354,16 @@ Create an instance: `character = client.Character()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `abilities` | `list` |  |
-| `alias` | `list` |  |
-| `gender` | `str` |  |
-| `hair` | `str` |  |
-| `id` | `int` |  |
-| `img_url` | `str` |  |
-| `name` | `str` |  |
-| `origin` | `str` |  |
-| `species` | `str` |  |
-| `status` | `str` |  |
+| `abilities` | `list` | List of abilities the character has |
+| `alias` | `list` | Alternative names or aliases |
+| `gender` | `str` | The gender of the character |
+| `hair` | `str` | The hair color/type of the character |
+| `id` | `int` | The unique identifier for the character |
+| `img_url` | `str` | URL to the character's image |
+| `name` | `str` | The name of the character |
+| `origin` | `str` | The origin of the character |
+| `species` | `str` | The species of the character |
+| `status` | `str` | The status of the character (e.g., Alive, Dead, Unknown) |
 
 #### Example: Load
 
@@ -393,13 +393,13 @@ Create an instance: `episode = client.Episode()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `air_date` | `str` |  |
-| `characters` | `list` |  |
-| `director` | `str` |  |
-| `id` | `int` |  |
-| `img_url` | `str` |  |
-| `name` | `str` |  |
-| `writer` | `str` |  |
+| `air_date` | `str` | The air date of the episode |
+| `characters` | `list` | URLs to characters appearing in this episode |
+| `director` | `str` | The director of the episode |
+| `id` | `int` | The unique identifier for the episode |
+| `img_url` | `str` | URL to the episode's image |
+| `name` | `str` | The name of the episode |
+| `writer` | `str` | The writer of the episode |
 
 #### Example: Load
 
@@ -456,12 +456,12 @@ Create an instance: `location = client.Location()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `int` |  |
-| `img_url` | `str` |  |
-| `inhabitants` | `list` |  |
-| `name` | `str` |  |
-| `notable_residents` | `list` |  |
-| `type` | `str` |  |
+| `id` | `int` | The unique identifier for the location |
+| `img_url` | `str` | URL to the location's image |
+| `inhabitants` | `list` | List of inhabitants of the location |
+| `name` | `str` | The name of the location |
+| `notable_residents` | `list` | URLs to notable residents |
+| `type` | `str` | The type of location |
 
 #### Example: Load
 
@@ -490,11 +490,11 @@ Create an instance: `quote = client.Quote()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `by` | `str` |  |
-| `character` | `str` |  |
-| `id` | `int` |  |
-| `image` | `str` |  |
-| `quote` | `str` |  |
+| `by` | `str` | The character who said the quote |
+| `character` | `str` | URL to the character who said the quote |
+| `id` | `int` | The unique identifier for the quote |
+| `image` | `str` | URL to an image related to the quote |
+| `quote` | `str` | The quote text |
 
 #### Example: List
 

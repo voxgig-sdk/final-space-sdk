@@ -109,16 +109,16 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abilities` | `Array` | No |  |
-| `alias` | `Array` | No |  |
-| `gender` | `String` | No |  |
-| `hair` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `img_url` | `String` | No |  |
-| `name` | `String` | No |  |
-| `origin` | `String` | No |  |
-| `species` | `String` | No |  |
-| `status` | `String` | No |  |
+| `abilities` | `Array` | No | List of abilities the character has |
+| `alias` | `Array` | No | Alternative names or aliases |
+| `gender` | `String` | No | The gender of the character |
+| `hair` | `String` | No | The hair color/type of the character |
+| `id` | `Integer` | No | The unique identifier for the character |
+| `img_url` | `String` | No | URL to the character's image |
+| `name` | `String` | No | The name of the character |
+| `origin` | `String` | No | The origin of the character |
+| `species` | `String` | No | The species of the character |
+| `status` | `String` | No | The status of the character (e.g., Alive, Dead, Unknown) |
 
 ### Operations
 
@@ -178,13 +178,13 @@ episode = client.Episode
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_date` | `String` | No |  |
-| `characters` | `Array` | No |  |
-| `director` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `img_url` | `String` | No |  |
-| `name` | `String` | No |  |
-| `writer` | `String` | No |  |
+| `air_date` | `String` | No | The air date of the episode |
+| `characters` | `Array` | No | URLs to characters appearing in this episode |
+| `director` | `String` | No | The director of the episode |
+| `id` | `Integer` | No | The unique identifier for the episode |
+| `img_url` | `String` | No | URL to the episode's image |
+| `name` | `String` | No | The name of the episode |
+| `writer` | `String` | No | The writer of the episode |
 
 ### Operations
 
@@ -300,12 +300,12 @@ location = client.Location
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `Integer` | No |  |
-| `img_url` | `String` | No |  |
-| `inhabitants` | `Array` | No |  |
-| `name` | `String` | No |  |
-| `notable_residents` | `Array` | No |  |
-| `type` | `String` | No |  |
+| `id` | `Integer` | No | The unique identifier for the location |
+| `img_url` | `String` | No | URL to the location's image |
+| `inhabitants` | `Array` | No | List of inhabitants of the location |
+| `name` | `String` | No | The name of the location |
+| `notable_residents` | `Array` | No | URLs to notable residents |
+| `type` | `String` | No | The type of location |
 
 ### Operations
 
@@ -365,11 +365,11 @@ quote = client.Quote
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `by` | `String` | No |  |
-| `character` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `image` | `String` | No |  |
-| `quote` | `String` | No |  |
+| `by` | `String` | No | The character who said the quote |
+| `character` | `String` | No | URL to the character who said the quote |
+| `id` | `Integer` | No | The unique identifier for the quote |
+| `image` | `String` | No | URL to an image related to the quote |
+| `quote` | `String` | No | The quote text |
 
 ### Operations
 

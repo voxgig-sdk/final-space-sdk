@@ -106,16 +106,16 @@ local character = client:Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abilities` | `table` | No |  |
-| `alias` | `table` | No |  |
-| `gender` | `string` | No |  |
-| `hair` | `string` | No |  |
-| `id` | `number` | No |  |
-| `img_url` | `string` | No |  |
-| `name` | `string` | No |  |
-| `origin` | `string` | No |  |
-| `species` | `string` | No |  |
-| `status` | `string` | No |  |
+| `abilities` | `table` | No | List of abilities the character has |
+| `alias` | `table` | No | Alternative names or aliases |
+| `gender` | `string` | No | The gender of the character |
+| `hair` | `string` | No | The hair color/type of the character |
+| `id` | `number` | No | The unique identifier for the character |
+| `img_url` | `string` | No | URL to the character's image |
+| `name` | `string` | No | The name of the character |
+| `origin` | `string` | No | The origin of the character |
+| `species` | `string` | No | The species of the character |
+| `status` | `string` | No | The status of the character (e.g., Alive, Dead, Unknown) |
 
 ### Operations
 
@@ -175,13 +175,13 @@ local episode = client:Episode(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_date` | `string` | No |  |
-| `characters` | `table` | No |  |
-| `director` | `string` | No |  |
-| `id` | `number` | No |  |
-| `img_url` | `string` | No |  |
-| `name` | `string` | No |  |
-| `writer` | `string` | No |  |
+| `air_date` | `string` | No | The air date of the episode |
+| `characters` | `table` | No | URLs to characters appearing in this episode |
+| `director` | `string` | No | The director of the episode |
+| `id` | `number` | No | The unique identifier for the episode |
+| `img_url` | `string` | No | URL to the episode's image |
+| `name` | `string` | No | The name of the episode |
+| `writer` | `string` | No | The writer of the episode |
 
 ### Operations
 
@@ -297,12 +297,12 @@ local location = client:Location(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `number` | No |  |
-| `img_url` | `string` | No |  |
-| `inhabitants` | `table` | No |  |
-| `name` | `string` | No |  |
-| `notable_residents` | `table` | No |  |
-| `type` | `string` | No |  |
+| `id` | `number` | No | The unique identifier for the location |
+| `img_url` | `string` | No | URL to the location's image |
+| `inhabitants` | `table` | No | List of inhabitants of the location |
+| `name` | `string` | No | The name of the location |
+| `notable_residents` | `table` | No | URLs to notable residents |
+| `type` | `string` | No | The type of location |
 
 ### Operations
 
@@ -362,11 +362,11 @@ local quote = client:Quote(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `by` | `string` | No |  |
-| `character` | `string` | No |  |
-| `id` | `number` | No |  |
-| `image` | `string` | No |  |
-| `quote` | `string` | No |  |
+| `by` | `string` | No | The character who said the quote |
+| `character` | `string` | No | URL to the character who said the quote |
+| `id` | `number` | No | The unique identifier for the quote |
+| `image` | `string` | No | URL to an image related to the quote |
+| `quote` | `string` | No | The quote text |
 
 ### Operations
 

@@ -1,0 +1,83 @@
+# Entity: quote
+
+main: kit: entity: quote: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "by"
+      req: false
+      short: "The character who said the quote"
+      type: "`$STRING`"
+    }
+    {
+      name: "character"
+      req: false
+      short: "URL to the character who said the quote"
+      type: "`$STRING`"
+    }
+    {
+      name: "id"
+      req: false
+      short: "The unique identifier for the quote"
+      type: "`$INTEGER`"
+    }
+    {
+      name: "image"
+      req: false
+      short: "URL to an image related to the quote"
+      type: "`$STRING`"
+    }
+    {
+      name: "quote"
+      req: false
+      short: "The quote text"
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "quote"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "sort"
+                orig: "sort"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/quote"
+          parts: [
+            "quote"
+          ]
+          select: {
+            exist: [
+              "sort"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

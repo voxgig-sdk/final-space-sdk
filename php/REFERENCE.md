@@ -108,16 +108,16 @@ $character = $client->Character();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abilities` | `array` | No |  |
-| `alias` | `array` | No |  |
-| `gender` | `string` | No |  |
-| `hair` | `string` | No |  |
-| `id` | `int` | No |  |
-| `img_url` | `string` | No |  |
-| `name` | `string` | No |  |
-| `origin` | `string` | No |  |
-| `species` | `string` | No |  |
-| `status` | `string` | No |  |
+| `abilities` | `array` | No | List of abilities the character has |
+| `alias` | `array` | No | Alternative names or aliases |
+| `gender` | `string` | No | The gender of the character |
+| `hair` | `string` | No | The hair color/type of the character |
+| `id` | `int` | No | The unique identifier for the character |
+| `img_url` | `string` | No | URL to the character's image |
+| `name` | `string` | No | The name of the character |
+| `origin` | `string` | No | The origin of the character |
+| `species` | `string` | No | The species of the character |
+| `status` | `string` | No | The status of the character (e.g., Alive, Dead, Unknown) |
 
 ### Operations
 
@@ -177,13 +177,13 @@ $episode = $client->Episode();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `air_date` | `string` | No |  |
-| `characters` | `array` | No |  |
-| `director` | `string` | No |  |
-| `id` | `int` | No |  |
-| `img_url` | `string` | No |  |
-| `name` | `string` | No |  |
-| `writer` | `string` | No |  |
+| `air_date` | `string` | No | The air date of the episode |
+| `characters` | `array` | No | URLs to characters appearing in this episode |
+| `director` | `string` | No | The director of the episode |
+| `id` | `int` | No | The unique identifier for the episode |
+| `img_url` | `string` | No | URL to the episode's image |
+| `name` | `string` | No | The name of the episode |
+| `writer` | `string` | No | The writer of the episode |
 
 ### Operations
 
@@ -299,12 +299,12 @@ $location = $client->Location();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `id` | `int` | No |  |
-| `img_url` | `string` | No |  |
-| `inhabitants` | `array` | No |  |
-| `name` | `string` | No |  |
-| `notable_residents` | `array` | No |  |
-| `type` | `string` | No |  |
+| `id` | `int` | No | The unique identifier for the location |
+| `img_url` | `string` | No | URL to the location's image |
+| `inhabitants` | `array` | No | List of inhabitants of the location |
+| `name` | `string` | No | The name of the location |
+| `notable_residents` | `array` | No | URLs to notable residents |
+| `type` | `string` | No | The type of location |
 
 ### Operations
 
@@ -364,11 +364,11 @@ $quote = $client->Quote();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `by` | `string` | No |  |
-| `character` | `string` | No |  |
-| `id` | `int` | No |  |
-| `image` | `string` | No |  |
-| `quote` | `string` | No |  |
+| `by` | `string` | No | The character who said the quote |
+| `character` | `string` | No | URL to the character who said the quote |
+| `id` | `int` | No | The unique identifier for the quote |
+| `image` | `string` | No | URL to an image related to the quote |
+| `quote` | `string` | No | The quote text |
 
 ### Operations
 

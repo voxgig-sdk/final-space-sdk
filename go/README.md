@@ -6,7 +6,7 @@ The Golang SDK for the FinalSpace API — an entity-oriented client using standa
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Character(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -273,16 +273,16 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"abilities"` |  |
-| `"alias"` |  |
-| `"gender"` |  |
-| `"hair"` |  |
-| `"id"` |  |
-| `"img_url"` |  |
-| `"name"` |  |
-| `"origin"` |  |
-| `"species"` |  |
-| `"status"` |  |
+| `"abilities"` | List of abilities the character has |
+| `"alias"` | Alternative names or aliases |
+| `"gender"` | The gender of the character |
+| `"hair"` | The hair color/type of the character |
+| `"id"` | The unique identifier for the character |
+| `"img_url"` | URL to the character's image |
+| `"name"` | The name of the character |
+| `"origin"` | The origin of the character |
+| `"species"` | The species of the character |
+| `"status"` | The status of the character (e.g., Alive, Dead, Unknown) |
 
 Operations: List, Load.
 
@@ -292,13 +292,13 @@ API path: `/character`
 
 | Field | Description |
 | --- | --- |
-| `"air_date"` |  |
-| `"characters"` |  |
-| `"director"` |  |
-| `"id"` |  |
-| `"img_url"` |  |
-| `"name"` |  |
-| `"writer"` |  |
+| `"air_date"` | The air date of the episode |
+| `"characters"` | URLs to characters appearing in this episode |
+| `"director"` | The director of the episode |
+| `"id"` | The unique identifier for the episode |
+| `"img_url"` | URL to the episode's image |
+| `"name"` | The name of the episode |
+| `"writer"` | The writer of the episode |
 
 Operations: List, Load.
 
@@ -322,12 +322,12 @@ API path: `/`
 
 | Field | Description |
 | --- | --- |
-| `"id"` |  |
-| `"img_url"` |  |
-| `"inhabitants"` |  |
-| `"name"` |  |
-| `"notable_residents"` |  |
-| `"type"` |  |
+| `"id"` | The unique identifier for the location |
+| `"img_url"` | URL to the location's image |
+| `"inhabitants"` | List of inhabitants of the location |
+| `"name"` | The name of the location |
+| `"notable_residents"` | URLs to notable residents |
+| `"type"` | The type of location |
 
 Operations: List, Load.
 
@@ -337,11 +337,11 @@ API path: `/location`
 
 | Field | Description |
 | --- | --- |
-| `"by"` |  |
-| `"character"` |  |
-| `"id"` |  |
-| `"image"` |  |
-| `"quote"` |  |
+| `"by"` | The character who said the quote |
+| `"character"` | URL to the character who said the quote |
+| `"id"` | The unique identifier for the quote |
+| `"image"` | URL to an image related to the quote |
+| `"quote"` | The quote text |
 
 Operations: List.
 
@@ -367,16 +367,16 @@ Create an instance: `character := client.Character(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `abilities` | `[]any` |  |
-| `alias` | `[]any` |  |
-| `gender` | `string` |  |
-| `hair` | `string` |  |
-| `id` | `int` |  |
-| `img_url` | `string` |  |
-| `name` | `string` |  |
-| `origin` | `string` |  |
-| `species` | `string` |  |
-| `status` | `string` |  |
+| `abilities` | `[]any` | List of abilities the character has |
+| `alias` | `[]any` | Alternative names or aliases |
+| `gender` | `string` | The gender of the character |
+| `hair` | `string` | The hair color/type of the character |
+| `id` | `int` | The unique identifier for the character |
+| `img_url` | `string` | URL to the character's image |
+| `name` | `string` | The name of the character |
+| `origin` | `string` | The origin of the character |
+| `species` | `string` | The species of the character |
+| `status` | `string` | The status of the character (e.g., Alive, Dead, Unknown) |
 
 #### Example: Load
 
@@ -414,13 +414,13 @@ Create an instance: `episode := client.Episode(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `air_date` | `string` |  |
-| `characters` | `[]any` |  |
-| `director` | `string` |  |
-| `id` | `int` |  |
-| `img_url` | `string` |  |
-| `name` | `string` |  |
-| `writer` | `string` |  |
+| `air_date` | `string` | The air date of the episode |
+| `characters` | `[]any` | URLs to characters appearing in this episode |
+| `director` | `string` | The director of the episode |
+| `id` | `int` | The unique identifier for the episode |
+| `img_url` | `string` | URL to the episode's image |
+| `name` | `string` | The name of the episode |
+| `writer` | `string` | The writer of the episode |
 
 #### Example: Load
 
@@ -489,12 +489,12 @@ Create an instance: `location := client.Location(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `id` | `int` |  |
-| `img_url` | `string` |  |
-| `inhabitants` | `[]any` |  |
-| `name` | `string` |  |
-| `notable_residents` | `[]any` |  |
-| `type` | `string` |  |
+| `id` | `int` | The unique identifier for the location |
+| `img_url` | `string` | URL to the location's image |
+| `inhabitants` | `[]any` | List of inhabitants of the location |
+| `name` | `string` | The name of the location |
+| `notable_residents` | `[]any` | URLs to notable residents |
+| `type` | `string` | The type of location |
 
 #### Example: Load
 
@@ -531,11 +531,11 @@ Create an instance: `quote := client.Quote(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `by` | `string` |  |
-| `character` | `string` |  |
-| `id` | `int` |  |
-| `image` | `string` |  |
-| `quote` | `string` |  |
+| `by` | `string` | The character who said the quote |
+| `character` | `string` | URL to the character who said the quote |
+| `id` | `int` | The unique identifier for the quote |
+| `image` | `string` | URL to an image related to the quote |
+| `quote` | `string` | The quote text |
 
 #### Example: List
 
