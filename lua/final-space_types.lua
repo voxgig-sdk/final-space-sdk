@@ -22,16 +22,7 @@
 ---@field id number
 
 ---@class CharacterListMatch
----@field abilities? table
----@field alias? table
----@field gender? string
----@field hair? string
----@field id? number
----@field img_url? string
----@field name? string
----@field origin? string
----@field species? string
----@field status? string
+---@field sort? string
 
 ---@class Episode
 ---@field air_date? string
@@ -46,13 +37,7 @@
 ---@field id number
 
 ---@class EpisodeListMatch
----@field air_date? string
----@field characters? table
----@field director? string
----@field id? number
----@field img_url? string
----@field name? string
----@field writer? string
+---@field sort? string
 
 ---@class GetEndpoint
 ---@field fullUrl? string
@@ -80,12 +65,7 @@
 ---@field id number
 
 ---@class LocationListMatch
----@field id? number
----@field img_url? string
----@field inhabitants? table
----@field name? string
----@field notable_residents? table
----@field type? string
+---@field sort? string
 
 ---@class Quote
 ---@field by? string
@@ -95,11 +75,7 @@
 ---@field quote? string
 
 ---@class QuoteListMatch
----@field by? string
----@field character? string
----@field id? number
----@field image? string
----@field quote? string
+---@field sort? string
 
 local M = {}
 

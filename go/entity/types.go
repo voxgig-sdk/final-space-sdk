@@ -33,16 +33,7 @@ type CharacterLoadMatch struct {
 
 // CharacterListMatch is the typed request payload for Character.ListTyped.
 type CharacterListMatch struct {
-	Abilities *[]any `json:"abilities,omitempty"`
-	Alias *[]any `json:"alias,omitempty"`
-	Gender *string `json:"gender,omitempty"`
-	Hair *string `json:"hair,omitempty"`
-	Id *int `json:"id,omitempty"`
-	ImgUrl *string `json:"img_url,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Origin *string `json:"origin,omitempty"`
-	Species *string `json:"species,omitempty"`
-	Status *string `json:"status,omitempty"`
+	Sort *string `json:"sort,omitempty"`
 }
 
 // Episode is the typed data model for the episode entity.
@@ -63,13 +54,7 @@ type EpisodeLoadMatch struct {
 
 // EpisodeListMatch is the typed request payload for Episode.ListTyped.
 type EpisodeListMatch struct {
-	AirDate *string `json:"air_date,omitempty"`
-	Characters *[]any `json:"characters,omitempty"`
-	Director *string `json:"director,omitempty"`
-	Id *int `json:"id,omitempty"`
-	ImgUrl *string `json:"img_url,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Writer *string `json:"writer,omitempty"`
+	Sort *string `json:"sort,omitempty"`
 }
 
 // GetEndpoint is the typed data model for the get_endpoint entity.
@@ -107,12 +92,7 @@ type LocationLoadMatch struct {
 
 // LocationListMatch is the typed request payload for Location.ListTyped.
 type LocationListMatch struct {
-	Id *int `json:"id,omitempty"`
-	ImgUrl *string `json:"img_url,omitempty"`
-	Inhabitants *[]any `json:"inhabitants,omitempty"`
-	Name *string `json:"name,omitempty"`
-	NotableResidents *[]any `json:"notable_residents,omitempty"`
-	Type *string `json:"type,omitempty"`
+	Sort *string `json:"sort,omitempty"`
 }
 
 // Quote is the typed data model for the quote entity.
@@ -126,11 +106,7 @@ type Quote struct {
 
 // QuoteListMatch is the typed request payload for Quote.ListTyped.
 type QuoteListMatch struct {
-	By *string `json:"by,omitempty"`
-	Character *string `json:"character,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Image *string `json:"image,omitempty"`
-	Quote *string `json:"quote,omitempty"`
+	Sort *string `json:"sort,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

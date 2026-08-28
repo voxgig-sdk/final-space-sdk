@@ -36,16 +36,7 @@ class CharacterLoadMatch
 /** Request payload for Character#list. */
 class CharacterListMatch
 {
-    public ?array $abilities = null;
-    public ?array $alias = null;
-    public ?string $gender = null;
-    public ?string $hair = null;
-    public ?int $id = null;
-    public ?string $img_url = null;
-    public ?string $name = null;
-    public ?string $origin = null;
-    public ?string $species = null;
-    public ?string $status = null;
+    public ?string $sort = null;
 }
 
 /** Episode entity data model. */
@@ -69,13 +60,7 @@ class EpisodeLoadMatch
 /** Request payload for Episode#list. */
 class EpisodeListMatch
 {
-    public ?string $air_date = null;
-    public ?array $characters = null;
-    public ?string $director = null;
-    public ?int $id = null;
-    public ?string $img_url = null;
-    public ?string $name = null;
-    public ?string $writer = null;
+    public ?string $sort = null;
 }
 
 /** GetEndpoint entity data model. */
@@ -118,12 +103,7 @@ class LocationLoadMatch
 /** Request payload for Location#list. */
 class LocationListMatch
 {
-    public ?int $id = null;
-    public ?string $img_url = null;
-    public ?array $inhabitants = null;
-    public ?string $name = null;
-    public ?array $notable_residents = null;
-    public ?string $type = null;
+    public ?string $sort = null;
 }
 
 /** Quote entity data model. */
@@ -139,10 +119,6 @@ class Quote
 /** Request payload for Quote#list. */
 class QuoteListMatch
 {
-    public ?string $by = null;
-    public ?string $character = null;
-    public ?int $id = null;
-    public ?string $image = null;
-    public ?string $quote = null;
+    public ?string $sort = null;
 }
 

@@ -64,46 +64,10 @@ CharacterLoadMatch = Struct.new(
 
 # Request payload for Character#list.
 #
-# @!attribute [rw] abilities
-#   @return [Array, nil]
-#
-# @!attribute [rw] alias
-#   @return [Array, nil]
-#
-# @!attribute [rw] gender
-#   @return [String, nil]
-#
-# @!attribute [rw] hair
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] img_url
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] origin
-#   @return [String, nil]
-#
-# @!attribute [rw] species
-#   @return [String, nil]
-#
-# @!attribute [rw] status
+# @!attribute [rw] sort
 #   @return [String, nil]
 CharacterListMatch = Struct.new(
-  :abilities,
-  :alias,
-  :gender,
-  :hair,
-  :id,
-  :img_url,
-  :name,
-  :origin,
-  :species,
-  :status,
+  :sort,
   keyword_init: true
 )
 
@@ -151,34 +115,10 @@ EpisodeLoadMatch = Struct.new(
 
 # Request payload for Episode#list.
 #
-# @!attribute [rw] air_date
-#   @return [String, nil]
-#
-# @!attribute [rw] characters
-#   @return [Array, nil]
-#
-# @!attribute [rw] director
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] img_url
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] writer
+# @!attribute [rw] sort
 #   @return [String, nil]
 EpisodeListMatch = Struct.new(
-  :air_date,
-  :characters,
-  :director,
-  :id,
-  :img_url,
-  :name,
-  :writer,
+  :sort,
   keyword_init: true
 )
 
@@ -272,30 +212,10 @@ LocationLoadMatch = Struct.new(
 
 # Request payload for Location#list.
 #
-# @!attribute [rw] id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] img_url
-#   @return [String, nil]
-#
-# @!attribute [rw] inhabitants
-#   @return [Array, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] notable_residents
-#   @return [Array, nil]
-#
-# @!attribute [rw] type
+# @!attribute [rw] sort
 #   @return [String, nil]
 LocationListMatch = Struct.new(
-  :id,
-  :img_url,
-  :inhabitants,
-  :name,
-  :notable_residents,
-  :type,
+  :sort,
   keyword_init: true
 )
 
@@ -326,26 +246,10 @@ Quote = Struct.new(
 
 # Request payload for Quote#list.
 #
-# @!attribute [rw] by
-#   @return [String, nil]
-#
-# @!attribute [rw] character
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] image
-#   @return [String, nil]
-#
-# @!attribute [rw] quote
+# @!attribute [rw] sort
 #   @return [String, nil]
 QuoteListMatch = Struct.new(
-  :by,
-  :character,
-  :id,
-  :image,
-  :quote,
+  :sort,
   keyword_init: true
 )
 

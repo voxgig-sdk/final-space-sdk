@@ -23,16 +23,7 @@ export interface CharacterLoadMatch {
 }
 
 export interface CharacterListMatch {
-  abilities?: any[]
-  alias?: any[]
-  gender?: string
-  hair?: string
-  id?: number
-  img_url?: string
-  name?: string
-  origin?: string
-  species?: string
-  status?: string
+  sort?: string
 }
 
 export interface Episode {
@@ -50,13 +41,7 @@ export interface EpisodeLoadMatch {
 }
 
 export interface EpisodeListMatch {
-  air_date?: string
-  characters?: any[]
-  director?: string
-  id?: number
-  img_url?: string
-  name?: string
-  writer?: string
+  sort?: string
 }
 
 export interface GetEndpoint {
@@ -89,12 +74,7 @@ export interface LocationLoadMatch {
 }
 
 export interface LocationListMatch {
-  id?: number
-  img_url?: string
-  inhabitants?: any[]
-  name?: string
-  notable_residents?: any[]
-  type?: string
+  sort?: string
 }
 
 export interface Quote {
@@ -106,10 +86,6 @@ export interface Quote {
 }
 
 export interface QuoteListMatch {
-  by?: string
-  character?: string
-  id?: number
-  image?: string
-  quote?: string
+  sort?: string
 }
 

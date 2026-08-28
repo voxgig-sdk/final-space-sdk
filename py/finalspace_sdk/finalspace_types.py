@@ -34,16 +34,7 @@ class CharacterLoadMatch(TypedDict):
 
 
 class CharacterListMatch(TypedDict, total=False):
-    abilities: list
-    alias: list
-    gender: str
-    hair: str
-    id: int
-    img_url: str
-    name: str
-    origin: str
-    species: str
-    status: str
+    sort: str
 
 
 class Episode(TypedDict, total=False):
@@ -61,13 +52,7 @@ class EpisodeLoadMatch(TypedDict):
 
 
 class EpisodeListMatch(TypedDict, total=False):
-    air_date: str
-    characters: list
-    director: str
-    id: int
-    img_url: str
-    name: str
-    writer: str
+    sort: str
 
 
 class GetEndpoint(TypedDict, total=False):
@@ -100,12 +85,7 @@ class LocationLoadMatch(TypedDict):
 
 
 class LocationListMatch(TypedDict, total=False):
-    id: int
-    img_url: str
-    inhabitants: list
-    name: str
-    notable_residents: list
-    type: str
+    sort: str
 
 
 class Quote(TypedDict, total=False):
@@ -117,8 +97,4 @@ class Quote(TypedDict, total=False):
 
 
 class QuoteListMatch(TypedDict, total=False):
-    by: str
-    character: str
-    id: int
-    image: str
-    quote: str
+    sort: str
