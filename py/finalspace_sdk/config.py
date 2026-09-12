@@ -1,6 +1,14 @@
 # FinalSpace SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -82,6 +90,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "img_url",
             "short": "URL to the character's image",
             "type": "`$STRING`",
@@ -107,6 +116,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "character",
         "op": {
           "list": {
@@ -127,8 +140,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/character",
-                "parts": [
-                  "character",
+                "segments": [
+                  {
+                    "lit": "character",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -139,6 +154,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "character",
+                ],
               },
             ],
           },
@@ -161,9 +179,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/character/{id}",
-                "parts": [
-                  "character",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "character",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -174,6 +196,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "character",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -205,6 +231,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "img_url",
             "short": "URL to the episode's image",
             "type": "`$STRING`",
@@ -220,6 +247,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "episode",
         "op": {
           "list": {
@@ -240,8 +271,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/episode",
-                "parts": [
-                  "episode",
+                "segments": [
+                  {
+                    "lit": "episode",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -252,6 +285,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "episode",
+                ],
               },
             ],
           },
@@ -274,9 +310,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/episode/{id}",
-                "parts": [
-                  "episode",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "episode",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -287,6 +327,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "episode",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -329,12 +373,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/",
-                "parts": [],
+                "segments": [],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [],
               },
             ],
           },
@@ -351,6 +396,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "img_url",
             "short": "URL to the location's image",
             "type": "`$STRING`",
@@ -376,6 +422,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "location",
         "op": {
           "list": {
@@ -396,8 +446,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/location",
-                "parts": [
-                  "location",
+                "segments": [
+                  {
+                    "lit": "location",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -408,6 +460,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "location",
+                ],
               },
             ],
           },
@@ -430,9 +485,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/location/{id}",
-                "parts": [
-                  "location",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "location",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -443,6 +502,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "location",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -459,6 +522,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "uri",
             "name": "character",
             "short": "URL to the character who said the quote",
             "type": "`$STRING`",
@@ -469,6 +533,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "image",
             "short": "URL to an image related to the quote",
             "type": "`$STRING`",
@@ -479,6 +544,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "quote",
         "op": {
           "list": {
@@ -499,8 +568,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/quote",
-                "parts": [
-                  "quote",
+                "segments": [
+                  {
+                    "lit": "quote",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -511,6 +582,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "quote",
+                ],
               },
             ],
           },

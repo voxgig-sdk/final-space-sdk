@@ -30,6 +30,7 @@ main: kit: entity: episode: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "img_url"
       req: false
       short: "URL to the episode's image"
@@ -73,8 +74,10 @@ main: kit: entity: episode: {
           }
           method: "GET"
           orig: "/episode"
-          parts: [
-            "episode"
+          segments: [
+            {
+              lit: "episode"
+            }
           ]
           select: {
             exist: [
@@ -105,9 +108,13 @@ main: kit: entity: episode: {
           }
           method: "GET"
           orig: "/episode/{id}"
-          parts: [
-            "episode"
-            "{id}"
+          segments: [
+            {
+              lit: "episode"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

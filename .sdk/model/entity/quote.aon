@@ -12,6 +12,7 @@ main: kit: entity: quote: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "character"
       req: false
       short: "URL to the character who said the quote"
@@ -24,6 +25,7 @@ main: kit: entity: quote: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "image"
       req: false
       short: "URL to an image related to the quote"
@@ -61,8 +63,10 @@ main: kit: entity: quote: {
           }
           method: "GET"
           orig: "/quote"
-          parts: [
-            "quote"
+          segments: [
+            {
+              lit: "quote"
+            }
           ]
           select: {
             exist: [

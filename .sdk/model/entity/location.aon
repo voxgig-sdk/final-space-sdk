@@ -12,6 +12,7 @@ main: kit: entity: location: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "img_url"
       req: false
       short: "URL to the location's image"
@@ -67,8 +68,10 @@ main: kit: entity: location: {
           }
           method: "GET"
           orig: "/location"
-          parts: [
-            "location"
+          segments: [
+            {
+              lit: "location"
+            }
           ]
           select: {
             exist: [
@@ -99,9 +102,13 @@ main: kit: entity: location: {
           }
           method: "GET"
           orig: "/location/{id}"
-          parts: [
-            "location"
-            "{id}"
+          segments: [
+            {
+              lit: "location"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

@@ -36,6 +36,7 @@ main: kit: entity: character: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "img_url"
       req: false
       short: "URL to the character's image"
@@ -91,8 +92,10 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/character"
-          parts: [
-            "character"
+          segments: [
+            {
+              lit: "character"
+            }
           ]
           select: {
             exist: [
@@ -123,9 +126,13 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/character/{id}"
-          parts: [
-            "character"
-            "{id}"
+          segments: [
+            {
+              lit: "character"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

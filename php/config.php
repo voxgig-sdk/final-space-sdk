@@ -87,6 +87,7 @@ class FinalSpaceConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'img_url',
               'short' => 'URL to the character\'s image',
               'type' => '`$STRING`',
@@ -112,6 +113,10 @@ class FinalSpaceConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'character',
           'op' => [
             'list' => [
@@ -132,8 +137,10 @@ class FinalSpaceConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character',
-                  'parts' => [
-                    'character',
+                  'segments' => [
+                    [
+                      'lit' => 'character',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -143,6 +150,9 @@ class FinalSpaceConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'character',
                   ],
                 ],
               ],
@@ -166,9 +176,13 @@ class FinalSpaceConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character/{id}',
-                  'parts' => [
-                    'character',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'character',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -178,6 +192,10 @@ class FinalSpaceConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'character',
+                    '{id}',
                   ],
                 ],
               ],
@@ -210,6 +228,7 @@ class FinalSpaceConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'img_url',
               'short' => 'URL to the episode\'s image',
               'type' => '`$STRING`',
@@ -224,6 +243,10 @@ class FinalSpaceConfig
               'short' => 'The writer of the episode',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'episode',
           'op' => [
@@ -245,8 +268,10 @@ class FinalSpaceConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/episode',
-                  'parts' => [
-                    'episode',
+                  'segments' => [
+                    [
+                      'lit' => 'episode',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -256,6 +281,9 @@ class FinalSpaceConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'episode',
                   ],
                 ],
               ],
@@ -279,9 +307,13 @@ class FinalSpaceConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/episode/{id}',
-                  'parts' => [
-                    'episode',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'episode',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -291,6 +323,10 @@ class FinalSpaceConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'episode',
+                    '{id}',
                   ],
                 ],
               ],
@@ -334,12 +370,13 @@ class FinalSpaceConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/',
-                  'parts' => [],
+                  'segments' => [],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
+                  'parts' => [],
                 ],
               ],
             ],
@@ -356,6 +393,7 @@ class FinalSpaceConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'img_url',
               'short' => 'URL to the location\'s image',
               'type' => '`$STRING`',
@@ -381,6 +419,10 @@ class FinalSpaceConfig
               'type' => '`$STRING`',
             ],
           ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
+          ],
           'name' => 'location',
           'op' => [
             'list' => [
@@ -401,8 +443,10 @@ class FinalSpaceConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/location',
-                  'parts' => [
-                    'location',
+                  'segments' => [
+                    [
+                      'lit' => 'location',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -412,6 +456,9 @@ class FinalSpaceConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'location',
                   ],
                 ],
               ],
@@ -435,9 +482,13 @@ class FinalSpaceConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/location/{id}',
-                  'parts' => [
-                    'location',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'location',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -447,6 +498,10 @@ class FinalSpaceConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'location',
+                    '{id}',
                   ],
                 ],
               ],
@@ -464,6 +519,7 @@ class FinalSpaceConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'character',
               'short' => 'URL to the character who said the quote',
               'type' => '`$STRING`',
@@ -474,6 +530,7 @@ class FinalSpaceConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'image',
               'short' => 'URL to an image related to the quote',
               'type' => '`$STRING`',
@@ -483,6 +540,10 @@ class FinalSpaceConfig
               'short' => 'The quote text',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'quote',
           'op' => [
@@ -504,8 +565,10 @@ class FinalSpaceConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quote',
-                  'parts' => [
-                    'quote',
+                  'segments' => [
+                    [
+                      'lit' => 'quote',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -515,6 +578,9 @@ class FinalSpaceConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'quote',
                   ],
                 ],
               ],
