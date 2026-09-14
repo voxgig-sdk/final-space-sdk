@@ -105,7 +105,7 @@ local results, err = client:Location():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/final-space` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/releases) |
+| TypeScript | `@voxgig-sdk/final-space-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/releases) |
 | Python | `voxgig-sdk-final-space` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/releases) |
 | PHP | `voxgig-sdk/final-space` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/final-space-sdk/go` | `go get github.com/voxgig-sdk/final-space-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Location():list()
 ### TypeScript
 
 ```ts
-import { FinalSpaceSDK } from '@voxgig-sdk/final-space'
+import { FinalSpaceSDK } from '@voxgig-sdk/final-space-sdk'
 
 const client = new FinalSpaceSDK()
 

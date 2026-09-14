@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FinalSpaceSDK } from '@voxgig-sdk/final-space'
+import { FinalSpaceSDK } from '@voxgig-sdk/final-space-sdk'
 
 const client = new FinalSpaceSDK()
 ```
@@ -631,7 +631,7 @@ final-space/
 Import the SDK from the package root:
 
 ```ts
-import { FinalSpaceSDK } from '@voxgig-sdk/final-space'
+import { FinalSpaceSDK } from '@voxgig-sdk/final-space-sdk'
 ```
 
 ### Entity state
