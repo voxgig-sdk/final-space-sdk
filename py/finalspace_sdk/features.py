@@ -1,12 +1,18 @@
 # FinalSpace SDK feature factory
 
 from finalspace_sdk.feature.base_feature import FinalSpaceBaseFeature
+from finalspace_sdk.feature.ratelimit_feature import FinalSpaceRatelimitFeature
+from finalspace_sdk.feature.retry_feature import FinalSpaceRetryFeature
 from finalspace_sdk.feature.test_feature import FinalSpaceTestFeature
+from finalspace_sdk.feature.timeout_feature import FinalSpaceTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: FinalSpaceBaseFeature(),
+    "ratelimit": lambda: FinalSpaceRatelimitFeature(),
+    "retry": lambda: FinalSpaceRetryFeature(),
     "test": lambda: FinalSpaceTestFeature(),
+    "timeout": lambda: FinalSpaceTimeoutFeature(),
 }
 
 

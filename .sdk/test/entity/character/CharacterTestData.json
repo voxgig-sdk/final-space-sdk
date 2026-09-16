@@ -53,5 +53,177 @@
         "status": "s199"
       }
     }
+  },
+  "requests": {
+    "GET /character": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAllCharacters",
+        "parameters": [
+          {
+            "description": "Sort order for results",
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "abilities": {
+                        "description": "List of abilities the character has",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "alias": {
+                        "description": "Alternative names or aliases",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "gender": {
+                        "description": "The gender of the character",
+                        "type": "string"
+                      },
+                      "hair": {
+                        "description": "The hair color/type of the character",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "The unique identifier for the character",
+                        "type": "integer"
+                      },
+                      "img_url": {
+                        "description": "URL to the character's image",
+                        "format": "uri",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "The name of the character",
+                        "type": "string"
+                      },
+                      "origin": {
+                        "description": "The origin of the character",
+                        "type": "string"
+                      },
+                      "species": {
+                        "description": "The species of the character",
+                        "type": "string"
+                      },
+                      "status": {
+                        "description": "The status of the character (e.g., Alive, Dead, Unknown)",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /character/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCharacterById",
+        "parameters": [
+          {
+            "description": "ID of the character to retrieve",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "abilities": {
+                      "description": "List of abilities the character has",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "alias": {
+                      "description": "Alternative names or aliases",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "gender": {
+                      "description": "The gender of the character",
+                      "type": "string"
+                    },
+                    "hair": {
+                      "description": "The hair color/type of the character",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "The unique identifier for the character",
+                      "type": "integer"
+                    },
+                    "img_url": {
+                      "description": "URL to the character's image",
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The name of the character",
+                      "type": "string"
+                    },
+                    "origin": {
+                      "description": "The origin of the character",
+                      "type": "string"
+                    },
+                    "species": {
+                      "description": "The species of the character",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "The status of the character (e.g., Alive, Dead, Unknown)",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Character not found"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

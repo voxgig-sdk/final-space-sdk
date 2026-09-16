@@ -37,5 +37,147 @@
         "type": "sf5"
       }
     }
+  },
+  "requests": {
+    "GET /location": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAllLocations",
+        "parameters": [
+          {
+            "description": "Sort order for results",
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "description": "The unique identifier for the location",
+                        "type": "integer"
+                      },
+                      "img_url": {
+                        "description": "URL to the location's image",
+                        "format": "uri",
+                        "type": "string"
+                      },
+                      "inhabitants": {
+                        "description": "List of inhabitants of the location",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "name": {
+                        "description": "The name of the location",
+                        "type": "string"
+                      },
+                      "notable_residents": {
+                        "description": "URLs to notable residents",
+                        "items": {
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "type": {
+                        "description": "The type of location",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /location/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getLocationById",
+        "parameters": [
+          {
+            "description": "ID of the location to retrieve",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "id": {
+                      "description": "The unique identifier for the location",
+                      "type": "integer"
+                    },
+                    "img_url": {
+                      "description": "URL to the location's image",
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "inhabitants": {
+                      "description": "List of inhabitants of the location",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "name": {
+                      "description": "The name of the location",
+                      "type": "string"
+                    },
+                    "notable_residents": {
+                      "description": "URLs to notable residents",
+                      "items": {
+                        "format": "uri",
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "type": {
+                      "description": "The type of location",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Location not found"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

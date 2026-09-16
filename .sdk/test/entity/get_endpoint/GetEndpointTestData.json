@@ -34,5 +34,69 @@
         "type": "scc"
       }
     }
+  },
+  "requests": {
+    "GET /": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getEndpoints",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "fullUrl": {
+                        "example": "https://finalspaceapi.com/api/v0/character",
+                        "type": "string"
+                      },
+                      "name": {
+                        "example": "All Characters",
+                        "type": "string"
+                      },
+                      "path": {
+                        "example": "/character",
+                        "type": "string"
+                      },
+                      "queryParams": {
+                        "items": {
+                          "properties": {
+                            "name": {
+                              "type": "string"
+                            },
+                            "optional": {
+                              "type": "boolean"
+                            },
+                            "values": {
+                              "items": {
+                                "type": "string"
+                              },
+                              "type": "array"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "type": {
+                        "example": "GET",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

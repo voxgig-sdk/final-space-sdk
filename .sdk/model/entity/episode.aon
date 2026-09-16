@@ -72,6 +72,12 @@ main: kit: entity: episode: {
               }
             ]
           }
+          contract: {
+            id: "GET /episode"
+            json: "{\"operationId\":\"getAllEpisodes\",\"parameters\":[{\"description\":\"Sort order for results\",\"in\":\"query\",\"name\":\"sort\",\"required\":false,\"schema\":{\"enum\":[\"asc\",\"desc\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"air_date\":{\"description\":\"The air date of the episode\",\"type\":\"string\"},\"characters\":{\"description\":\"URLs to characters appearing in this episode\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"director\":{\"description\":\"The director of the episode\",\"type\":\"string\"},\"id\":{\"description\":\"The unique identifier for the episode\",\"type\":\"integer\"},\"img_url\":{\"description\":\"URL to the episode's image\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"The name of the episode\",\"type\":\"string\"},\"writer\":{\"description\":\"The writer of the episode\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/episode"
           segments: [
@@ -105,6 +111,12 @@ main: kit: entity: episode: {
                 type: "`$INTEGER`"
               }
             ]
+          }
+          contract: {
+            id: "GET /episode/{id}"
+            json: "{\"operationId\":\"getEpisodeById\",\"parameters\":[{\"description\":\"ID of the episode to retrieve\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"air_date\":{\"description\":\"The air date of the episode\",\"type\":\"string\"},\"characters\":{\"description\":\"URLs to characters appearing in this episode\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"director\":{\"description\":\"The director of the episode\",\"type\":\"string\"},\"id\":{\"description\":\"The unique identifier for the episode\",\"type\":\"integer\"},\"img_url\":{\"description\":\"URL to the episode's image\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"The name of the episode\",\"type\":\"string\"},\"writer\":{\"description\":\"The writer of the episode\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"description\":\"Episode not found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/episode/{id}"

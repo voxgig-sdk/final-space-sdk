@@ -33,5 +33,69 @@
         "quote": "scc"
       }
     }
+  },
+  "requests": {
+    "GET /quote": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getAllQuotes",
+        "parameters": [
+          {
+            "description": "Sort order for results",
+            "in": "query",
+            "name": "sort",
+            "required": false,
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "by": {
+                        "description": "The character who said the quote",
+                        "type": "string"
+                      },
+                      "character": {
+                        "description": "URL to the character who said the quote",
+                        "format": "uri",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "The unique identifier for the quote",
+                        "type": "integer"
+                      },
+                      "image": {
+                        "description": "URL to an image related to the quote",
+                        "format": "uri",
+                        "type": "string"
+                      },
+                      "quote": {
+                        "description": "The quote text",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
