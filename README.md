@@ -105,12 +105,12 @@ local results, err = client:Location():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/final-space-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/releases) |
-| Python | `voxgig-sdk-final-space` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/releases) |
-| PHP | `voxgig-sdk/final-space` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/releases) |
+| TypeScript | `@voxgig-sdk/final-space-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/tags) |
+| Python | `voxgig-sdk-final-space` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/tags) |
+| PHP | `voxgig-sdk/final-space` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/final-space-sdk/go` | `go get github.com/voxgig-sdk/final-space-sdk/go@latest` |
-| Ruby | `voxgig-sdk-final-space` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/releases) |
-| Lua | `voxgig-sdk-final-space` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/releases) |
+| Ruby | `voxgig-sdk-final-space` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/tags) |
+| Lua | `voxgig-sdk-final-space` | publish pending — [install from git tag](https://github.com/voxgig-sdk/final-space-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/final-space-sdk/go-cli` | `go install github.com/voxgig-sdk/final-space-sdk/go-cli/cmd/final-space@latest` |
 | Go MCP server | `github.com/voxgig-sdk/final-space-sdk/go-mcp` | `go get github.com/voxgig-sdk/final-space-sdk/go-mcp@latest` |
 

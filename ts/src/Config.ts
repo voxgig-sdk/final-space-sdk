@@ -127,21 +127,21 @@ class Config {
 
     entity: {
       
-      character: {
-      },
-
-      episode: {
-      },
-
-      get_endpoint: {
-      },
-
-      location: {
-      },
-
-      quote: {
-      },
-
+        character: {
+        },
+  
+        episode: {
+        },
+  
+        get_endpoint: {
+        },
+  
+        location: {
+        },
+  
+        quote: {
+        },
+  
     }
   }
 
