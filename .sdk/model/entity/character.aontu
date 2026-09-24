@@ -1,0 +1,173 @@
+# Entity: character
+
+main: kit: entity: character: {
+
+  alias: field: {}
+
+  fields: {
+    abilities: {
+      h: "Abilities"
+      n: "abilities"
+      r: false
+      sh: "List of abilities the character has"
+      t: "`$ARRAY`"
+    }
+    alias: {
+      h: "Alias"
+      n: "alias"
+      r: false
+      sh: "Alternative names or aliases"
+      t: "`$ARRAY`"
+    }
+    gender: {
+      h: "Gender"
+      n: "gender"
+      r: false
+      sh: "The gender of the character"
+      t: "`$STRING`"
+    }
+    hair: {
+      h: "Hair"
+      n: "hair"
+      r: false
+      sh: "The hair color/type of the character"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "The unique identifier for the character"
+      t: "`$INTEGER`"
+    }
+    img_url: {
+      fo: "uri"
+      h: "Img Url"
+      n: "img_url"
+      r: false
+      sh: "URL to the character's image"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The name of the character"
+      t: "`$STRING`"
+    }
+    origin: {
+      h: "Origin"
+      n: "origin"
+      r: false
+      sh: "The origin of the character"
+      t: "`$STRING`"
+    }
+    species: {
+      h: "Species"
+      n: "species"
+      r: false
+      sh: "The species of the character"
+      t: "`$STRING`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      sh: "The status of the character (e.g., Alive, Dead, Unknown)"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "character"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /character"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/character"
+          q: {
+            exist: [
+              "sort"
+            ]
+          }
+          s: [
+            {
+              lit: "character"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /character/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/character/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "character"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

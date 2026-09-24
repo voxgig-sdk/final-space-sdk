@@ -19,7 +19,6 @@ import type {
   QuoteListMatch,
 } from '../FinalSpaceTypes'
 
-// TODO: needs Entity superclass
 class QuoteEntity extends FinalSpaceEntityBase<Quote> {
 
   constructor(client: FinalSpaceSDK, entopts: any) {

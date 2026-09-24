@@ -117,54 +117,64 @@ class FinalSpaceConfig
           'fields' => [
             [
               'name' => 'abilities',
-              'short' => 'List of abilities the character has',
+              'title' => 'Abilities',
               'type' => '`$ARRAY`',
+              'short' => 'List of abilities the character has',
             ],
             [
               'name' => 'alias',
-              'short' => 'Alternative names or aliases',
+              'title' => 'Alias',
               'type' => '`$ARRAY`',
+              'short' => 'Alternative names or aliases',
             ],
             [
               'name' => 'gender',
-              'short' => 'The gender of the character',
+              'title' => 'Gender',
               'type' => '`$STRING`',
+              'short' => 'The gender of the character',
             ],
             [
               'name' => 'hair',
-              'short' => 'The hair color/type of the character',
+              'title' => 'Hair',
               'type' => '`$STRING`',
+              'short' => 'The hair color/type of the character',
             ],
             [
               'name' => 'id',
-              'short' => 'The unique identifier for the character',
+              'title' => 'Id',
               'type' => '`$INTEGER`',
+              'short' => 'The unique identifier for the character',
             ],
             [
-              'format' => 'uri',
               'name' => 'img_url',
-              'short' => 'URL to the character\'s image',
+              'title' => 'Img Url',
               'type' => '`$STRING`',
+              'short' => 'URL to the character\'s image',
+              'format' => 'uri',
             ],
             [
               'name' => 'name',
-              'short' => 'The name of the character',
+              'title' => 'Name',
               'type' => '`$STRING`',
+              'short' => 'The name of the character',
             ],
             [
               'name' => 'origin',
-              'short' => 'The origin of the character',
+              'title' => 'Origin',
               'type' => '`$STRING`',
+              'short' => 'The origin of the character',
             ],
             [
               'name' => 'species',
-              'short' => 'The species of the character',
+              'title' => 'Species',
               'type' => '`$STRING`',
+              'short' => 'The species of the character',
             ],
             [
               'name' => 'status',
-              'short' => 'The status of the character (e.g., Alive, Dead, Unknown)',
+              'title' => 'Status',
               'type' => '`$STRING`',
+              'short' => 'The status of the character (e.g., Alive, Dead, Unknown)',
             ],
           ],
           'id' => [
@@ -178,16 +188,6 @@ class FinalSpaceConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'sort',
-                        'orig' => 'sort',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character',
@@ -196,17 +196,28 @@ class FinalSpaceConfig
                       'lit' => 'character',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'sort',
-                    ],
+                  'parts' => [
+                    'character',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'character',
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'sort',
+                        'orig' => 'sort',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'sort',
+                    ],
                   ],
                 ],
               ],
@@ -216,17 +227,6 @@ class FinalSpaceConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'id',
-                        'reqd' => true,
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character/{id}',
@@ -238,18 +238,30 @@ class FinalSpaceConfig
                       'var' => 'id',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'id',
-                    ],
+                  'parts' => [
+                    'character',
+                    '{id}',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'character',
-                    '{id}',
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'id',
+                    ],
                   ],
                 ],
               ],
@@ -263,39 +275,46 @@ class FinalSpaceConfig
           'fields' => [
             [
               'name' => 'air_date',
-              'short' => 'The air date of the episode',
+              'title' => 'Air Date',
               'type' => '`$STRING`',
+              'short' => 'The air date of the episode',
             ],
             [
               'name' => 'characters',
-              'short' => 'URLs to characters appearing in this episode',
+              'title' => 'Characters',
               'type' => '`$ARRAY`',
+              'short' => 'URLs to characters appearing in this episode',
             ],
             [
               'name' => 'director',
-              'short' => 'The director of the episode',
+              'title' => 'Director',
               'type' => '`$STRING`',
+              'short' => 'The director of the episode',
             ],
             [
               'name' => 'id',
-              'short' => 'The unique identifier for the episode',
+              'title' => 'Id',
               'type' => '`$INTEGER`',
+              'short' => 'The unique identifier for the episode',
             ],
             [
-              'format' => 'uri',
               'name' => 'img_url',
-              'short' => 'URL to the episode\'s image',
+              'title' => 'Img Url',
               'type' => '`$STRING`',
+              'short' => 'URL to the episode\'s image',
+              'format' => 'uri',
             ],
             [
               'name' => 'name',
-              'short' => 'The name of the episode',
+              'title' => 'Name',
               'type' => '`$STRING`',
+              'short' => 'The name of the episode',
             ],
             [
               'name' => 'writer',
-              'short' => 'The writer of the episode',
+              'title' => 'Writer',
               'type' => '`$STRING`',
+              'short' => 'The writer of the episode',
             ],
           ],
           'id' => [
@@ -309,16 +328,6 @@ class FinalSpaceConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'sort',
-                        'orig' => 'sort',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/episode',
@@ -327,17 +336,28 @@ class FinalSpaceConfig
                       'lit' => 'episode',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'sort',
-                    ],
+                  'parts' => [
+                    'episode',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'episode',
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'sort',
+                        'orig' => 'sort',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'sort',
+                    ],
                   ],
                 ],
               ],
@@ -347,17 +367,6 @@ class FinalSpaceConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'id',
-                        'reqd' => true,
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/episode/{id}',
@@ -369,18 +378,30 @@ class FinalSpaceConfig
                       'var' => 'id',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'id',
-                    ],
+                  'parts' => [
+                    'episode',
+                    '{id}',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'episode',
-                    '{id}',
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'id',
+                    ],
                   ],
                 ],
               ],
@@ -394,22 +415,27 @@ class FinalSpaceConfig
           'fields' => [
             [
               'name' => 'fullUrl',
+              'title' => 'Full Url',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'name',
+              'title' => 'Name',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'path',
+              'title' => 'Path',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'queryParams',
+              'title' => 'Query Params',
               'type' => '`$ARRAY`',
             ],
             [
               'name' => 'type',
+              'title' => 'Type',
               'type' => '`$STRING`',
             ],
           ],
@@ -420,17 +446,18 @@ class FinalSpaceConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/',
                   'segments' => [],
-                  'select' => [],
+                  'parts' => [],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [],
+                  'args' => [],
+                  'select' => [],
                 ],
               ],
             ],
@@ -443,34 +470,40 @@ class FinalSpaceConfig
           'fields' => [
             [
               'name' => 'id',
-              'short' => 'The unique identifier for the location',
+              'title' => 'Id',
               'type' => '`$INTEGER`',
+              'short' => 'The unique identifier for the location',
             ],
             [
-              'format' => 'uri',
               'name' => 'img_url',
-              'short' => 'URL to the location\'s image',
+              'title' => 'Img Url',
               'type' => '`$STRING`',
+              'short' => 'URL to the location\'s image',
+              'format' => 'uri',
             ],
             [
               'name' => 'inhabitants',
-              'short' => 'List of inhabitants of the location',
+              'title' => 'Inhabitants',
               'type' => '`$ARRAY`',
+              'short' => 'List of inhabitants of the location',
             ],
             [
               'name' => 'name',
-              'short' => 'The name of the location',
+              'title' => 'Name',
               'type' => '`$STRING`',
+              'short' => 'The name of the location',
             ],
             [
               'name' => 'notable_residents',
-              'short' => 'URLs to notable residents',
+              'title' => 'Notable Residents',
               'type' => '`$ARRAY`',
+              'short' => 'URLs to notable residents',
             ],
             [
               'name' => 'type',
-              'short' => 'The type of location',
+              'title' => 'Type',
               'type' => '`$STRING`',
+              'short' => 'The type of location',
             ],
           ],
           'id' => [
@@ -484,16 +517,6 @@ class FinalSpaceConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'sort',
-                        'orig' => 'sort',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/location',
@@ -502,17 +525,28 @@ class FinalSpaceConfig
                       'lit' => 'location',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'sort',
-                    ],
+                  'parts' => [
+                    'location',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'location',
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'sort',
+                        'orig' => 'sort',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'sort',
+                    ],
                   ],
                 ],
               ],
@@ -522,17 +556,6 @@ class FinalSpaceConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'id',
-                        'reqd' => true,
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/location/{id}',
@@ -544,18 +567,30 @@ class FinalSpaceConfig
                       'var' => 'id',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'id',
-                    ],
+                  'parts' => [
+                    'location',
+                    '{id}',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'location',
-                    '{id}',
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'id',
+                    ],
                   ],
                 ],
               ],
@@ -569,30 +604,35 @@ class FinalSpaceConfig
           'fields' => [
             [
               'name' => 'by',
-              'short' => 'The character who said the quote',
+              'title' => 'By',
               'type' => '`$STRING`',
+              'short' => 'The character who said the quote',
             ],
             [
-              'format' => 'uri',
               'name' => 'character',
-              'short' => 'URL to the character who said the quote',
+              'title' => 'Character',
               'type' => '`$STRING`',
+              'short' => 'URL to the character who said the quote',
+              'format' => 'uri',
             ],
             [
               'name' => 'id',
-              'short' => 'The unique identifier for the quote',
+              'title' => 'Id',
               'type' => '`$INTEGER`',
+              'short' => 'The unique identifier for the quote',
             ],
             [
-              'format' => 'uri',
               'name' => 'image',
-              'short' => 'URL to an image related to the quote',
+              'title' => 'Image',
               'type' => '`$STRING`',
+              'short' => 'URL to an image related to the quote',
+              'format' => 'uri',
             ],
             [
               'name' => 'quote',
-              'short' => 'The quote text',
+              'title' => 'Quote',
               'type' => '`$STRING`',
+              'short' => 'The quote text',
             ],
           ],
           'id' => [
@@ -606,16 +646,6 @@ class FinalSpaceConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'sort',
-                        'orig' => 'sort',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/quote',
@@ -624,17 +654,28 @@ class FinalSpaceConfig
                       'lit' => 'quote',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'sort',
-                    ],
+                  'parts' => [
+                    'quote',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'quote',
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'sort',
+                        'orig' => 'sort',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'sort',
+                    ],
                   ],
                 ],
               ],

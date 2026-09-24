@@ -1,7 +1,7 @@
 // Typed models for the FinalSpace SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,16 +14,6 @@ import (
 
 // Character is the typed data model for the character entity.
 type Character struct {
-	Abilities *[]any `json:"abilities,omitempty"`
-	Alias *[]any `json:"alias,omitempty"`
-	Gender *string `json:"gender,omitempty"`
-	Hair *string `json:"hair,omitempty"`
-	Id *int `json:"id,omitempty"`
-	ImgUrl *string `json:"img_url,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Origin *string `json:"origin,omitempty"`
-	Species *string `json:"species,omitempty"`
-	Status *string `json:"status,omitempty"`
 }
 
 // CharacterLoadMatch is the typed request payload for Character.LoadTyped.
@@ -38,13 +28,6 @@ type CharacterListMatch struct {
 
 // Episode is the typed data model for the episode entity.
 type Episode struct {
-	AirDate *string `json:"air_date,omitempty"`
-	Characters *[]any `json:"characters,omitempty"`
-	Director *string `json:"director,omitempty"`
-	Id *int `json:"id,omitempty"`
-	ImgUrl *string `json:"img_url,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Writer *string `json:"writer,omitempty"`
 }
 
 // EpisodeLoadMatch is the typed request payload for Episode.LoadTyped.
@@ -59,11 +42,6 @@ type EpisodeListMatch struct {
 
 // GetEndpoint is the typed data model for the get_endpoint entity.
 type GetEndpoint struct {
-	FullUrl *string `json:"fullUrl,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Path *string `json:"path,omitempty"`
-	QueryParams *[]any `json:"queryParams,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // GetEndpointListMatch is the typed request payload for GetEndpoint.ListTyped.
@@ -77,12 +55,6 @@ type GetEndpointListMatch struct {
 
 // Location is the typed data model for the location entity.
 type Location struct {
-	Id *int `json:"id,omitempty"`
-	ImgUrl *string `json:"img_url,omitempty"`
-	Inhabitants *[]any `json:"inhabitants,omitempty"`
-	Name *string `json:"name,omitempty"`
-	NotableResidents *[]any `json:"notable_residents,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // LocationLoadMatch is the typed request payload for Location.LoadTyped.
@@ -97,11 +69,6 @@ type LocationListMatch struct {
 
 // Quote is the typed data model for the quote entity.
 type Quote struct {
-	By *string `json:"by,omitempty"`
-	Character *string `json:"character,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Image *string `json:"image,omitempty"`
-	Quote *string `json:"quote,omitempty"`
 }
 
 // QuoteListMatch is the typed request payload for Quote.ListTyped.

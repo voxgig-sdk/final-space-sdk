@@ -1,0 +1,22 @@
+# BasicGetEndpointFlow
+
+main: kit: flow: BasicGetEndpointFlow:
+{
+  entity: "get_endpoint",
+  kind: "basic",
+  name: "BasicGetEndpointFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "get_endpoint_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGetEndpointFlow"
+}

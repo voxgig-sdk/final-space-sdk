@@ -1,0 +1,97 @@
+# Entity: quote
+
+main: kit: entity: quote: {
+
+  alias: field: {}
+
+  fields: {
+    by: {
+      h: "By"
+      n: "by"
+      r: false
+      sh: "The character who said the quote"
+      t: "`$STRING`"
+    }
+    character: {
+      fo: "uri"
+      h: "Character"
+      n: "character"
+      r: false
+      sh: "URL to the character who said the quote"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "The unique identifier for the quote"
+      t: "`$INTEGER`"
+    }
+    image: {
+      fo: "uri"
+      h: "Image"
+      n: "image"
+      r: false
+      sh: "URL to an image related to the quote"
+      t: "`$STRING`"
+    }
+    quote: {
+      h: "Quote"
+      n: "quote"
+      r: false
+      sh: "The quote text"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "quote"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /quote"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "sort"
+                or: "sort"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/quote"
+          q: {
+            exist: [
+              "sort"
+            ]
+          }
+          s: [
+            {
+              lit: "quote"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

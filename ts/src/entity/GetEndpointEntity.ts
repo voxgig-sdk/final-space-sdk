@@ -19,7 +19,6 @@ import type {
   GetEndpointListMatch,
 } from '../FinalSpaceTypes'
 
-// TODO: needs Entity superclass
 class GetEndpointEntity extends FinalSpaceEntityBase<GetEndpoint> {
 
   constructor(client: FinalSpaceSDK, entopts: any) {

@@ -24,85 +24,161 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "character": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "abilities",
-              "req": false,
-              "short": "List of abilities the character has",
-              "type": "`$ARRAY`"
+          "fields": {
+            "abilities": {
+              "a": true,
+              "h": "Abilities",
+              "n": "abilities",
+              "r": false,
+              "sh": "List of abilities the character has",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "alias",
-              "req": false,
-              "short": "Alternative names or aliases",
-              "type": "`$ARRAY`"
+            "alias": {
+              "a": true,
+              "h": "Alias",
+              "n": "alias",
+              "r": false,
+              "sh": "Alternative names or aliases",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "gender",
-              "req": false,
-              "short": "The gender of the character",
-              "type": "`$STRING`"
+            "gender": {
+              "a": true,
+              "h": "Gender",
+              "n": "gender",
+              "r": false,
+              "sh": "The gender of the character",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "hair",
-              "req": false,
-              "short": "The hair color/type of the character",
-              "type": "`$STRING`"
+            "hair": {
+              "a": true,
+              "h": "Hair",
+              "n": "hair",
+              "r": false,
+              "sh": "The hair color/type of the character",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "The unique identifier for the character",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "The unique identifier for the character",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "img_url",
-              "req": false,
-              "short": "URL to the character's image",
-              "type": "`$STRING`"
+            "img_url": {
+              "a": true,
+              "fo": "uri",
+              "h": "Img Url",
+              "n": "img_url",
+              "r": false,
+              "sh": "URL to the character's image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "The name of the character",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "The name of the character",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "origin",
-              "req": false,
-              "short": "The origin of the character",
-              "type": "`$STRING`"
+            "origin": {
+              "a": true,
+              "h": "Origin",
+              "n": "origin",
+              "r": false,
+              "sh": "The origin of the character",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "species",
-              "req": false,
-              "short": "The species of the character",
-              "type": "`$STRING`"
+            "species": {
+              "a": true,
+              "h": "Species",
+              "n": "species",
+              "r": false,
+              "sh": "The species of the character",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "status",
-              "req": false,
-              "short": "The status of the character (e.g., Alive, Dead, Unknown)",
-              "type": "`$STRING`"
+            "status": {
+              "a": true,
+              "h": "Status",
+              "n": "status",
+              "r": false,
+              "sh": "The status of the character (e.g., Alive, Dead, Unknown)",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -114,39 +190,39 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /character",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "sort",
-                        "orig": "sort",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /character",
-                    "json": "{\"operationId\":\"getAllCharacters\",\"parameters\":[{\"description\":\"Sort order for results\",\"in\":\"query\",\"name\":\"sort\",\"required\":false,\"schema\":{\"enum\":[\"asc\",\"desc\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"abilities\":{\"description\":\"List of abilities the character has\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"alias\":{\"description\":\"Alternative names or aliases\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"gender\":{\"description\":\"The gender of the character\",\"type\":\"string\"},\"hair\":{\"description\":\"The hair color/type of the character\",\"type\":\"string\"},\"id\":{\"description\":\"The unique identifier for the character\",\"type\":\"integer\"},\"img_url\":{\"description\":\"URL to the character's image\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"The name of the character\",\"type\":\"string\"},\"origin\":{\"description\":\"The origin of the character\",\"type\":\"string\"},\"species\":{\"description\":\"The species of the character\",\"type\":\"string\"},\"status\":{\"description\":\"The status of the character (e.g., Alive, Dead, Unknown)\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/character",
-                  "segments": [
-                    {
-                      "lit": "character"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/character",
+                  "q": {
                     "exist": [
                       "sort"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "character"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -158,29 +234,34 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /character/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /character/{id}",
-                    "json": "{\"operationId\":\"getCharacterById\",\"parameters\":[{\"description\":\"ID of the character to retrieve\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"abilities\":{\"description\":\"List of abilities the character has\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"alias\":{\"description\":\"Alternative names or aliases\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"gender\":{\"description\":\"The gender of the character\",\"type\":\"string\"},\"hair\":{\"description\":\"The hair color/type of the character\",\"type\":\"string\"},\"id\":{\"description\":\"The unique identifier for the character\",\"type\":\"integer\"},\"img_url\":{\"description\":\"URL to the character's image\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"The name of the character\",\"type\":\"string\"},\"origin\":{\"description\":\"The origin of the character\",\"type\":\"string\"},\"species\":{\"description\":\"The species of the character\",\"type\":\"string\"},\"status\":{\"description\":\"The status of the character (e.g., Alive, Dead, Unknown)\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"description\":\"Character not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/character/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/character/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "character"
                     },
@@ -188,12 +269,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -210,58 +286,65 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "air_date",
-              "req": false,
-              "short": "The air date of the episode",
-              "type": "`$STRING`"
+          "fields": {
+            "air_date": {
+              "a": true,
+              "h": "Air Date",
+              "n": "air_date",
+              "r": false,
+              "sh": "The air date of the episode",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "characters",
-              "req": false,
-              "short": "URLs to characters appearing in this episode",
-              "type": "`$ARRAY`"
+            "characters": {
+              "a": true,
+              "h": "Characters",
+              "n": "characters",
+              "r": false,
+              "sh": "URLs to characters appearing in this episode",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "director",
-              "req": false,
-              "short": "The director of the episode",
-              "type": "`$STRING`"
+            "director": {
+              "a": true,
+              "h": "Director",
+              "n": "director",
+              "r": false,
+              "sh": "The director of the episode",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "The unique identifier for the episode",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "The unique identifier for the episode",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "img_url",
-              "req": false,
-              "short": "URL to the episode's image",
-              "type": "`$STRING`"
+            "img_url": {
+              "a": true,
+              "fo": "uri",
+              "h": "Img Url",
+              "n": "img_url",
+              "r": false,
+              "sh": "URL to the episode's image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "The name of the episode",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "The name of the episode",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "writer",
-              "req": false,
-              "short": "The writer of the episode",
-              "type": "`$STRING`"
+            "writer": {
+              "a": true,
+              "h": "Writer",
+              "n": "writer",
+              "r": false,
+              "sh": "The writer of the episode",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -273,39 +356,39 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /episode",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "sort",
-                        "orig": "sort",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /episode",
-                    "json": "{\"operationId\":\"getAllEpisodes\",\"parameters\":[{\"description\":\"Sort order for results\",\"in\":\"query\",\"name\":\"sort\",\"required\":false,\"schema\":{\"enum\":[\"asc\",\"desc\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"air_date\":{\"description\":\"The air date of the episode\",\"type\":\"string\"},\"characters\":{\"description\":\"URLs to characters appearing in this episode\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"director\":{\"description\":\"The director of the episode\",\"type\":\"string\"},\"id\":{\"description\":\"The unique identifier for the episode\",\"type\":\"integer\"},\"img_url\":{\"description\":\"URL to the episode's image\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"The name of the episode\",\"type\":\"string\"},\"writer\":{\"description\":\"The writer of the episode\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/episode",
-                  "segments": [
-                    {
-                      "lit": "episode"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/episode",
+                  "q": {
                     "exist": [
                       "sort"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "episode"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -317,29 +400,34 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /episode/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /episode/{id}",
-                    "json": "{\"operationId\":\"getEpisodeById\",\"parameters\":[{\"description\":\"ID of the episode to retrieve\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"air_date\":{\"description\":\"The air date of the episode\",\"type\":\"string\"},\"characters\":{\"description\":\"URLs to characters appearing in this episode\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"director\":{\"description\":\"The director of the episode\",\"type\":\"string\"},\"id\":{\"description\":\"The unique identifier for the episode\",\"type\":\"integer\"},\"img_url\":{\"description\":\"URL to the episode's image\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"The name of the episode\",\"type\":\"string\"},\"writer\":{\"description\":\"The writer of the episode\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"description\":\"Episode not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/episode/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/episode/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "episode"
                     },
@@ -347,12 +435,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -369,38 +452,43 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "fullUrl",
-              "req": false,
-              "type": "`$STRING`"
+          "fields": {
+            "fullUrl": {
+              "a": true,
+              "h": "Full Url",
+              "n": "fullUrl",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "path",
-              "req": false,
-              "type": "`$STRING`"
+            "path": {
+              "a": true,
+              "h": "Path",
+              "n": "path",
+              "r": false,
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "queryParams",
-              "req": false,
-              "type": "`$ARRAY`"
+            "queryParams": {
+              "a": true,
+              "h": "Query Params",
+              "n": "queryParams",
+              "r": false,
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": false,
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "t": "`$STRING`"
             }
-          ],
+          },
           "name": "get_endpoint",
           "op": {
             "list": {
@@ -408,20 +496,20 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /",
-                    "json": "{\"operationId\":\"getEndpoints\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"fullUrl\":{\"example\":\"https://finalspaceapi.com/api/v0/character\",\"type\":\"string\"},\"name\":{\"example\":\"All Characters\",\"type\":\"string\"},\"path\":{\"example\":\"/character\",\"type\":\"string\"},\"queryParams\":{\"items\":{\"properties\":{\"name\":{\"type\":\"string\"},\"optional\":{\"type\":\"boolean\"},\"values\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"},\"type\":\"array\"},\"type\":{\"example\":\"GET\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/",
-                  "segments": [],
-                  "select": {},
-                  "transform": {
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/",
+                  "q": {},
+                  "r": {},
+                  "s": [],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -438,51 +526,57 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "The unique identifier for the location",
-              "type": "`$INTEGER`"
+          "fields": {
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "The unique identifier for the location",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "img_url",
-              "req": false,
-              "short": "URL to the location's image",
-              "type": "`$STRING`"
+            "img_url": {
+              "a": true,
+              "fo": "uri",
+              "h": "Img Url",
+              "n": "img_url",
+              "r": false,
+              "sh": "URL to the location's image",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "inhabitants",
-              "req": false,
-              "short": "List of inhabitants of the location",
-              "type": "`$ARRAY`"
+            "inhabitants": {
+              "a": true,
+              "h": "Inhabitants",
+              "n": "inhabitants",
+              "r": false,
+              "sh": "List of inhabitants of the location",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "The name of the location",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "The name of the location",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "notable_residents",
-              "req": false,
-              "short": "URLs to notable residents",
-              "type": "`$ARRAY`"
+            "notable_residents": {
+              "a": true,
+              "h": "Notable Residents",
+              "n": "notable_residents",
+              "r": false,
+              "sh": "URLs to notable residents",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": false,
-              "short": "The type of location",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": false,
+              "sh": "The type of location",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -494,39 +588,39 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /location",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "sort",
-                        "orig": "sort",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /location",
-                    "json": "{\"operationId\":\"getAllLocations\",\"parameters\":[{\"description\":\"Sort order for results\",\"in\":\"query\",\"name\":\"sort\",\"required\":false,\"schema\":{\"enum\":[\"asc\",\"desc\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"id\":{\"description\":\"The unique identifier for the location\",\"type\":\"integer\"},\"img_url\":{\"description\":\"URL to the location's image\",\"format\":\"uri\",\"type\":\"string\"},\"inhabitants\":{\"description\":\"List of inhabitants of the location\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"name\":{\"description\":\"The name of the location\",\"type\":\"string\"},\"notable_residents\":{\"description\":\"URLs to notable residents\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"description\":\"The type of location\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/location",
-                  "segments": [
-                    {
-                      "lit": "location"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/location",
+                  "q": {
                     "exist": [
                       "sort"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "location"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -538,29 +632,34 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /location/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /location/{id}",
-                    "json": "{\"operationId\":\"getLocationById\",\"parameters\":[{\"description\":\"ID of the location to retrieve\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"id\":{\"description\":\"The unique identifier for the location\",\"type\":\"integer\"},\"img_url\":{\"description\":\"URL to the location's image\",\"format\":\"uri\",\"type\":\"string\"},\"inhabitants\":{\"description\":\"List of inhabitants of the location\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"name\":{\"description\":\"The name of the location\",\"type\":\"string\"},\"notable_residents\":{\"description\":\"URLs to notable residents\",\"items\":{\"format\":\"uri\",\"type\":\"string\"},\"type\":\"array\"},\"type\":{\"description\":\"The type of location\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"404\":{\"description\":\"Location not found\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/location/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/location/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "location"
                     },
@@ -568,12 +667,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -590,45 +684,50 @@
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "by",
-              "req": false,
-              "short": "The character who said the quote",
-              "type": "`$STRING`"
+          "fields": {
+            "by": {
+              "a": true,
+              "h": "By",
+              "n": "by",
+              "r": false,
+              "sh": "The character who said the quote",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "character",
-              "req": false,
-              "short": "URL to the character who said the quote",
-              "type": "`$STRING`"
+            "character": {
+              "a": true,
+              "fo": "uri",
+              "h": "Character",
+              "n": "character",
+              "r": false,
+              "sh": "URL to the character who said the quote",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "The unique identifier for the quote",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "The unique identifier for the quote",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "image",
-              "req": false,
-              "short": "URL to an image related to the quote",
-              "type": "`$STRING`"
+            "image": {
+              "a": true,
+              "fo": "uri",
+              "h": "Image",
+              "n": "image",
+              "r": false,
+              "sh": "URL to an image related to the quote",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "quote",
-              "req": false,
-              "short": "The quote text",
-              "type": "`$STRING`"
+            "quote": {
+              "a": true,
+              "h": "Quote",
+              "n": "quote",
+              "r": false,
+              "sh": "The quote text",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -640,39 +739,39 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /quote",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "sort",
-                        "orig": "sort",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "sort",
+                        "or": "sort",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /quote",
-                    "json": "{\"operationId\":\"getAllQuotes\",\"parameters\":[{\"description\":\"Sort order for results\",\"in\":\"query\",\"name\":\"sort\",\"required\":false,\"schema\":{\"enum\":[\"asc\",\"desc\"],\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"by\":{\"description\":\"The character who said the quote\",\"type\":\"string\"},\"character\":{\"description\":\"URL to the character who said the quote\",\"format\":\"uri\",\"type\":\"string\"},\"id\":{\"description\":\"The unique identifier for the quote\",\"type\":\"integer\"},\"image\":{\"description\":\"URL to an image related to the quote\",\"format\":\"uri\",\"type\":\"string\"},\"quote\":{\"description\":\"The quote text\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/quote",
-                  "segments": [
-                    {
-                      "lit": "quote"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/quote",
+                  "q": {
                     "exist": [
                       "sort"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "quote"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -1101,13 +1200,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1117,19 +1216,19 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "character_ref01",
                 "srcdatavar": "character_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "character01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1149,13 +1248,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1165,19 +1264,19 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "episode_ref01",
                 "srcdatavar": "episode_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "episode01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1197,13 +1296,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1223,13 +1322,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -1239,19 +1338,19 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "location_ref01",
                 "srcdatavar": "location_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "location01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {
@@ -1271,13 +1370,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {

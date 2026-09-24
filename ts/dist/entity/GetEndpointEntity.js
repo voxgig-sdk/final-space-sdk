@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetEndpointEntity = void 0;
 const FinalSpaceEntityBase_1 = require("../FinalSpaceEntityBase");
-// TODO: needs Entity superclass
 class GetEndpointEntity extends FinalSpaceEntityBase_1.FinalSpaceEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

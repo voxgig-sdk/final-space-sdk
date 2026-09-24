@@ -1,7 +1,0 @@
-# Entity Models
-
-@"./character.aon"
-@"./episode.aon"
-@"./get_endpoint.aon"
-@"./location.aon"
-@"./quote.aon"
