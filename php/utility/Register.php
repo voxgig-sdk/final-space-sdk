@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 FinalSpaceUtility::setRegistrar(function (FinalSpaceUtility $u): void {
     $u->clean = [FinalSpaceClean::class, 'call'];
+    $u->clean_add = [FinalSpaceClean::class, 'add'];
+    $u->clean_explain = [FinalSpaceDone::class, 'clean_explain'];
     $u->done = [FinalSpaceDone::class, 'call'];
     $u->make_error = [FinalSpaceMakeError::class, 'call'];
     $u->feature_add = [FinalSpaceFeatureAdd::class, 'call'];

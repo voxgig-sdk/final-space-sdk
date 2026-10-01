@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/final-space-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/final-space-sdk/releases](https://github.com/voxgig-sdk/final-space-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/final-space-sdk
+composer config repositories.final-space-sdk path ./final-space-sdk/php
+composer require voxgig-sdk/final-space-sdk:@dev
+```
 
 
 ## Tutorial: your first API call

@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 FinalSpaceUtility.registrar = ->(u) {
   u.clean = FinalSpaceUtilities::Clean
+  u.clean_add = FinalSpaceUtilities::CleanAdd
+  u.clean_explain = FinalSpaceUtilities::CleanExplain
   u.done = FinalSpaceUtilities::Done
   u.make_error = FinalSpaceUtilities::MakeError
   u.feature_add = FinalSpaceUtilities::FeatureAdd
