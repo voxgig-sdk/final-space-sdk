@@ -93,6 +93,7 @@ class FinalSpaceConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -214,10 +215,10 @@ class FinalSpaceConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'sort',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -262,6 +263,10 @@ class FinalSpaceConfig
                     'exist' => [
                       'id',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -354,10 +359,10 @@ class FinalSpaceConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'sort',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -402,6 +407,10 @@ class FinalSpaceConfig
                     'exist' => [
                       'id',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -458,6 +467,10 @@ class FinalSpaceConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],
@@ -543,10 +556,10 @@ class FinalSpaceConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'sort',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -591,6 +604,10 @@ class FinalSpaceConfig
                     'exist' => [
                       'id',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -672,10 +689,10 @@ class FinalSpaceConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'sort',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

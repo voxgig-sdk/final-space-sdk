@@ -3,5 +3,32 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Alternative names or aliases",
+      "An API based on the animated television show Final Space, providing data such as character info obtained from the Final Space wiki. The API returns data in a friendly JSON format.",
+      "List of abilities the character has",
+      "List of inhabitants of the location",
+      "Production server",
+      "Successful response",
+      "The air date of the episode",
+      "The character who said the quote",
+      "The director of the episode",
+      "The gender of the character",
+      "The hair color/type of the character",
+      "The name of the location",
+      "The quote text",
+      "The unique identifier for the character",
+      "The unique identifier for the episode",
+      "The unique identifier for the location",
+      "The unique identifier for the quote",
+      "URL to an image related to the quote",
+      "URL to the character who said the quote",
+      "URL to the episode&#39;s image",
+      "URL to the location&#39;s image",
+      "URLs to characters appearing in this episode",
+      "URLs to notable residents"
+    ]
+  }
 }

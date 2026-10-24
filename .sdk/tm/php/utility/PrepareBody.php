@@ -3,11 +3,16 @@ declare(strict_types=1);
 
 // FinalSpace SDK utility: prepare_body
 
+require_once __DIR__ . '/Media.php';
+
 class FinalSpacePrepareBody
 {
     public static function call(FinalSpaceContext $ctx): mixed
     {
         if ($ctx->op->input === 'data') {
+            if (FinalSpaceMedia::isRawRequest($ctx->point)) {
+                return FinalSpaceMedia::rawBody($ctx->reqdata);
+            }
             $body = ($ctx->utility->transform_request)($ctx);
             // PHP cannot tell an empty map from an empty list, and this
             // vendored struct answers [] where the canonical transform

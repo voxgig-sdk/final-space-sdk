@@ -73,10 +73,9 @@ main: kit: entity: quote: {
           }
           m: "GET"
           o: "/quote"
-          q: {
-            exist: [
-              "sort"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

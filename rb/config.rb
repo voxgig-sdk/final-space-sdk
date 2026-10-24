@@ -79,6 +79,7 @@ module FinalSpaceConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -200,10 +201,10 @@ module FinalSpaceConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "sort",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -248,6 +249,10 @@ module FinalSpaceConfig
                     "exist" => [
                       "id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -340,10 +345,10 @@ module FinalSpaceConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "sort",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -388,6 +393,10 @@ module FinalSpaceConfig
                     "exist" => [
                       "id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -444,6 +453,10 @@ module FinalSpaceConfig
                   },
                   "args" => {},
                   "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },
@@ -529,10 +542,10 @@ module FinalSpaceConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "sort",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -577,6 +590,10 @@ module FinalSpaceConfig
                     "exist" => [
                       "id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -658,10 +675,10 @@ module FinalSpaceConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "sort",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

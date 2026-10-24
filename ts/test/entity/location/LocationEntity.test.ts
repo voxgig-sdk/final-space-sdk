@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { FinalSpaceSDK, BaseFeature, stdutil } from '../../..'
+import { FinalSpaceSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,64 @@ describe('LocationEntity', async () => {
   })
 
 
+  class FailHook extends BaseFeature {
+    name = 'failhook'
+    version = '0.0.1'
+    active = true
+    unexpected = 0
+    init() { }
+    PreSpec() { throw new Error('location hook failed') }
+    PreUnexpected() { this.unexpected++ }
+  }
+
+  test('stream-error', async () => {
+    const offline = { net: { offline: true } }
+    await assert.rejects(async () => {
+      for await (const _item of FinalSpaceSDK.test(offline).Location().stream('list')) { }
+    }, /offline/)
+
+    for await (const _item of FinalSpaceSDK.test(offline).Location()
+      .stream('list', undefined, { ctrl: { throw: false } })) { }
+
+    if (null != (config as any).feature?.rbac) {
+      const denied = FinalSpaceSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } })
+      await assert.rejects(async () => {
+        for await (const _item of denied.Location().stream('list')) { }
+      }, (err: any) => 'rbac_denied' === err.code)
+    }
+  })
+
+  test('stream-ctrl', async () => {
+    const explain: any = {}
+    const ctrl: any = { explain }
+    for await (const _item of FinalSpaceSDK.test().Location().stream('list', undefined, { ctrl })) { }
+    assert.deepStrictEqual(Object.keys(ctrl), ['explain'])
+    assert(explain === ctrl.explain && 0 < Object.keys(explain).length)
+  })
+
+  test('unexpected', async () => {
+    const hook = new FailHook()
+    const client = new FinalSpaceSDK({ feature: { test: { active: true } }, extend: [hook] })
+    await assert.rejects(client.Location().list(), /hook failed/)
+    assert(0 < hook.unexpected)
+
+    const fired = hook.unexpected
+    assert.strictEqual(await client.Location().list(undefined, { throw: false }), undefined)
+    assert(fired < hook.unexpected)
+  })
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = FinalSpaceSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Location().list({"sort":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.FINAL_SPACE_TEST_LIVE
@@ -51,7 +109,7 @@ describe('LocationEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":false,"sh":"The unique identifier for the location","t":"`$INTEGER`","key$":"id","index$":0},"img_url":{"a":true,"fo":"uri","h":"Img Url","n":"img_url","r":false,"sh":"URL to the location's image","t":"`$STRING`","key$":"img_url","index$":1},"inhabitants":{"a":true,"h":"Inhabitants","n":"inhabitants","r":false,"sh":"List of inhabitants of the location","t":"`$ARRAY`","key$":"inhabitants","index$":2},"name":{"a":true,"h":"Name","n":"name","r":false,"sh":"The name of the location","t":"`$STRING`","key$":"name","index$":3},"notable_residents":{"a":true,"h":"Notable Residents","n":"notable_residents","r":false,"sh":"URLs to notable residents","t":"`$ARRAY`","key$":"notable_residents","index$":4},"type":{"a":true,"h":"Type","n":"type","r":false,"sh":"The type of location","t":"`$STRING`","key$":"type","index$":5}},"id":{"field":"id","name":"id"},"name":"location","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /location","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"sort","or":"sort","r":false,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/location","q":{"exist":["sort"]},"r":{},"s":[{"lit":"location"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /location/{id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"GET","o":"/location/{id}","q":{"exist":["id"]},"r":{},"s":[{"lit":"location"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"location","name__orig":"location","Name":"Location","name_":"location","name-":"location","NAME":"LOCATION","index$":3}, {"active":true,"entity":"location","key$":"BasicLocationFlow","kind":"basic","name":"BasicLocationFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"location_ref01"}}],"index$":0},{"a":true,"d":{},"i":{"ref":"location_ref01","srcdatavar":"location_ref01_data","suffix":"_dt0"},"m":{"id":"location01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-location_ref01"}}],"index$":1}]}, 'Location', {"GET /location":{"protocol":"http","parameters":[{"name":"sort","in":"query","description":"Sort order for results","required":false,"schema":{"type":"string","enum":["asc","desc"]},"index$":0}]},"GET /location/{id}":{"protocol":"http","parameters":[{"name":"id","in":"path","description":"ID of the location to retrieve","required":true,"schema":{"type":"integer"},"index$":0}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":false,"sh":"The unique identifier for the location","t":"`$INTEGER`","key$":"id","index$":0},"img_url":{"a":true,"fo":"uri","h":"Img Url","n":"img_url","r":false,"sh":"URL to the location's image","t":"`$STRING`","key$":"img_url","index$":1},"inhabitants":{"a":true,"h":"Inhabitants","n":"inhabitants","r":false,"sh":"List of inhabitants of the location","t":"`$ARRAY`","key$":"inhabitants","index$":2},"name":{"a":true,"h":"Name","n":"name","r":false,"sh":"The name of the location","t":"`$STRING`","key$":"name","index$":3},"notable_residents":{"a":true,"h":"Notable Residents","n":"notable_residents","r":false,"sh":"URLs to notable residents","t":"`$ARRAY`","key$":"notable_residents","index$":4},"type":{"a":true,"h":"Type","n":"type","r":false,"sh":"The type of location","t":"`$STRING`","key$":"type","index$":5}},"id":{"field":"id","name":"id"},"name":"location","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /location","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"sort","or":"sort","r":false,"t":"`$STRING`","index$":0}]},"k":"http","m":"GET","o":"/location","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"location"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /location/{id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"GET","o":"/location/{id}","q":{"exist":["id"]},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"location"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"location","name__orig":"location","Name":"Location","name_":"location","name-":"location","NAME":"LOCATION","index$":3}, {"active":true,"entity":"location","key$":"BasicLocationFlow","kind":"basic","name":"BasicLocationFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"location_ref01"}}],"index$":0},{"a":true,"d":{},"i":{"ref":"location_ref01","srcdatavar":"location_ref01_data","suffix":"_dt0"},"m":{"id":"location01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-location_ref01"}}],"index$":1}]}, 'Location', {"GET /location":{"protocol":"http","parameters":[{"name":"sort","in":"query","description":"Sort order for results","required":false,"schema":{"type":"string","enum":["asc","desc"]},"index$":0}]},"GET /location/{id}":{"protocol":"http","parameters":[{"name":"id","in":"path","description":"ID of the location to retrieve","required":true,"schema":{"type":"integer"},"index$":0}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -79,6 +137,12 @@ describe('LocationEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options

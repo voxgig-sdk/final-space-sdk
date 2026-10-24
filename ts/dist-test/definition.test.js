@@ -19,8 +19,18 @@ const PLAN = [
             "sort": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "sort"
+        ],
+        "queryArgs": [
+            {
+                "name": "sort",
+                "wire": "sort"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -59,7 +69,12 @@ const PLAN = [
         ],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -91,8 +106,18 @@ const PLAN = [
             "sort": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "sort"
+        ],
+        "queryArgs": [
+            {
+                "name": "sort",
+                "wire": "sort"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -126,7 +151,12 @@ const PLAN = [
         ],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -151,7 +181,12 @@ const PLAN = [
         "args": [],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": [
@@ -184,8 +219,18 @@ const PLAN = [
             "sort": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "sort"
+        ],
+        "queryArgs": [
+            {
+                "name": "sort",
+                "wire": "sort"
+            }
         ],
         "auth": null,
         "status": 200,
@@ -220,7 +265,12 @@ const PLAN = [
         ],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -248,8 +298,18 @@ const PLAN = [
             "sort": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "sort"
+        ],
+        "queryArgs": [
+            {
+                "name": "sort",
+                "wire": "sort"
+            }
         ],
         "auth": null,
         "status": 200,

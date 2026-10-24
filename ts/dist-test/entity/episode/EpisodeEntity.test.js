@@ -54,6 +54,53 @@ const utility_1 = require("../../utility");
         const ent = testsdk.Episode();
         (0, node_assert_1.default)(null != ent);
     });
+    class FailHook extends __1.BaseFeature {
+        name = 'failhook';
+        version = '0.0.1';
+        active = true;
+        unexpected = 0;
+        init() { }
+        PreSpec() { throw new Error('episode hook failed'); }
+        PreUnexpected() { this.unexpected++; }
+    }
+    (0, node_test_1.test)('stream-error', async () => {
+        const offline = { net: { offline: true } };
+        await node_assert_1.default.rejects(async () => {
+            for await (const _item of __1.FinalSpaceSDK.test(offline).Episode().stream('list')) { }
+        }, /offline/);
+        for await (const _item of __1.FinalSpaceSDK.test(offline).Episode()
+            .stream('list', undefined, { ctrl: { throw: false } })) { }
+        if (null != __1.config.feature?.rbac) {
+            const denied = __1.FinalSpaceSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } });
+            await node_assert_1.default.rejects(async () => {
+                for await (const _item of denied.Episode().stream('list')) { }
+            }, (err) => 'rbac_denied' === err.code);
+        }
+    });
+    (0, node_test_1.test)('stream-ctrl', async () => {
+        const explain = {};
+        const ctrl = { explain };
+        for await (const _item of __1.FinalSpaceSDK.test().Episode().stream('list', undefined, { ctrl })) { }
+        node_assert_1.default.deepStrictEqual(Object.keys(ctrl), ['explain']);
+        (0, node_assert_1.default)(explain === ctrl.explain && 0 < Object.keys(explain).length);
+    });
+    (0, node_test_1.test)('unexpected', async () => {
+        const hook = new FailHook();
+        const client = new __1.FinalSpaceSDK({ feature: { test: { active: true } }, extend: [hook] });
+        await node_assert_1.default.rejects(client.Episode().list(), /hook failed/);
+        (0, node_assert_1.default)(0 < hook.unexpected);
+        const fired = hook.unexpected;
+        node_assert_1.default.strictEqual(await client.Episode().list(undefined, { throw: false }), undefined);
+        (0, node_assert_1.default)(fired < hook.unexpected);
+    });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.FinalSpaceSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.Episode().list({ "sort": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.FINAL_SPACE_TEST_LIVE;
         for (const op of ['list', 'load']) {
@@ -62,7 +109,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "air_date": { "a": true, "h": "Air Date", "n": "air_date", "r": false, "sh": "The air date of the episode", "t": "`$STRING`", "key$": "air_date", "index$": 0 }, "characters": { "a": true, "h": "Characters", "n": "characters", "r": false, "sh": "URLs to characters appearing in this episode", "t": "`$ARRAY`", "key$": "characters", "index$": 1 }, "director": { "a": true, "h": "Director", "n": "director", "r": false, "sh": "The director of the episode", "t": "`$STRING`", "key$": "director", "index$": 2 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "The unique identifier for the episode", "t": "`$INTEGER`", "key$": "id", "index$": 3 }, "img_url": { "a": true, "fo": "uri", "h": "Img Url", "n": "img_url", "r": false, "sh": "URL to the episode's image", "t": "`$STRING`", "key$": "img_url", "index$": 4 }, "name": { "a": true, "h": "Name", "n": "name", "r": false, "sh": "The name of the episode", "t": "`$STRING`", "key$": "name", "index$": 5 }, "writer": { "a": true, "h": "Writer", "n": "writer", "r": false, "sh": "The writer of the episode", "t": "`$STRING`", "key$": "writer", "index$": 6 } }, "id": { "field": "id", "name": "id" }, "name": "episode", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /episode", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "k": "query", "n": "sort", "or": "sort", "r": false, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/episode", "q": { "exist": ["sort"] }, "r": {}, "s": [{ "lit": "episode" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" }, "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /episode/{id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "k": "param", "n": "id", "or": "id", "r": true, "t": "`$INTEGER`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/episode/{id}", "q": { "exist": ["id"] }, "r": {}, "s": [{ "lit": "episode" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "episode", "name__orig": "episode", "Name": "Episode", "name_": "episode", "name-": "episode", "NAME": "EPISODE", "index$": 1 }, { "active": true, "entity": "episode", "key$": "BasicEpisodeFlow", "kind": "basic", "name": "BasicEpisodeFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "episode_ref01" } }], "index$": 0 }, { "a": true, "d": {}, "i": { "ref": "episode_ref01", "srcdatavar": "episode_ref01_data", "suffix": "_dt0" }, "m": { "id": "episode01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-episode_ref01" } }], "index$": 1 }] }, 'Episode', { "GET /episode": { "protocol": "http", "parameters": [{ "name": "sort", "in": "query", "description": "Sort order for results", "required": false, "schema": { "type": "string", "enum": ["asc", "desc"] }, "index$": 0 }] }, "GET /episode/{id}": { "protocol": "http", "parameters": [{ "name": "id", "in": "path", "description": "ID of the episode to retrieve", "required": true, "schema": { "type": "integer" }, "index$": 0 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "air_date": { "a": true, "h": "Air Date", "n": "air_date", "r": false, "sh": "The air date of the episode", "t": "`$STRING`", "key$": "air_date", "index$": 0 }, "characters": { "a": true, "h": "Characters", "n": "characters", "r": false, "sh": "URLs to characters appearing in this episode", "t": "`$ARRAY`", "key$": "characters", "index$": 1 }, "director": { "a": true, "h": "Director", "n": "director", "r": false, "sh": "The director of the episode", "t": "`$STRING`", "key$": "director", "index$": 2 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "The unique identifier for the episode", "t": "`$INTEGER`", "key$": "id", "index$": 3 }, "img_url": { "a": true, "fo": "uri", "h": "Img Url", "n": "img_url", "r": false, "sh": "URL to the episode's image", "t": "`$STRING`", "key$": "img_url", "index$": 4 }, "name": { "a": true, "h": "Name", "n": "name", "r": false, "sh": "The name of the episode", "t": "`$STRING`", "key$": "name", "index$": 5 }, "writer": { "a": true, "h": "Writer", "n": "writer", "r": false, "sh": "The writer of the episode", "t": "`$STRING`", "key$": "writer", "index$": 6 } }, "id": { "field": "id", "name": "id" }, "name": "episode", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /episode", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "k": "query", "n": "sort", "or": "sort", "r": false, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/episode", "q": {}, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "episode" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" }, "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /episode/{id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "k": "param", "n": "id", "or": "id", "r": true, "t": "`$INTEGER`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/episode/{id}", "q": { "exist": ["id"] }, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "episode" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "episode", "name__orig": "episode", "Name": "Episode", "name_": "episode", "name-": "episode", "NAME": "EPISODE", "index$": 1 }, { "active": true, "entity": "episode", "key$": "BasicEpisodeFlow", "kind": "basic", "name": "BasicEpisodeFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "episode_ref01" } }], "index$": 0 }, { "a": true, "d": {}, "i": { "ref": "episode_ref01", "srcdatavar": "episode_ref01_data", "suffix": "_dt0" }, "m": { "id": "episode01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-episode_ref01" } }], "index$": 1 }] }, 'Episode', { "GET /episode": { "protocol": "http", "parameters": [{ "name": "sort", "in": "query", "description": "Sort order for results", "required": false, "schema": { "type": "string", "enum": ["asc", "desc"] }, "index$": 0 }] }, "GET /episode/{id}": { "protocol": "http", "parameters": [{ "name": "id", "in": "path", "description": "ID of the episode to retrieve", "required": true, "schema": { "type": "integer" }, "index$": 0 }] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -80,6 +127,11 @@ const utility_1 = require("../../utility");
         (0, node_assert_1.default)(episode_ref01_data_dt0.id === episode_ref01_data.id);
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null
